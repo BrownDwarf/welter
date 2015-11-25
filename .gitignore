@@ -1,3 +1,14 @@
+# Raw data
+data/
+
+# Formatting for the document
+document/apj.bst
+document/emulateapj-rtx4.cls
+document/emulateapj.cls
+document/final/
+document/old/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
