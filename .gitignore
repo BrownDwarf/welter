@@ -7,6 +7,9 @@ document/emulateapj-rtx4.cls
 document/emulateapj.cls
 document/final/
 document/old/
+document/setup.tex
+document/yahapj.bst
+document/figures/
 
 
 .ipynb_checkpoints

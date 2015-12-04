@@ -1,3 +1,124 @@
+\documentclass[iop,revtex4]{emulateapj}% change onecolumn to iop for fancy, iop to twocolumn for manuscript
+%\documentclass[onecolumn]{emulateapj}% change onecolumn to iop for fancy, iop to onecolumn for manuscript
+%\documentclass[preprint]{aastex}
+
+%\usepackage{lineno}
+%\usepackage{blindtext}
+%\linenumbers
+
+\let\pwiflocal=\iffalse \let\pwifjournal=\iffalse
+%From: http://arxiv.org/format/1512.00483
+\input{setup}
+
+\providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{#1}}
+\providecommand{\adsurl}[1]{\href{#1}{ADS}}
+\newcommand{\name}{LkCa4}
+\def\vsini{$v\sin{i_*}$}
+
+\slugcomment{In preparation}
+
+\shorttitle{\name IGRINS spectroscopy}
+
+\shortauthors{Gully-Santiago et al.}
+
+\bibliographystyle{yahapj}
+
+\begin{document}
+ 
+\title{IGRINS spectra of \name}
+
+\author{Michael A. Gully-Santiago,\altaffilmark{1} Greg Herczeg,\altaffilmark{1} et al.}
+
+
+\altaffiltext{1}{Kavli Institute for Astronomy and Astrophysics, Beijing, China}
+
+\begin{abstract}
+We interpret the high resolution near-IR spectra of \name.  We used the instrument IGRINS.
+\end{abstract}
+
+\keywords{stars: fundamental parameters --- stars: individual (\name) ---  stars: low-mass -- stars: statistics}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+\name is a weak lined \emph{T-Tauri} star.  In this short research note we provide the IGRINS spectrum of \name.  
+
+
+\section{Observations}\label{sec:obs} 
+
+\subsection{IGRINS Spectroscopy}\label{sec:igrins} 
+We acquired observations with IGRINS on the Harlan J. Smith Telescope at McDonald Observatory on XX UTC.  The Immersion Grating Infrared Spectrograph, IGRINS \citep{2014SPIE.9147E..1DP,2012SPIE.8450E..2SG}, is a high resolution near-infrared echelle spectrograph providing simultaneous $R\simeq45,000$ spectra over 1.48-2.48\um.  The spectrograph has two arms with 28 orders in $H-$band and 25 orders in $K-band$.
+\section{Spectral properties}\label{sec:lines}
+
+Figure \ref{fig:BrG} shows the Br$\gamma$ line profile in the IGRINS spectrum of \name.  
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.95\columnwidth]{figures/Br_gamma_zoom} 
+	\caption{Line profile of Br$\gamma$ in the IGRINS spectrum of \name.  The spectrum has been normalized by the median of the spectral order surrounding the line.}
+	\label{fig:BrG}
+\end{figure}
+
+Figure \ref{fig:CO} shows the CO bandhead in the IGRINS spectrum of \name.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/CO_overview} 
+	\caption{CO bandhead in the IGRINS spectrum of \name.  The spectrum shows instrumental artifacts attributable to imperfectly corrected echelle blaze function.  Imperfect telluric correction is perceptible as conspicuous outliers present throughout the spectrum.  The red line is the SpeX spectrum of K0 Ib supergiant HD~44391 shown to guide the eye to the location of typical CO absorption in a stellar photosphere.  The emission in \name~  is seen \emph{in emission}.  }
+	\label{fig:CO}
+\end{figure*}
+
+
+\acknowledgements
+The authors thank Gregory N. Mace and/or Kyle Kaplan for carrying out the IGRINS observations. This research has made use of NASA's Astrophysics Data System.
+
+{\it Facilities:} \facility{Smith (IGRINS)}
+
+\clearpage
+
+\bibliographystyle{apj}
+\bibliography{ms}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \documentclass[revtex4]{emulateapj}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{natbib,graphicx,latexsym,lscape}
