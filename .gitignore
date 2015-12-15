@@ -1,6 +1,9 @@
 # Raw data
 data/
 
+#Ignore Starfish for now.
+Starfish
+
 # Formatting for the document
 document/apj.bst
 document/emulateapj-rtx4.cls
@@ -10,6 +13,9 @@ document/old/
 document/setup.tex
 document/yahapj.bst
 document/figures/
+document/*.out
+
+*.numbers
 
 
 .ipynb_checkpoints
