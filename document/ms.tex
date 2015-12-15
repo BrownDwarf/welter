@@ -42,15 +42,39 @@ We interpret the high resolution near-IR spectra of \name.  We used the instrume
 
 \section{Introduction}\label{sec:intro}
 
-\name is a weak lined \emph{T-Tauri} star.  In this short research note we provide the IGRINS spectrum of \name.  
-
-\subsection{Previous studies of \name}\label{sec:prev}
+\name is a weak lined \emph{T-Tauri} star.  In this short research note we provide the IGRINS spectrum of \name.
 
 
 \section{Observations}\label{sec:obs} 
 
 \subsection{IGRINS Spectroscopy}\label{sec:igrins} 
 We acquired observations with IGRINS on the Harlan J. Smith Telescope at McDonald Observatory on XX UTC.  The Immersion Grating Infrared Spectrograph, IGRINS \citep{2014SPIE.9147E..1DP,2012SPIE.8450E..2SG}, is a high resolution near-infrared echelle spectrograph providing simultaneous $R\simeq45,000$ spectra over 1.48-2.48\um.  The spectrograph has two arms with 28 orders in $H-$band and 25 orders in $K-band$.
+
+\section{Analysis}
+We compared the IGRINS spectrum of \name to the emph{Phoenix} grid of pre-computed synthetic model spectra\citep{}.  We adapted the \emph{Starfish} code \citep{} in the following way.
+
+We added an instrument class for each of $H$ and $K$ bands of IGRINS.
+
+We ran the code in several different modes.  First we ran the code as described in \citet{}, with XX orders in the $H$ band, covering XX-XX wavelengths.  The stellar parameters derived in this mode are shared among the orders.  In the second mode, we ran Starfish individually on each of XX orders.  In this mode the stellar properties are derived separately for each order.  Table XX lists the values of Teff derived from the two approaches.
+
+\subsection{Deriving $T_{eff}$ in each IGRINS order}
+
+We want to measure the derived effective temperature as a function of wavelength.  The motivation for this strategy is as follows.  We assume that LkCa4 has a significant fraction of its stellar disk covered by starspots \cite{XX}.  Such a photosphere will have an emergent spectrum composed of superpositions of relatively cool patches and warm patches.  The visible portion of the spectrum will be dominated by the warm patches, but the contrast with the starspots will be higher.  The infrared spectrum will have a lower overall spot contast, but with higher relative contribution attributable to the cool patches \citep[e.g. Prato]{XX}.  
+
+The fit of a single-temperature forward-modeled spectrum to different regions of the spectrum could therefore conceivably yield different estimates for the effective temperature.
+
+In principle, one could estimate the effective temperature \emph{evaluated independently for each spectral line}.  The line strength is often degenerate with other properties (\emph{e.g.} magnetic field, $\log{g}$, $[\mathrm{Fe}/\mathrm{H}]$, etc.), but \emph{on average} these correlations would be averaged over.
+
+We measured the effective temperature in \emph{each of the 43 spectral orders} of IGRINS.  Figure \ref{XX} plots each derived effective temperature value and uncertainty at the center position of each order.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/teff_vs_order} 
+	\caption{Effective temperature as derived by different orders.}
+	\label{fig:teffOrder}
+\end{figure*}
+
+
 \section{Spectral properties}\label{sec:lines}
 
 Figure \ref{fig:BrG} shows the Br$\gamma$ line profile in the IGRINS spectrum of \name.  
