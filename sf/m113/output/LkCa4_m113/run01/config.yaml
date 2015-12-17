@@ -1,0 +1,71 @@
+# YAML configuration script
+
+name: LkCa4_m113
+
+data:
+  grid_name: "PHOENIX"
+  files: ["/Users/gully/GitHub/welter/data/reduced/LkCa4_IGRINS_m113.hdf5"]
+  instruments : ["IGRINS_H"]
+  orders: [0]
+
+outdir : output/
+
+plotdir : plots/
+
+# The parameters defining your raw spectral library live here.
+grid:
+  raw_path: "/Users/gully/GitHub/Starfish/libraries/raw/PHOENIX/"
+  hdf5_path: "/Users/gully/GitHub/welter/sf/m113/libraries/PHOENIX_IGRINS_m114.hdf5"
+  parname: ["temp", "logg", "Z"]
+  key_name: "t{0:.0f}g{1:.1f}z{2:.1f}" # Specifies how the params are stored
+  # in the HDF5 file
+  parrange: [[3500, 4300], [3.5, 4.0], [-0.5, 0.5]]
+  wl_range: [15800, 15975]
+  buffer: 30. # AA
+
+PCA:
+  path : "/Users/gully/GitHub/welter/sf/m113/PHOENIX_IGRINS_H_PCA.hdf5"
+  threshold: 0.999 # Percentage of variance explained by components.
+  priors: [[2., 0.0075], [2., 0.75], [2., 0.75]] # len(parname) list of 2-element lists. Each 2-element list is [s, r] for the Gamma-function prior on emulator parameters
+
+#Longer strings can be written like this. This will be loaded under the "Comments" variable.
+Comments: >
+  IGRINS H Band first trial
+
+# The parameters shared between all orders
+Theta :
+    grid : [3500, 3.7, -0.21]
+    vz : 92.290
+#    vsini : 31.3808
+    vsini : 0.1
+    logOmega : -0.35343
+    Av: 0.0
+
+# Uncomment this line and set equal to the value of logg, if you'd like to fix it.
+# fix_logg : 3.8
+
+Theta_jump :
+    grid : [3, 0.003, 0.001]
+    vz : 0.05
+    vsini : 0.05
+    logOmega: 3.e-4
+    Av: 0.01
+
+cheb_degree: 4
+cheb_jump : 1.0e-4
+
+Phi :
+    sigAmp : 0.3
+    logAmp : -1.8
+    l : 24.5
+
+Phi_jump :
+    sigAmp : 0.025
+    logAmp : 0.01
+    l : 0.25
+
+region_params:
+    logAmp: -1.8
+    sigma: 7.
+
+sigma_clip : 4. # how many sigma should we go in order to instantiate local kernels.
