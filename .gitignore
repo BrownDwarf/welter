@@ -1,5 +1,7 @@
 # Raw data
 data/
+exclusions.txt
+sf/plts
 
 #Ignore Starfish for now.
 Starfish
