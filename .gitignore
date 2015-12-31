@@ -3,6 +3,11 @@ data/
 exclusions.txt
 sf/plts
 
+#Ignore all logs
+*.log
+log.log
+
+
 #Ignore Starfish for now.
 Starfish
 
