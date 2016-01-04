@@ -10,10 +10,10 @@ Phi: {l: 10.0, logAmp: -1.75, sigAmp: 1.0}
 Phi_jump: {l: 0.25, logAmp: 0.01, sigAmp: 0.025}
 Theta:
   Av: 0.0
-  grid: [4090.4561779739097, 3.706125928708719, -0.02408505734144601]
-  logOmega: -0.08773051857751116
-  vsini: 27.72736756760928
-  vz: 15.8849832893532
+  grid: [3910, 3.7, 0.0]
+  logOmega: -0.11376628258749694
+  vsini: 28.9
+  vz: 17.3
 Theta_jump:
   Av: 0.01
   grid: [3, 0.003, 0.001]
@@ -29,14 +29,14 @@ data:
   orders: [0]
 grid:
   buffer: 30.0
-  hdf5_path: /Users/gully/GitHub/welter/sf/eo021/libraries/PHOENIX_ESPaDOnS_m021.hdf5
+  hdf5_path: /Users/gully/GitHub/welter/sf/eo21/libraries/PHOENIX_IGRINS_eo021.hdf5
   key_name: t{0:.0f}g{1:.1f}z{2:.1f}
   parname: [temp, logg, Z]
   parrange:
   - [3000, 4300]
   - [3.5, 4.0]
   - [-0.5, 0.5]
-  raw_path: /Users/gully/GitHub/Starfish/libraries/raw/PHOENIX/
+  raw_path: /home/gully/GitHub/Starfish/libraries/raw/PHOENIX/
   wl_range: [7056, 7201]
 name: LkCa4_eo021
 outdir: output/

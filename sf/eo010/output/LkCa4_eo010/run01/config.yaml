@@ -1,19 +1,19 @@
 Comments: 'LkCa4 single order: o = 10, manual config file.'
 PCA:
-  path: /Users/gully/GitHub/welter/sf/eo010/PHOENIX_ESPaDOnS_PCA.hdf5
+  path: /home/gully/GitHub/welter/sf/eo010/PHOENIX_ESPaDOnS_PCA.hdf5
   priors:
   - [2.0, 0.0075]
   - [2.0, 0.75]
   - [2.0, 0.75]
   threshold: 0.999
-Phi: {l: 25.0, logAmp: -2.0, sigAmp: 0.4}
+Phi: {l: 10.0, logAmp: -1.75, sigAmp: 1.0}
 Phi_jump: {l: 0.25, logAmp: 0.01, sigAmp: 0.025}
 Theta:
   Av: 0.0
-  grid: [4090.4561779739097, 3.706125928708719, -0.02408505734144601]
-  logOmega: -0.08773051857751116
-  vsini: 27.72736756760928
-  vz: 15.8849832893532
+  grid: [4079.8999359463432, 3.6894239188588074, -0.0227865066664967]
+  logOmega: -0.08783300245559429
+  vsini: 27.81833611445296
+  vz: 15.89174962917853
 Theta_jump:
   Av: 0.01
   grid: [3, 0.003, 0.001]
@@ -23,20 +23,20 @@ Theta_jump:
 cheb_degree: 4
 cheb_jump: 0.0001
 data:
-  files: [/Users/gully/GitHub/welter/data/reduced/optical/LkCa4_ESPaDOnS_eo010.hdf5]
+  files: [/home/gully/GitHub/welter/data/reduced/optical/LkCa4_ESPaDOnS_eo010.hdf5]
   grid_name: PHOENIX
   instruments: [ESPaDOnS]
   orders: [0]
 grid:
   buffer: 30.0
-  hdf5_path: /Users/gully/GitHub/welter/sf/eo010/libraries/PHOENIX_ESPaDOnS_eo010.hdf5
+  hdf5_path: /home/gully/GitHub/welter/sf/eo010/libraries/PHOENIX_ESPaDOnS_eo010.hdf5
   key_name: t{0:.0f}g{1:.1f}z{2:.1f}
   parname: [temp, logg, Z]
   parrange:
   - [3000, 4300]
   - [3.5, 4.0]
   - [-0.5, 0.5]
-  raw_path: /Users/gully/GitHub/Starfish/libraries/raw/PHOENIX/
+  raw_path: /home/gully/GitHub/Starfish/libraries/raw/PHOENIX/
   wl_range: [5853.0, 5941.0]
 name: LkCa4_eo010
 outdir: output/
