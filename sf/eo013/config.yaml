@@ -10,10 +10,10 @@ Phi: {l: 10.0, logAmp: -1.75, sigAmp: 1.0}
 Phi_jump: {l: 0.25, logAmp: 0.01, sigAmp: 0.025}
 Theta:
   Av: 0.0
-  grid: [3941, 3.7, 0.0]
-  logOmega: -0.07550031668019341
-  vsini: 28.1
-  vz: 15.2
+  grid: [3300.0, 3.5, 0.0]
+  logOmega: -0.07872683554889999
+  vsini: 28.5
+  vz: 15.6
 Theta_jump:
   Av: 0.01
   grid: [3, 0.003, 0.001]

@@ -10,10 +10,10 @@ Phi: {l: 10.0, logAmp: -1.75, sigAmp: 1.0}
 Phi_jump: {l: 0.25, logAmp: 0.01, sigAmp: 0.025}
 Theta:
   Av: 0.0
-  grid: [4100.0, 3.7, 0.0]
-  logOmega: -0.05722476229975473
-  vsini: 28.225073642363157
-  vz: 14.942521919481454
+  grid: [3300.0, 3.5, 0.0]
+  logOmega: -0.0580699890852
+  vsini: 28.5
+  vz: 15.6
 Theta_jump:
   Av: 0.01
   grid: [3, 0.003, 0.001]
@@ -29,7 +29,7 @@ data:
   orders: [0]
 grid:
   buffer: 30.0
-  hdf5_path: /Users/gully/GitHub/welter/sf/eo026/libraries/PHOENIX_ESPaDOnS_m026.hdf5
+  hdf5_path: /Users/gully/GitHub/welter/sf/eo26/libraries/PHOENIX_IGRINS_eo026.hdf5
   key_name: t{0:.0f}g{1:.1f}z{2:.1f}
   parname: [temp, logg, Z]
   parrange:
