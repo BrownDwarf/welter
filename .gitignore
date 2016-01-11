@@ -7,6 +7,14 @@ sf/plts
 *.log
 log.log
 
+# Intermediate model files.
+mixture_model.json
+model_A_spec.json
+model_B_spec.json
+
+# Ignore sf, since it has some large files.
+# We can force commit some special small files or examples.
+sf/
 
 #Ignore Starfish for now.
 Starfish
