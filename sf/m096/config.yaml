@@ -6,17 +6,17 @@ PCA:
   - [2.0, 0.75]
   - [2.0, 0.75]
   threshold: 0.999
-Phi: {l: 20.0, logAmp: -2.0, sigAmp: 1.0}
+Phi: {l: 25.0, logAmp: -1.9, sigAmp: 0.4}
 Phi_jump: {l: 0.25, logAmp: 0.01, sigAmp: 0.025}
 Theta:
   Av: 0.0
-  grid: [3572.156773689464, 3.5000000000000493, -0.20885746918284961]
-  logOmega: -0.3457100963617819
-  vsini: 34.36426588469893
-  vz: 93.90959584479398
+  grid: [4100.0, 3.5, 0.0]
+  logOmega: -0.26
+  vsini: 30.0
+  vz: 95.0
 Theta_jump:
   Av: 0.01
-  grid: [3, 0.003, 0.001]
+  grid: [10, 0.002, 0.002]
   logOmega: 0.0003
   vsini: 0.05
   vz: 0.05
@@ -33,7 +33,7 @@ grid:
   key_name: t{0:.0f}g{1:.1f}z{2:.1f}
   parname: [temp, logg, Z]
   parrange:
-  - [3500, 4300]
+  - [3000, 4300]
   - [3.5, 4.0]
   - [-0.5, 0.5]
   raw_path: /home/gully/GitHub/Starfish/libraries/raw/PHOENIX/

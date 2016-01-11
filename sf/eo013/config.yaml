@@ -38,7 +38,7 @@ grid:
   - [-0.5, 0.5]
   raw_path: /home/gully/GitHub/Starfish/libraries/raw/PHOENIX/
   wl_range: [6126, 6225]
-name: LkCa4_eo013
+name: LkCa4_so013
 outdir: output/
 plotdir: plots/
 region_params: {logAmp: -2.0, sigma: 7.0}
