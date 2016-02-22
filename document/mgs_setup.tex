@@ -1,0 +1,176 @@
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+%% For anyone who downloaded my source file from arxiv:
+%% I stole most of this setup.tex from a paper by Peter .K.G. Williams, but I made a bunch of edits to satisfy my own needs. You might check his paper out (http://arxiv.org/abs/1409.4411) for the original source file or contact him if you have any questions, since I don't really understand how some of these things work. 
+%One cool thing it does is you can define an object, just that when someone clicks on the pdf it will link to simbad. I could never quite get this to work, probably because you have to get the text exactly right and my motivation for getting it to work was not super high. 
+
+
+% basic packages
+\usepackage{amsmath,amssymb}
+\usepackage[breaklinks,colorlinks,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{epsfig}    
+\usepackage{graphicx}    
+\usepackage{lineno}
+\usepackage{natbib}
+\usepackage{bigints}
+\usepackage[outdir=./]{epstopdf}
+
+
+
+% font stuff
+\usepackage[T1]{fontenc}
+\pwifjournal\else
+  \usepackage{microtype}
+\fi
+
+
+% emulateapj has overly conservative figure widths, I think because some
+% people's figures don't have good margins. Override.
+\pwifjournal\else
+  \makeatletter
+  \renewcommand\plotone[1]{%
+    \centering \leavevmode \setlength{\plot@width}{0.95\linewidth}
+    \includegraphics[width={\eps@scaling\plot@width}]{#1}%
+  }%
+  \makeatother
+\fi
+
+
+\makeatletter
+
+\newcommand\@simpfx{http://simbad.u-strasbg.fr/simbad/sim-id?Ident=}
+
+\newcommand\MakeObj[4][\@empty]{% [shortname]{ident}{url-escaped}{formalname}
+  \pwifjournal%
+    \expandafter\newcommand\csname pkgwobj@c@#2\endcsname[1]{\protect\object[#4]{##1}}%
+  \else%
+    \expandafter\newcommand\csname pkgwobj@c@#2\endcsname[1]{\href{\@simpfx #3}{##1}}%
+  \fi%
+  \expandafter\newcommand\csname pkgwobj@f#2\endcsname{#4}%
+  \ifx\@empty#1%
+    \expandafter\newcommand\csname pkgwobj@s#2\endcsname{#4}%
+  \else%
+    \expandafter\newcommand\csname pkgwobj@s#2\endcsname{#1}%
+  \fi}%
+
+\newcommand\MakeTrunc[2]{% {ident}{truncname}
+  \expandafter\newcommand\csname pkgwobj@t#1\endcsname{#2}}%
+
+\newcommand{\obj}[1]{%
+  \expandafter\ifx\csname pkgwobj@c@#1\endcsname\relax%
+    \textbf{[unknown object!]}%
+  \else%
+    \csname pkgwobj@c@#1\endcsname{\csname pkgwobj@s#1\endcsname}%
+  \fi}
+\newcommand{\objf}[1]{%
+  \expandafter\ifx\csname pkgwobj@c@#1\endcsname\relax%
+    \textbf{[unknown object!]}%
+  \else%
+    \csname pkgwobj@c@#1\endcsname{\csname pkgwobj@f#1\endcsname}%
+  \fi}
+\newcommand{\objt}[1]{%
+  \expandafter\ifx\csname pkgwobj@c@#1\endcsname\relax%
+    \textbf{[unknown object!]}%
+  \else%
+    \csname pkgwobj@c@#1\endcsname{\csname pkgwobj@t#1\endcsname}%
+  \fi}
+
+\makeatother
+
+
+% Evil magic to patch natbib to only highlight the year paper refs, not the
+% authors too; as seen in ApJ. From
+% http://tex.stackexchange.com/questions/23227/.
+
+\pwifjournal\else
+  \usepackage{etoolbox}
+  \makeatletter
+  \patchcmd{\NAT@citex}
+    {\@citea\NAT@hyper@{%
+       \NAT@nmfmt{\NAT@nm}%
+       \hyper@natlinkbreak{\NAT@aysep\NAT@spacechar}{\@citeb\@extra@b@citeb}%
+       \NAT@date}}
+    {\@citea\NAT@nmfmt{\NAT@nm}%
+     \NAT@aysep\NAT@spacechar\NAT@hyper@{\NAT@date}}{}{}
+  \patchcmd{\NAT@citex}
+    {\@citea\NAT@hyper@{%
+       \NAT@nmfmt{\NAT@nm}%
+       \hyper@natlinkbreak{\NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi}%
+         {\@citeb\@extra@b@citeb}%
+       \NAT@date}}
+    {\@citea\NAT@nmfmt{\NAT@nm}%
+     \NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi\NAT@hyper@{\NAT@date}}
+    {}{}
+  \makeatother
+\fi
+
+\newcommand{\prob}{{\rm prob}}
+\newcommand{\qN}{\{q_i\}_{i=1}^N}
+\newcommand{\qM}{\{q_{im}\}_{i=1,m=0}^{N,M}}
+\newcommand{\yN}{\{y_i\}_{i=1}^N}
+
+\newcommand{\kms}{ \textrm{km s}^{-1} }
+
+\newcommand{\vM}{\mathsf{M}}
+\newcommand{\vD}{\mathsf{D}}
+\newcommand{\vR}{\mathsf{R}}
+\newcommand{\vC}{\mathsf{C}}
+\newcommand{\fM}{ \vec{{\bm M}}}
+\newcommand{\fMi}{M_i}
+\newcommand{\fD}{ \vec{{\bm D}}}
+\newcommand{\fDi}{D_i}
+\newcommand{\fR}{ {\bm R}}
+\newcommand{\dd}{\,{\rm d}}
+\newcommand{\trans}{\mathsf{T}}
+\newcommand{\teff}{T_\textrm{eff}}
+\newcommand{\logg}{\log g}
+\newcommand{\Z}{[{\rm Fe}/{\rm H}]}
+\newcommand{\A}{[\alpha/{\rm Fe}]}
+\newcommand{\vsini}{v \sin i}
+\newcommand{\matern}{Mat\'{e}rn}
+\newcommand{\HK}{$\textrm{H}_2$O-K2}
+\newcommand{\cc}[2]{c_{#2}^{(#1)}} 
+
+\newcommand{\flam}{f_\lambda}
+\newcommand{\vt}{ {\bm \theta}}
+\newcommand{\vT}{ {\bm \Theta}}
+\newcommand{\vp}{ {\bm \phi}}
+\newcommand{\vP}{ {\bm \Phi}}
+\newcommand{\cheb}{ \vp_{\mathsf{P}}}
+\newcommand{\chebi}[1]{ \vp_{\textrm{Cheb}_{#1}}}
+\newcommand{\Cheb}{ \vP_{\textrm{Cheb}}}
+\newcommand{\Chebi}[1]{ \vP_{\textrm{Cheb}_{\ne #1}}} 
+\newcommand{\cov}{ \vp_{\mathsf{C}}}
+\newcommand{\covi}[1]{ \vp_{\textrm{cov}_{#1}}} 
+\newcommand{\Cov}{ \vP_{\textrm{cov}}}
+\newcommand{\Covi}[1]{ \vP_{\textrm{cov}_{\ne #1}}} 
+
+\newcommand{\allParameters}{\vT} 
+\newcommand{\nuisanceParameters}{\vP} 
+
+\newcommand{\KK}{\mathcal{K}}
+\newcommand{\Kglobal}{\KK^{\textrm{G}}}
+\newcommand{\Klocal}{\KK^{\textrm{L}}}
+
+\newcommand{\Gl}{Gl\,51}
+\newcommand{\PHOENIX}{{\sc Phoenix}}
+
+% Appendix commands
+\newcommand{\wg}{\mathbf{w}^\textrm{grid}}
+\newcommand{\wgh}{\hat{\mathbf{w}}^\textrm{grid}}
+
+\newcommand{\Sg}{\mathbf{\Sigma}^\textrm{grid}}
+
+
+\newcommand{\todo}[1]{ \textcolor{blue}{\\TODO: #1}}
+\newcommand{\comm}[1]{ \textcolor{red}{SA: #1}}
+\newcommand{\hili}[1]{ \textcolor{green}{#1}}
+\newcommand{\ctext}[1]{ \textcolor{blue}{\% #1}}
+
+
+%  From Peter Williams and Andy Mann again:
+\newcommand{\um}{$\mu$m}
