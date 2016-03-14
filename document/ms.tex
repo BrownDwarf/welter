@@ -11,6 +11,9 @@
 %\input{setup}
 \input{mgs_setup}
 
+
+\newcommand{\iancze}{{\sc C15}}
+
 \providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{#1}}
 \providecommand{\adsurl}[1]{\href{#1}{ADS}}
 \newcommand{\name}{LkCa4 }
@@ -57,7 +60,62 @@ In this paper we characterize the starspot coverage and temperature contrast of 
 We extend a new spectral forward modeling framework to include two-temperature photosphere models.  We demonstrate the constraining power of full spectrum fitting with panchromatic optical and near-IR echelle spectroscopy.  We show that relatively small starspot filling factors can be detected due to the large spectral grasp of IGRINS.  
 
 \section{Methodology}\label{sec:methods} 
+We extended an existing modular framework for spectral inference \citep[][hereafter \iancze]{2015ApJ...812..128C}.  We briefly summarize the model here for carity of notation, but see \iancze for more details.  We follow and expand the notation from \iancze, all summarized in Table \ref{table:params}. 
 
+The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR$.  The model encapsulates the major intrinstic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
+
+\begin{eqnarray} \label{eqn:scaling}
+\vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
+         &=& \vM(\vt_{\ast}, \sigma_v, v\sin{i}, v_r) \times \Omega \times 10^{-0.4\,A_{\lambda}}, \nonumber
+\end{eqnarray}
+
+The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  \iancze used the \PHOENIX model grid \citep{2013A&A...553A...6H}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
+
+\subsection{Mixture model extension to \citet{2015ApJ...812..128C}}
+
+Our two component photosphere mixture model extension modifies equation \ref{eqn:scaling} in the following way.
+
+\begin{eqnarray} \label{eqn:mix_model}
+\vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
+         &=& \vM(\vt_{\ast}, \sigma_v, v\sin{i}, v_r) \times \Omega \times 10^{-0.4\,A_{\lambda}}, \nonumber
+\end{eqnarray}
+
+\begin{deluxetable}{clcc}[!bh]
+\tablecaption{\label{table:params} Definition of symbols and parameters used}
+\tablehead{
+\colhead{Label} &
+\colhead{Description} & 
+\colhead{Shared?} &
+\colhead{Source}
+}
+\startdata
+$\vM$ & Pixel-level model & - & \iancze \\
+$\vT$ & Stellar parameters in the model & - & \iancze \\
+$q_o(\vt_{\ast})$ & Absolute mean flux ratio in order $o$  & N & This Work \\
+\hline
+ \multicolumn{4}{c}{$\vt_{\ast}$} \\
+\hline
+$\teffa$ & Effective temperature of component A & N & This Work \\
+$\teffb$ & Effective temperature of component B & N & This Work \\
+$\Delta \teff$ & Spot temperature contrast $\teffa - \teffb $ & - & This Work \\
+$\logg$ & Stellar surface gravity & Y & \iancze \\
+$\Z$ & Metallicity & Y & \iancze \\
+\hline
+\multicolumn{4}{c}{$\vt_{\rm ext}$} \\
+\hline
+$v\sin{i}$ & Projected stellar rotation & Y$^a$ & \iancze \\
+$\sigma_v$ & Instrumental resolution & Y & \iancze \\
+$\Omega_a$ & Solid angle subtended by component A & N & This Work \\
+$\Omega_b$ & Solid angle subtended by component B & N & This Work \\
+$c$ & Spot fill factor ($\Omega_b / \Omega_a$) & N & This Work \\
+$A_{\lambda}$ & Extinction towards the source 2 & Y & \iancze \\
+\enddata
+\tablecomments{\emph{a}- In principle, star spots could have non-uniform latitudinal distributions, resulting in slight differences in $v\sin{i}$ between the components CITE XX-McDonald Obs.  We ignore this effect for now, but it could be an interesting line of study for future work.}
+\end{deluxetable}
+
+
+
+The existing \texttt{Starfish} implementation \emph{simultaneously} fits both the intrinsic stellar parameters, $\vt_{\ast} = \{\teff, \logg, \Z \}$, and extrinsic stellar parameters, $\vt_{\rm ext} = \{\sigma_v, \vsini, v_r, \Omega, A_V\}$, with all $N_{\mathrm{ord}}$ spectral orders sharing the same stellar parameters\footnote{The implementation \emph{also} simultaneously fits a small-amplitude polynomial to each spectral order to adjust for slight imperferfections in the continuum shape left over from the blaze correction in the IGRINS pipeline.  The coefficients of the polynomials are treated as nuisance parameters.  This strategy makes us resilient against the pitfalls of pseudo-continuum-fitting, and effortlessly propagates the uncertainty attributable to the continuum level into the uncertainty in the astrophysically interesting stellar parameters.}.  
 
 
 \section{Observations}\label{sec:obs} 
@@ -70,9 +128,7 @@ We combined our IGRINS spectroscopy with existing ESPaDOnS panchromatic optical 
 \section{Analysis}
 We compared the IGRINS spectrum of \name to the \PHOENIX grid of pre-computed synthetic model spectra \citep{2013A&A...553A...6H}.  
 
-We use the \texttt{Starfish} code \citep{2015ApJ...812..128C}.  In this Section we describe our modifications to to the code.
-
-The existing \texttt{Starfish} implementation \emph{simultaneously} fits both the intrinsic stellar parameters, $\vt_{\ast} = \{\teff, \logg, \Z \}$, and extrinsic stellar parameters, $\vt_{\rm ext} = \{\sigma_v, \vsini, v_r, \Omega, A_V\}$, with all $N_{\mathrm{ord}}$ spectral orders sharing the same stellar parameters\footnote{The implementation \emph{also} simultaneously fits a small-amplitude polynomial to each spectral order to adjust for slight imperferfections in the continuum shape left over from the blaze correction in the IGRINS pipeline.  The coefficients of the polynomials are treated as nuisance parameters.  This strategy makes us resilient against the pitfalls of pseudo-continuum-fitting, and effortlessly propagates the uncertainty attributable to the continuum level into the uncertainty in the astrophysically interesting stellar parameters.}.  We modified the default implementation by chunking the spectrum into 58 of its cleanest spectral orders and deriving the stellar parameters $\vt_{\ast,m}$ \emph{independently} in each $m^{\mathrm{th}}$ order.  We therefore have 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The figure shows a dramatic effect: \textbf{The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.}  
+We modified the default implementation by chunking the spectrum into 58 of its cleanest spectral orders and deriving the stellar parameters $\vt_{\ast,m}$ \emph{independently} in each $m^{\mathrm{th}}$ order.  We therefore have 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The figure shows a dramatic effect: \textbf{The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.}  
 
 \section{Results}
 We interpret the cooler temperatures derived at $K-$band as the presence of sunspots contributing more flux at longer wavelengths, as shown in the bottom panel of Figure \ref{fig:teffOrder}.  Here we show the absolute flux ratio, $f_{\lambda, B} / f_{\lambda, A}$ at two different temperatures: $T_\textrm{eff,A} = 4100$ and $T_\textrm{eff,B} = 3300$.  We present the ratio of two synthetic spectra from Phoenix (blue solid line), and the black body ratio (red dashed line).  

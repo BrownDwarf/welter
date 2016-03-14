@@ -6,22 +6,30 @@
 	- Previous studies of LkCa4
 - Methodology
 	- Reference Czekala et al.
-	- Modifying the PGM
-	- Mixture model definitions
-	- Testing the mixture model
-	- Deriving unique T_eff in each order
+		- Overview and summary of existing model
+		- Table of parameter definitions
+	- Deriving unique T_eff in each order with existing model
+	- Modifying the model
+		- New PGM
+		- Mixture model definitions
 - Observations
 	- IGRINS spectroscopy
 	- ESPaDOnS archival
 	- Where in the phase of variability were the IGRINS spectra taken?
 	- Where in the phase of variability were the ESPaDOnS spectra taken?
 - Results
+	- Results from deriving unique T_eff in each order
 	- Evidence for two different temperatures as measured in the IR and optical point to spots.
 	- Comparison to synthetic spectrum composite from noised-up Phoenix models
 - Discussion
 	- Longitudinal spot distribution
 	- Full spectrum fitting procedure
-
+- Appendix
+	-Testing and tuning the mixture model
+		- How does it perform with synthetic data
+		- Degenerate parameters
+		- Choice of sampling
+		- Affine invariant transformations
 
 ## Stretch goals
 
