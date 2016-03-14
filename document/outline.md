@@ -1,17 +1,18 @@
-
 ## Outline
 
 
 - Introduction
 	- Previous studies of Starspots
 	- Previous studies of LkCa4
+- Methodology
+	- Reference Czekala et al.
+	- Modifying the PGM
+	- Mixture model definitions
+	- Testing the mixture model
+	- Deriving unique T_eff in each order
 - Observations
 	- IGRINS spectroscopy
-- Analysis
-	- Data reduction
-	- Whole spectrum fitting strategy
-	- Priors on the other stellar parameters
-	- Deriving unique T_eff in each order
+	- ESPaDOnS archival
 	- Where in the phase of variability were the IGRINS spectra taken?
 	- Where in the phase of variability were the ESPaDOnS spectra taken?
 - Results
