@@ -147,6 +147,12 @@ $A_{\lambda}$ & Extinction towards the source 2 & Y & \iancze \\
 \end{deluxetable}
 
 
+\subsection{Tuning the transition probability matrix for the highly degenerate mixture model}
+
+Once we had the mixture model in hand, we could apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($c, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$, so our 2 new parameters increased the tuning parameters from 15 to 36!  The tuning parameters are covariances between dimensions in your proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $c, \teffb, \Omega$ terms were all highly correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.
+
+
+
 \section{Observations}\label{sec:obs} 
 
 \subsection{IGRINS Spectroscopy}\label{sec:igrins} 
