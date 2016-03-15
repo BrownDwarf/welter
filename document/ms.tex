@@ -73,12 +73,45 @@ The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar mod
 
 \subsection{Mixture model extension to \citet{2015ApJ...812..128C}}
 
-Our two component photosphere mixture model extension modifies equation \ref{eqn:scaling} in the following way.
+We construct a mixture model spectrum of the form:
 
-\begin{eqnarray} \label{eqn:mix_model}
-\vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
-         &=& \vM(\vt_{\ast}, \sigma_v, v\sin{i}, v_r) \times \Omega \times 10^{-0.4\,A_{\lambda}}, \nonumber
+
+\begin{eqnarray} \label{eqn:simple_mix}
+\flam(\vt_{\ast, \mathrm{mix}}) = (1-c) \flam(\teffa, ...) + c \flam(\teffb, ...)
 \end{eqnarray}
+
+Where $c, \teffa, \teffb$ are the mixture model fill factor and two-temperature photosphere components respectively.  All other stellar intrinsic and extrinsic parameters, and instrumental nuisance calibration parameters are shared among the two components, as chronicled in Table \ref{table:params}.
+
+If the stellar models are in absolute flux units, our mixture model is complete as stated in Equation \ref{eqn:simple_mix}.  However \iancze employ \emph{normalized} $\flam$:
+
+
+\begin{eqnarray} \label{eqn:normalization}
+\bar \flam = \frac{\flam}{\int_{\lambda_0}^{\lambda_1} \flam d\lambda} = \frac{\flam}{f}
+\end{eqnarray}
+
+The reason for normalizing is a matter of practicality: the number of PCA eigenspectra components scales steeply with the pixel-to-pixel variance of $f_{\lambda}(\{\vt_{\ast}\}^\textrm{grid})$.  The choice to normalize makes no difference for modeling a single photospheric component.  But for two-component photosphere models, the relative flux of the two model spectra needs to be accounted for to get an accurate estimate of the areal coverage fraction of the cool spots, $c$.  More flux comes from the hotter component per solid angle.  So we scale the mixture model in the following way:
+
+\begin{eqnarray} \label{eqn:norm_scaling}
+f_{\lambda, \mathrm{mix}} &=& (1-c) f_{\mathrm{a}}\bar f_{\lambda, \mathrm{a}} + c f_{\mathrm{b}} \bar f_{\lambda, \mathrm{b}} \\
+q &=& q(\vt_{\ast})\equiv \frac{f_{\mathrm{b}}(\teffb, ...)}{f_{\mathrm{a}}(\teffa, ...)} \\
+f_{\lambda, \mathrm{mix}}^{\prime} &=& \bar f_{\lambda, \mathrm{a}} + \frac{c}{1-c} q \bar f_{\lambda, \mathrm{b}} 
+\end{eqnarray}
+
+where the prime symbol in the final line indicates a rescaled mixture model flux.  
+
+We are now tasked with computing an estimator, $\hat f(\vt_{\ast})$.  The Right Thing to Do would be to follow \iancze by training a Gaussian process on the $f(\{\vt_{\ast}\}^\textrm{grid})$.  What We Actually Did was simple interpolation between the model grid-points.  Interpolation can cause pile-up near model grid-points, as noted in \citet{2014ApJ...794..125C}, which motivated the spectral emulation procedure in \iancze.  In this case, we assumed the interpolation of $\hat f$ was smooth enough that we would not see such pileups, and if present, the pileup would mostly be discernable in the distribution of samples in the starpost areal coverage fraction $c$.  One drawback of our estimator method compared to the Gaussian Process regression method is that we do not propagate the uncertainty associated with the absolute flux ratio interpolation into our estimate of $c$.  We assume this uncertainty is relatively small and can be ignored.
+
+The mixture model is a linear operation and the mixture model components share all the same extrinsic parameters, so we can re-use all the same post-processed eigenspectra $\widetilde{\mathbf{\Xi}}$, mean spectrum $\widetilde{\xi}_\mu$, and variance spectrum $\widetilde{\xi}_\sigma$, but calulate two sets of eigenspectra weights $\mathbf{w}_{\in (\mathrm{a}, \mathrm{b})}$, and their associated mean and covariances:
+
+\begin{equation}
+  \mathsf{M}_{\mathrm{mix}}^\prime = \widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{a}} + \frac{c}{1-c} q (\widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{b}})
+\end{equation}
+
+\begin{equation}
+  \mathsf{C}_{\mathrm{mix}}^\prime = \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{a}} \mathbf{X}^T + \frac{c}{1-c} q \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{b}} \mathbf{X}^T + \mathsf{C}
+  \label{eqn:modC}
+\end{equation}
+
 
 \begin{deluxetable}{clcc}[!bh]
 \tablecaption{\label{table:params} Definition of symbols and parameters used}
@@ -112,10 +145,6 @@ $A_{\lambda}$ & Extinction towards the source 2 & Y & \iancze \\
 \enddata
 \tablecomments{\emph{a}- In principle, star spots could have non-uniform latitudinal distributions, resulting in slight differences in $v\sin{i}$ between the components CITE XX-McDonald Obs.  We ignore this effect for now, but it could be an interesting line of study for future work.}
 \end{deluxetable}
-
-
-
-The existing \texttt{Starfish} implementation \emph{simultaneously} fits both the intrinsic stellar parameters, $\vt_{\ast} = \{\teff, \logg, \Z \}$, and extrinsic stellar parameters, $\vt_{\rm ext} = \{\sigma_v, \vsini, v_r, \Omega, A_V\}$, with all $N_{\mathrm{ord}}$ spectral orders sharing the same stellar parameters\footnote{The implementation \emph{also} simultaneously fits a small-amplitude polynomial to each spectral order to adjust for slight imperferfections in the continuum shape left over from the blaze correction in the IGRINS pipeline.  The coefficients of the polynomials are treated as nuisance parameters.  This strategy makes us resilient against the pitfalls of pseudo-continuum-fitting, and effortlessly propagates the uncertainty attributable to the continuum level into the uncertainty in the astrophysically interesting stellar parameters.}.  
 
 
 \section{Observations}\label{sec:obs} 
