@@ -13,8 +13,8 @@ Theta:
   Av: 0.0
   grid: [4100.0, 3.5, 0.0]
   teff2: 3300.0
-  ff: 0.3
-  logOmega: -0.282099
+  logOmega: -0.44
+  logOmega2: -0.8
   vsini: 30.0
   vz: 95.0
 Theta_jump:
@@ -22,7 +22,7 @@ Theta_jump:
   grid: [5, 0.003, 0.003]
   logOmega: 0.0003
   teff2: 5
-  ff: 0.0003
+  logOmega2: 0.0003
   vsini: 0.1
   vz: 0.1
 cheb_degree: 4
