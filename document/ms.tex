@@ -46,20 +46,29 @@ We interpret the high resolution near-IR spectra of \name.  We used the instrume
 
 \section{Introduction}\label{sec:intro}
 
+\subsection{Pre Main Sequence HR diagram spread}
 
 For a single presumably coeval stellar cluster, pre main-sequence HR diagrams exhibit large ($\delta t_{\ast} \sim t_{\ast}$) apparent spreads in age \citep[e.g.][]{2011A&A...534A..83R}. The large spreads in these pre main-sequence HR diagrams is controversial: some take it as evidence for intrinsic age spreads, some take it as evidence for non static accretion history \citep{2009ApJ...702L..27B, 2010ARA&A..48..581S}.  
 
 Still others take the large apparent age spreads in pre main-sequence HR diagrams as evidence for the limited physics included in the pre main-sequence evolutionary model isochrones.  Most modern evolutionary models do not yet include the effects of starspots or magnetic fields, despite observations betraying their presence, \emph{e.g.} optical monitoring and Zeeman doppler imaging \citep{2008A&A...479..827G,2014MNRAS.444.3220D}.  
 
+\subsection{Previous studies of Starspots}
+
 Meanwhile, sunspots are probably responsible for biases in stellar effective temperatures derived by different methods.  For example, the APOGEE spectrograph ($1.5-1.70 \;\mu$m at $R=22,500$) measured effective temperatures for 3493 young stars finding offsets in $\teff$ of typically 200$-$500 K and as high as 1000 K compared to previous studies \citep{2014ApJ...794..125C}.  Low resolution optical spectroscopy shows a typical spread of 200 K in the spectral type-to-effective-temperature conversion scale \citep{2014ApJ...786...97H}.  Stellar evolution models including the effect of starspots can make a coeval 10 Myr population exhibit apparent age spreads of 3$-$10 Myr, with derived masses biased towards lower masses.  The observations of sunspots are lagging behind the theory \citep{2015ApJ...807..174S}.
 
 The importance of starspots needs to be empirically evaluated to assess systematic biases of pre-main sequence stellar evolutionary models.
+
+\subsection{Previous studies of \name}
 
 In this paper we characterize the starspot coverage and temperature contrast of \name using full spectrum fitting.  We chose \name for its likelihood of large areal coverage of starspots, as evinced by large-amplitude photometric variability  detected in $BVRI$ bands.  Its period is 3.37$\pm$0.01 days \citep{1993AJ....106.1608V,1994IBVS.4042....1G}.  Recent optical spectro-polarimetry showed evidence for hot or cool starspots covering an estimated $25\%$ of the stellar surface \citep{2014MNRAS.444.3220D}.  The source has little or no accretion ($\log{\dot M} < 8.1$), no detection of mid-infrared nor mm excess, and no stellar companion, so its spectrum should be devoid of complicating factors like near-IR excess veiling and accretion excess.  This source is the ideal candidate for direct measurement of two-temperature photosphere due to starspots.
 
 We extend a new spectral forward modeling framework to include two-temperature photosphere models.  We demonstrate the constraining power of full spectrum fitting with panchromatic optical and near-IR echelle spectroscopy.  We show that relatively small starspot filling factors can be detected due to the large spectral grasp of IGRINS.  
 
 \section{Methodology}\label{sec:methods} 
+
+\subsection{Full-spectrum fitting framework}
+% Motivation for sampling- the questions we want to answer
+
 We extended an existing modular framework for spectral inference \citep[][hereafter \iancze]{2015ApJ...812..128C}.  We briefly summarize the model here for carity of notation, but see \iancze for more details.  We follow and expand the notation from \iancze, all summarized in Table \ref{table:params}. 
 
 The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR$.  The model encapsulates the major intrinstic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
@@ -71,7 +80,11 @@ The main idea is that \iancze define a pixel-level forward model $\vM$ of the da
 
 The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  \iancze used the \PHOENIX model grid \citep{2013A&A...553A...6H}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
 
-\subsection{Mixture model extension to \citet{2015ApJ...812..128C}}
+\subsection{Approach 1: Deriving unique Teff in each order}
+
+% Description of this approach
+
+\subsection{Approach 2: Two component photosphere mixture model}
 
 We construct a mixture model spectrum of the form:
 
@@ -147,10 +160,9 @@ $A_{\lambda}$ & Extinction towards the source 2 & Y & \iancze \\
 \end{deluxetable}
 
 
-\subsection{Tuning the transition probability matrix for the highly degenerate mixture model}
+\subsection{Challenges: Tuning the transition probability matrix}
 
 Once we had the mixture model in hand, we could apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($c, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$, so our 2 new parameters increased the tuning parameters from 15 to 36!  The tuning parameters are covariances between dimensions in your proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $c, \teffb, \Omega$ terms were all highly correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.
-
 
 
 \section{Observations}\label{sec:obs} 
@@ -158,20 +170,24 @@ Once we had the mixture model in hand, we could apply the blocked Gibbs MCMC sam
 \subsection{IGRINS Spectroscopy}\label{sec:igrins} 
 We acquired observations with IGRINS on the Harlan J. Smith Telescope at McDonald Observatory on 2015-11-18 $09^h$ UTC.  The Immersion Grating Infrared Spectrograph, IGRINS \citep{2014SPIE.9147E..1DP,2012SPIE.8450E..2SG}, is a high resolution near-infrared echelle spectrograph providing simultaneous $R\simeq45,000$ spectra over 1.48-2.48\um.  The spectrograph has two arms with 28 orders in $H-$band and 25 orders in $K-band$.
 
+\subsection{ESPaDOnS Spectroscopy}
 We combined our IGRINS spectroscopy with existing ESPaDOnS panchromatic optical echelle spectra to provide 88 spectral orders between 5100 and 25000 \AA \citep{2014MNRAS.444.3220D}.
 
-\section{Analysis}
+\subsection{At what phase of variability were the spectra acquired?}
+
+
+\section{Results}
+
+\subsection{Result 1: Signal from deriving $\teff$ in each IGRINS order}
+
 We compared the IGRINS spectrum of \name to the \PHOENIX grid of pre-computed synthetic model spectra \citep{2013A&A...553A...6H}.  
 
 We modified the default implementation by chunking the spectrum into 58 of its cleanest spectral orders and deriving the stellar parameters $\vt_{\ast,m}$ \emph{independently} in each $m^{\mathrm{th}}$ order.  We therefore have 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The figure shows a dramatic effect: \textbf{The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.}  
 
-\section{Results}
 We interpret the cooler temperatures derived at $K-$band as the presence of sunspots contributing more flux at longer wavelengths, as shown in the bottom panel of Figure \ref{fig:teffOrder}.  Here we show the absolute flux ratio, $f_{\lambda, B} / f_{\lambda, A}$ at two different temperatures: $T_\textrm{eff,A} = 4100$ and $T_\textrm{eff,B} = 3300$.  We present the ratio of two synthetic spectra from Phoenix (blue solid line), and the black body ratio (red dashed line).  
 
 We further performed a plausibility check to constrain the effect size of starspots.  We generated flux calibrated spectra at two temperatures, and forward-modeled them to resemble the LkCa4 IGRINS and ESPaDOnS spectra in all other ways (\emph{i.e.} $\logg, \Z, \vt_{\rm ext}$), including noise and calibration parameters.  We coadded the spectra in a mixture model:  $ \mathsf{M}_{mix} = c \cdot \mathsf{M}_A(T_\textrm{eff,A}) + (1-c) \cdot \mathsf{M}_B(T_\textrm{eff,B})$.  We chose a fill factor of starspots of 30\%.  We then re-ran our single-temperature fitting procedure on the two-temperature, synthetic, noised-up data to see what stellar parameters one would na\"{\i}vely derive.  The noised-up optical data yields $\teff \sim 4100$ K, close to that of the A component.  We are awaiting the results from $K-$ band at the time of writing.
 
-
-\subsection{Deriving $\teff$ in each IGRINS order}
 
 We want to measure the derived effective temperature as a function of wavelength.  The motivation for this strategy is as follows.  We assume that LkCa4 has a significant fraction of its stellar disk covered by starspots citeXX.  Such a photosphere will have an emergent spectrum composed of superpositions of relatively cool patches and warm patches.  The visible portion of the spectrum will be dominated by the warm patches, but the contrast with the starspots will be higher.  The infrared spectrum will have a lower overall spot contast, but with higher relative contribution attributable to the cool patches citeXX.  
 
@@ -188,13 +204,25 @@ We measured the effective temperature in \emph{each of the 43 spectral orders} o
 	\label{fig:teffOrder}
 \end{figure*}
 
+\subsection{Result 2: Effect size from fitting synthetic data order-by-order}
 
-\section{Spectral properties}\label{sec:lines}
+\subsection{Result 3: Direct measurement of spot properties with mixture model}
+
+\section{Discussion}
+
+\subsection{Interpretation of distribution of stellar properties from Results 1 + 2}
+
+\subsection{Interpretation of star spot properties from Result 3}
+
+\subsection{Longitudinal / latitudinal spot distributions and phase}
+
+\subsection{Addressing limitations of assumptions in the methodology}
+
 
 
 \appendix
 
-\section{Technical details}
+\section{Testing and runing the mixture model}
 
 Here are some specifics about what we did.
 
@@ -207,7 +235,7 @@ In short, here is what we know about \name.  It is a weak-lined \emph{T-Tauri} s
 
 
 \acknowledgements
-The authors thank Gregory N. Mace for carrying out the IGRINS observations. This research has made use of NASA's Astrophysics Data System.
+The authors thank Gregory N. Mace and Kyle Kaplan for carrying out the IGRINS observations. This research has made use of NASA's Astrophysics Data System.
 
 {\it Facilities:} \facility{Smith (IGRINS)}
 
