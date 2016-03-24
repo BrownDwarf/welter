@@ -66,23 +66,36 @@ We extend a new spectral forward modeling framework to include two-temperature p
 
 \section{Methodology}\label{sec:methods} 
 
+
 \subsection{Full-spectrum fitting framework}
-% Motivation for sampling- the questions we want to answer
+% Motivation: The questions we want to answer
+Modeling the periodic light curves of spotted stars can answer these questions: ``What evidence is there to support the existence of starspots.  What constraint can be placed on the effective temperature contrast and areal coverage of the starspots?  What is the longitudinal assymetry of the spots?  ''.  As pointed out by CITE XX, cyclical light curve variations indicate only the longitudinally assymetric component of the star spots.  Photometric modeling of the light curve produces degenerate estimates in the temperature contrast and areal coverage fraction.  For example, CITE XX achieved XX.  
 
-We extended an existing modular framework for spectral inference \citep[][hereafter \iancze]{2015ApJ...812..128C}.  We briefly summarize the model here for carity of notation, but see \iancze for more details.  We follow and expand the notation from \iancze, all summarized in Table \ref{table:params}. 
+By modeling the composite \emph{spectrum} of a spotted star, it is possible to directly measure the collective areal coverage and effective temperature contrast.  A stellar spectrum with a longitudinaly symmetric distribution of starspots, or a pole-on star with a single spot, or a non-rotating star would all show zero amplitude of photometric variability, yet they all contain star spots.  Spectroscopic modeling can still measure the starspot properties in these cases.  
 
-The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR$.  The model encapsulates the major intrinstic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
+In principle, more advanced questions could be asked about the properties of the spots: ``How many distinct spot groups are there?  Is there evidence for both hot spots and cool spots?  What is the longitudinal distribution of the spots?  What is the (co-)latitudinal distribution of the spots?  What is the distribution of effective temperature within a spot or spot group?  What are the morphologies of the spots?''.  Solving these questions would require a complex model comparison framework, combining all available data and lines of evidence from photometric, spectroscopic, and spectropolarimetric monitoring.  We seek to answer the much easier questions about the aggregate properties of the stellar photosphere, assuming the star is well described by two distinct photospheric components.  
+
+% Motivation:  Why sampling?  Why full spectrum fitting?
+
+A main motivating factor in designing our methodology was our wish to adress this question for a given spectrum: ``Is the spectrum consistent with the non-detection of starspots, and to what level of confidence can the detection of starspots be reported?''.  In order to answer this question, we need some way to gauge the uncertainty in the derived stellar properties, which we assumed would have some level of degeneracy.  For example, we expect the best fit effective temperature contrast will be partially degenerate with the areal coverage fraction: a slightly cooler, smaller sunspot can masquerade as a larger, warmer spot.  This degeneracy should be lessened in spectroscopic methods compared to photometric methods.  The desire to reveal these intra-parameter correlations motivated the choice of \emph{sampling} from the posterior probability density distribution function.
+
+
+% Overview and summary of existing model
+
+We adopted and extended an existing modular framework for spectral inference \citep[][hereafter \iancze]{2015ApJ...812..128C}.  We briefly summarize the model here for carity of notation, but see \iancze for more details.  We follow and expand the notation from \iancze, all summarized in Table \ref{table:params}. 
+
+The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR= \vD - \vM$.  The model encapsulates the major intrinstic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
 
 \begin{eqnarray} \label{eqn:scaling}
 \vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
          &=& \vM(\vt_{\ast}, \sigma_v, v\sin{i}, v_r) \times \Omega \times 10^{-0.4\,A_{\lambda}}, \nonumber
 \end{eqnarray}
 
-The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  \iancze used the \PHOENIX model grid \citep{2013A&A...553A...6H}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
+The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  We use the \PHOENIX model grid \citep{2013A&A...553A...6H}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
 
 \subsection{Approach 1: Deriving unique Teff in each order}
 
-% Description of this approach
+The model $\vM(\vT)$ as it stands only models a single set of stellar parameters for the entire wavelength range of interest.  This model is the desired beavior for most applications involving a single stellar photospheric component.  In our case, however, we \emph{know} that a single stellar photospheric component is a poor model for the data: there are \emph{two} components lurking in the composite spectrum.  
 
 \subsection{Approach 2: Two component photosphere mixture model}
 
