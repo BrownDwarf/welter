@@ -95,7 +95,20 @@ The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar mod
 
 \subsection{Approach 1: Deriving unique Teff in each order}
 
-The model $\vM(\vT)$ as it stands only models a single set of stellar parameters for the entire wavelength range of interest.  This model is the desired beavior for most applications involving a single stellar photospheric component.  In our case, however, we \emph{know} that a single stellar photospheric component is a poor model for the data: there are \emph{two} components lurking in the composite spectrum.  
+The model $\vM(\vT)$ was intended to apply a single set of stellar parameters to the entire wavelength range of interest, presumably the entire available spectrum.  For a spectrum from a multi-order echelle spectrograph, this means each spectral order is fit with the same stellar parameters.  Simultaneous fitting is the desired behavior for most applications involving a single stellar photospheric component.  In our case, however, we know that a single stellar photospheric component is a poor model for the data: there are \emph{two} components lurking in the composite spectrum.  But depending on the star spot properties, a single stellar photosphere component might fit the composite spectrum satisfactorily, like if the flux contrast of the starspot is simply too low compared to the noise.
+
+The starspot contrast depends on wavelength, roughly as the ratio of blackbodies.  Figure XX shows a plot of the flux ratio of two stellar photospheres with identical stellar properties except for different effective temperatures.  So a sufficiently large bandwidth spectrum could exhibit differing levels of fit quality as a function of wavelength, if a single temperature photosphere fit is naively applied to different chunks of wavelengths.  
+
+We modified the \iancze spectral inference framework to fit $\vM$ in each spectral order \emph{independently}: $\vT \rightarrow \vT_o$, where $o$ signifies the spectral order, which could stem from multiple spectrographs, each with multiple orders.  This change does not represent reality: the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The naive single-component fit to different wavelength chunks conveys information about 
+
+
+
+\begin{eqnarray} \label{eqn:scaling}
+\vM(\vT_o) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
+         &=& \vM(\vt_{\ast}, \sigma_v, v\sin{i}, v_r) \times \Omega \times 10^{-0.4\,A_{\lambda}}, \nonumber
+\end{eqnarray}
+
+star spot areal coverage fraction is very small, then the signal associated with the 
 
 \subsection{Approach 2: Two component photosphere mixture model}
 
