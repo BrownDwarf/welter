@@ -15,6 +15,10 @@ model_B_spec.json
 # Ignore sf, since it has some large files.
 # We can force commit some special small files or examples.
 sf/
+mf/
+
+# Ignore HDF5 files unless they are force committed.
+*.hdf5
 
 #Ignore Starfish for now.
 Starfish
