@@ -98,7 +98,7 @@ The model $\vM(\vT)$ was intended to apply a single set of stellar parameters to
 
 The starspot contrast depends on wavelength, roughly as the ratio of blackbodies.  Figure XX shows a plot of the flux ratio of two stellar photospheres with identical stellar properties except for different effective temperatures.  So a sufficiently large bandwidth spectrum could exhibit differing levels of fit quality as a function of wavelength, if a single temperature photosphere fit is naively applied to different chunks of wavelengths.  
 
-We modified the \iancze spectral inference framework to fit $\vM$ in each spectral order \emph{independently}: $\vT \rightarrow \vT_o$, where $o$ signifies the spectral order, which could stem from multiple spectrographs, each with multiple orders.  This change does not represent reality: the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The na\"ive single-component fit to different wavelength provide a plausibility argument for the presence of a second photospheric component if the derived $\vT_o$ show a spread in $\teff$.  It is conceivable that other parameters, like $\logg$ could show a dependence on wavelength if non-standard physics---\emph{i.e.}physics not included in the pre-computed model grid---mimics the effect of \emph{e.g.} $\logg$ on the spectrum.  For example, magnetic fields could cause Zeeman broadening, which could alter the derived stellar parameters $\vT_o$.  For these reasons, we intentionally allowed \emph{all} the stellar parameters $\vT_o = \{T_{\mathrm{eff},o}, \log{g_o}, \Z_o, \sigma_{v, o}, v\sin{i}_o, v_{r,o}\}$ to vary by order.  
+We modified the \iancze spectral inference framework to fit $\vM$ in each spectral order \emph{independently}: $\vT \rightarrow \vT_o$, where $o$ signifies the spectral order, which could stem from multiple spectrographs, each with multiple orders.  This change does not represent reality: the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The na\"ive single-component fit to different wavelength provide a plausibility argument for the presence of a second photospheric component if the derived $\vT_o$ show a spread in $\teff$.  It is conceivable that other parameters, like $\logg$ could show a dependence on wavelength if non-standard physics---\emph{i.e.}physics not included in the pre-computed model grid---mimics the effect of \emph{e.g.} $\logg$ on the spectrum.  For example, magnetic fields could cause Zeeman broadening, which could alter the derived stellar parameters $\vT_o$.  For these reasons, we intentionally allowed \emph{all} the stellar parameters $\vT_o = \{T_{\mathrm{eff},o}, \log{g_o}, \Z_o, \Omega_{o}, v\sin{i}_o, v_{r,o}\}$ to vary by order.  
 
 In principle, one could refine the inference on $T_{\mathrm{eff},o}$ in an \emph{empirical Bayes'} strategy CITE (XX, astroML book?), in which we re-evaluate $\vT_o$ by setting priors on all the stellar parameters except $T_{\mathrm{eff},o}$.  We elected not to pursue an empirical Bayes' approach.
 
@@ -111,42 +111,43 @@ Spectral-order level granularity in fit quality is not available in a fit that i
 
 We construct a mixture model spectrum of the form:
 
-
-\begin{eqnarray} \label{eqn:simple_mix}
-\flam(\vt_{\ast, \mathrm{mix}}) = (1-c) \flam(\teffa, ...) + c \flam(\teffb, ...)
+\begin{eqnarray} \label{eqn:mix_M}
+\vM_{\mathrm{mix}}(\vT) = \vM(\teffa, ...) \times \Omega_a + \vM(\teffb, ...) \times \Omega_b
 \end{eqnarray}
 
-Where $c, \teffa, \teffb$ are the mixture model fill factor and two-temperature photosphere components respectively.  All other stellar intrinsic and extrinsic parameters, and instrumental nuisance calibration parameters are shared among the two components, as chronicled in Table \ref{table:params}.
 
-If the stellar models are in absolute flux units, our mixture model is complete as stated in Equation \ref{eqn:simple_mix}.  However \iancze employ \emph{normalized} $\flam$:
+Where $\teffa, \teffb, \Omega_a, \Omega_b$ are temperatures and solid angles of two photospheric components respectively.  All other stellar intrinsic and extrinsic parameters, and instrumental nuisance calibration parameters are shared among the two components, as chronicled in Table \ref{table:params}.
+
+If the stellar models are in absolute flux units, our mixture model is complete as stated in Equation \ref{eqn:mix_M}.  However \iancze employ \emph{standardized} $\flam$ when constructing the forward model $\vM$:
 
 
 \begin{eqnarray} \label{eqn:normalization}
-\bar \flam = \frac{\flam}{\int_{\lambda_0}^{\lambda_1} \flam d\lambda} = \frac{\flam}{f}
+\bar \flam = \frac{\flam}{\int_{0}^{\infty} \flam d\lambda} = \frac{\flam}{f}
 \end{eqnarray}
 
-The reason for normalizing is a matter of practicality: the number of PCA eigenspectra components scales steeply with the pixel-to-pixel variance of $f_{\lambda}(\{\vt_{\ast}\}^\textrm{grid})$.  The choice to normalize makes no difference for modeling a single photospheric component.  But for two-component photosphere models, the relative flux of the two model spectra needs to be accounted for to get an accurate estimate of the areal coverage fraction of the cool spots, $c$.  More flux comes from the hotter component per solid angle.  So we scale the mixture model in the following way:
+The reason for normalizing is a matter of practicality: the number of PCA eigenspectra components in the spectral emulator scales steeply with the pixel-to-pixel variance of $f_{\lambda}(\{\vt_{\ast}\}^\textrm{grid})$, increasing the computational cost of spectral emulation.  The choice to standardize fluxes makes no difference for modeling a single photospheric component.  But for two-component photosphere models, the relative flux of the two model spectra needs to be accounted for to get an accurate estimate of the areal coverage fraction of the cool spots, $c \equiv \Omega_b/(\Omega_a+\Omega_b)$.  So we scale the mixture model in the following way:
 
 \begin{eqnarray} \label{eqn:norm_scaling}
-f_{\lambda, \mathrm{mix}} &=& (1-c) f_{\mathrm{a}}\bar f_{\lambda, \mathrm{a}} + c f_{\mathrm{b}} \bar f_{\lambda, \mathrm{b}} \\
+f_{\lambda, \mathrm{mix}} &=& f_{\mathrm{a}} \bar f_{\lambda, \mathrm{a}} \times \Omega_a + f_{\mathrm{b}} \bar f_{\lambda, \mathrm{b}} \times \Omega_b \\
 q &=& q(\vt_{\ast})\equiv \frac{f_{\mathrm{b}}(\teffb, ...)}{f_{\mathrm{a}}(\teffa, ...)} \\
-f_{\lambda, \mathrm{mix}}^{\prime} &=& \bar f_{\lambda, \mathrm{a}} + \frac{c}{1-c} q \bar f_{\lambda, \mathrm{b}} 
+f_{\lambda, \mathrm{mix}}^{\prime} &=& \bar f_{\lambda, \mathrm{a}} \times \Omega_a + q \bar f_{\lambda, \mathrm{b}} \times \Omega_b
 \end{eqnarray}
 
-where the prime symbol in the final line indicates a rescaled mixture model flux.  
+where the prime symbol in the final line indicates a re-standarized mixture model flux, where the relative fluxes of the model components are now correctly scaled.
 
-We are now tasked with computing an estimator, $\hat f(\vt_{\ast})$.  The Right Thing to Do would be to follow \iancze by training a Gaussian process on the $f(\{\vt_{\ast}\}^\textrm{grid})$.  What We Actually Did was simple interpolation between the model grid-points.  Interpolation can cause pile-up near model grid-points, as noted in \citet{2014ApJ...794..125C}, which motivated the spectral emulation procedure in \iancze.  In this case, we assumed the interpolation of $\hat f$ was smooth enough that we would not see such pileups, and if present, the pileup would mostly be discernable in the distribution of samples in the starpost areal coverage fraction $c$.  One drawback of our estimator method compared to the Gaussian Process regression method is that we do not propagate the uncertainty associated with the absolute flux ratio interpolation into our estimate of $c$.  We assume this uncertainty is relatively small and can be ignored.
+We are then tasked with computing an estimator, $\hat f(\vt_{\ast})$, for estimating the scale factor $q$ in-between model gridpoints.  The Right Thing to Do would be to follow \iancze by training a Gaussian process on the $f(\{\vt_{\ast}\}^\textrm{grid})$.  What We Actually Did was linearly interpolate between the model grid-points.  Interpolation can cause pile-up near model grid-points, as noted in \citet{2014ApJ...794..125C}, which motivated the spectral emulation procedure in \iancze.  We assume the interpolation of $\hat f$ is smooth enough that we will not see such pileups and if even we did see pileups, they would mostly be discernable in the distribution of samples in the starspot areal coverage fraction $c$.  One drawback of our estimator method compared to the Gaussian Process regression method is that we do not propagate the uncertainty associated with the absolute flux ratio interpolation into our estimate of $c$.  We assume this uncertainty is relatively small and can be ignored.
 
-The mixture model is a linear operation and the mixture model components share all the same extrinsic parameters, so we can re-use all the same post-processed eigenspectra $\widetilde{\mathbf{\Xi}}$, mean spectrum $\widetilde{\xi}_\mu$, and variance spectrum $\widetilde{\xi}_\sigma$, but calulate two sets of eigenspectra weights $\mathbf{w}_{\in (\mathrm{a}, \mathrm{b})}$, and their associated mean and covariances:
+The mixture model is a linear operation with all the same stellar extrinsic parameters, so we can re-use all the same post-processed eigenspectra $\widetilde{\mathbf{\Xi}}$, mean spectrum $\widetilde{\xi}_\mu$, and variance spectrum $\widetilde{\xi}_\sigma$, with the tildes representing all post processing \emph{except} the $\Omega$ scaling.  We calulate \emph{two} sets of eigenspectra weights $\mathbf{w}_{\in (\mathrm{a}, \mathrm{b})}$, and their associated mean and covariances following the Appendix of \iancze, and yielding:
 
 \begin{equation}
-  \mathsf{M}_{\mathrm{mix}}^\prime = \widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{a}} + \frac{c}{1-c} q (\widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{b}})
+  \mathsf{M}_{\mathrm{mix}}^\prime = \Omega_a (\widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{a}}) + q \Omega_b (\widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{b}})
 \end{equation}
 
 \begin{equation}
-  \mathsf{C}_{\mathrm{mix}}^\prime = \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{a}} \mathbf{X}^T + \frac{c}{1-c} q \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{b}} \mathbf{X}^T + \mathsf{C}
+  \mathsf{C}_{\mathrm{mix}}^\prime = \Omega_a^2 \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{a}} \mathbf{X}^T + q \Omega_b^2 \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{b}} \mathbf{X}^T + \mathsf{C}
   \label{eqn:modC}
 \end{equation}
+
 
 
 \begin{deluxetable}{clcc}[!bh]
