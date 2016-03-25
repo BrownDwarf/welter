@@ -125,7 +125,7 @@ If the stellar models are in absolute flux units, our mixture model is complete 
 \bar \flam = \frac{\flam}{\int_{0}^{\infty} \flam d\lambda} = \frac{\flam}{f}
 \end{eqnarray}
 
-The reason for normalizing is a matter of practicality: the number of PCA eigenspectra components in the spectral emulator scales steeply with the pixel-to-pixel variance of $f_{\lambda}(\{\vt_{\ast}\}^\textrm{grid})$, increasing the computational cost of spectral emulation.  The choice to standardize fluxes makes no difference for modeling a single photospheric component.  But for two-component photosphere models, the relative flux of the two model spectra needs to be accounted for to get an accurate estimate of the areal coverage fraction of the cool spots, $c \equiv \Omega_b/(\Omega_a+\Omega_b)$.  So we scale the mixture model in the following way:
+The reason for standardizing the flux is a matter of practicality: the number of PCA eigenspectra components in the spectral emulator scales steeply with the pixel-to-pixel variance of $f_{\lambda}(\{\vt_{\ast}\}^\textrm{grid})$, increasing the computational cost of spectral emulation.  The choice to standardize fluxes makes no difference for modeling a single photospheric component.  But for two-component photosphere models, the relative flux of the two model spectra needs to be accounted for to get an accurate estimate of the areal coverage fraction of the cool spots, $c \equiv \Omega_b/(\Omega_a+\Omega_b)$.  So we scale the mixture model in the following way:
 
 \begin{eqnarray} \label{eqn:norm_scaling}
 f_{\lambda, \mathrm{mix}} &=& f_{\mathrm{a}} \bar f_{\lambda, \mathrm{a}} \times \Omega_a + f_{\mathrm{b}} \bar f_{\lambda, \mathrm{b}} \times \Omega_b \\
@@ -161,7 +161,7 @@ The mixture model is a linear operation with all the same stellar extrinsic para
 \startdata
 $\vM$ & Pixel-level model & - & \iancze \\
 $\vT$ & Stellar parameters in the model & - & \iancze \\
-$q_o(\vt_{\ast})$ & Absolute mean flux ratio in order $o$  & N & This Work \\
+$q(\vt_{\ast})$ & Absolute mean flux ratio in order $o$  & N & This Work \\
 \hline
  \multicolumn{4}{c}{$\vt_{\ast}$} \\
 \hline
@@ -175,10 +175,11 @@ $\Z$ & Metallicity & Y & \iancze \\
 \hline
 $v\sin{i}$ & Projected stellar rotation & Y$^a$ & \iancze \\
 $\sigma_v$ & Instrumental resolution & Y & \iancze \\
+$v_r$ & Radial Velocity & Y & \iancze \\
 $\Omega_a$ & Solid angle subtended by component A & N & This Work \\
 $\Omega_b$ & Solid angle subtended by component B & N & This Work \\
-$c$ & Spot fill factor ($\Omega_b / \Omega_a$) & N & This Work \\
-$A_{\lambda}$ & Extinction towards the source 2 & Y & \iancze \\
+$c$ & Spot fill factor, $\Omega_b / (\Omega_a+\Omega_b)$ & N & This Work \\
+$A_{\lambda}$ & Extinction towards the source & Y & \iancze \\
 \enddata
 \tablecomments{\emph{a}- In principle, star spots could have non-uniform latitudinal distributions, resulting in slight differences in $v\sin{i}$ between the components CITE XX-McDonald Obs.  We ignore this effect for now, but it could be an interesting line of study for future work.}
 \end{deluxetable}
@@ -186,7 +187,7 @@ $A_{\lambda}$ & Extinction towards the source 2 & Y & \iancze \\
 
 \subsection{Challenges: Tuning the transition probability matrix}
 
-Once we had the mixture model in hand, we could apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($c, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$, so our 2 new parameters increased the tuning parameters from 15 to 36!  The tuning parameters are covariances between dimensions in your proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $c, \teffb, \Omega$ terms were all highly correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.
+Once we have the mixture model in hand, we can apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($\Omega_b, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$ CITE XX, so our 2 new parameters increased the tuning parameters from 15 to 36!  The tuning parameters are covariances between dimensions in the proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $\teffa, \teffb, \Omega_a, \Omega_b$ terms are likely to be correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.  We experimented with some of these transformations and found that the existing sampling was best, although still correlated.
 
 
 \section{Observations}\label{sec:obs} 
