@@ -1,0 +1,13 @@
+{
+  "cheb": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "fix_c0": true,
+  "l": 20.0,
+  "logAmp": -2.0,
+  "order": 0,
+  "sigAmp": 1.0,
+  "spectrum_id": 0
+}
