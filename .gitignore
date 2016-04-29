@@ -16,6 +16,7 @@ model_B_spec.json
 # We can force commit some special small files or examples.
 sf/
 mf/
+results/
 
 # Ignore HDF5 and .npy files unless they are force committed.
 *.hdf5
