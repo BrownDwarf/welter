@@ -17,8 +17,9 @@ model_B_spec.json
 sf/
 mf/
 
-# Ignore HDF5 files unless they are force committed.
+# Ignore HDF5 and .npy files unless they are force committed.
 *.hdf5
+*.npy
 
 #Ignore Starfish for now.
 Starfish
