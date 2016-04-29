@@ -44,5 +44,6 @@ for m in ms:
     # Also initialize the nuissance parameter json file.
     os.chdir('output/mix_emcee/run01/')
     #os.system('star.py --initPhi')
-    os.system('git add -f config.yaml')
+    #os.system('git add -f config.yaml')
+    os.system('git add -f s0_o0phi.json')
     os.chdir(os.path.expandvars('$WELTER/sf/'))
