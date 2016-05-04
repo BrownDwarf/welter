@@ -58,6 +58,12 @@ Meanwhile, sunspots are probably responsible for biases in stellar effective tem
 
 The importance of starspots needs to be empirically evaluated to assess systematic biases of pre-main sequence stellar evolutionary models.
 
+Modeling the periodic light curves of spotted stars can answer these questions: ``What evidence is there to support the existence of starspots?  What constraint can be placed jointly upon the effective temperature contrast and areal coverage of the starspots?  What is the longitudinal asymmetry of the spots?  ''.  As pointed out by CITE XX, cyclical light curve variations indicate only the longitudinally asymmetric component of the star spots.  Photometric modeling of the light curve produces degenerate estimates in the temperature contrast and areal coverage fraction.  For example, CITE XX achieved XX.  
+
+By modeling the composite \emph{spectrum} of a spotted star, it is possible to directly measure the collective areal coverage and effective temperature contrast.  A stellar spectrum with a longitudinally symmetric distribution of starspots, or a pole-on star with a single spot, or a non-rotating star would all show zero amplitude of photometric variability, yet they all contain star spots.  Spectroscopic modeling can still measure the starspot properties in these cases.  
+
+In principle, more advanced questions could be asked about the properties of the spots: ``How many distinct spot groups are there?  Is there evidence for both hot spots and cool spots?  What is the longitudinal distribution of the spots?  What is the (co-)latitudinal distribution of the spots?  What is the distribution of effective temperature within a spot or spot group?  What are the morphologies of the spots?''.  Solving these questions would require a complex model comparison framework, combining all available data and lines of evidence from photometric, spectroscopic, and spectropolarimetric monitoring.  We seek to answer the much easier questions about the aggregate properties of the stellar photosphere, assuming the star is well described by two distinct photospheric components.  
+
 \subsection{Previous studies of \name}
 
 In this paper we characterize the starspot coverage and temperature contrast of \name using full spectrum fitting.  We chose \name for its likelihood of large areal coverage of starspots, as evinced by large-amplitude photometric variability  detected in $BVRI$ bands.  Its period is 3.37$\pm$0.01 days \citep{1993AJ....106.1608V,1994IBVS.4042....1G}.  Recent optical spectro-polarimetry showed evidence for hot or cool starspots covering an estimated $25\%$ of the stellar surface \citep{2014MNRAS.444.3220D}.  The source has little or no accretion ($\log{\dot M} < 8.1$), no detection of mid-infrared nor mm excess, and no stellar companion, so its spectrum should be devoid of complicating factors like near-IR excess veiling and accretion excess.  This source is the ideal candidate for direct measurement of two-temperature photosphere due to starspots.
@@ -68,22 +74,16 @@ We extend a new spectral forward modeling framework to include two-temperature p
 
 
 \subsection{Full-spectrum fitting framework}
-% Motivation: The questions we want to answer
-Modeling the periodic light curves of spotted stars can answer these questions: ``What evidence is there to support the existence of starspots.  What constraint can be placed on the effective temperature contrast and areal coverage of the starspots?  What is the longitudinal assymetry of the spots?  ''.  As pointed out by CITE XX, cyclical light curve variations indicate only the longitudinally assymetric component of the star spots.  Photometric modeling of the light curve produces degenerate estimates in the temperature contrast and areal coverage fraction.  For example, CITE XX achieved XX.  
-
-By modeling the composite \emph{spectrum} of a spotted star, it is possible to directly measure the collective areal coverage and effective temperature contrast.  A stellar spectrum with a longitudinaly symmetric distribution of starspots, or a pole-on star with a single spot, or a non-rotating star would all show zero amplitude of photometric variability, yet they all contain star spots.  Spectroscopic modeling can still measure the starspot properties in these cases.  
-
-In principle, more advanced questions could be asked about the properties of the spots: ``How many distinct spot groups are there?  Is there evidence for both hot spots and cool spots?  What is the longitudinal distribution of the spots?  What is the (co-)latitudinal distribution of the spots?  What is the distribution of effective temperature within a spot or spot group?  What are the morphologies of the spots?''.  Solving these questions would require a complex model comparison framework, combining all available data and lines of evidence from photometric, spectroscopic, and spectropolarimetric monitoring.  We seek to answer the much easier questions about the aggregate properties of the stellar photosphere, assuming the star is well described by two distinct photospheric components.  
 
 % Motivation:  Why sampling?  Why full spectrum fitting?
 
-A main motivating factor in designing our methodology was our wish to adress this question for a given spectrum: ``Is the spectrum consistent with the non-detection of starspots, and to what level of confidence can the detection of starspots be reported?''.  In order to answer this question, we need some way to gauge the uncertainty in the derived stellar properties, which we assumed would have some level of degeneracy among themselves.  For example, we expect the best fit effective temperature contrast will be partially degenerate with the areal coverage fraction: a slightly cooler, smaller sunspot can masquerade as a larger, warmer spot.  This degeneracy should be lessened in spectroscopic methods compared to photometric methods.  The desire to reveal these intra-parameter degeneracies motivated the choice of \emph{sampling} from the posterior probability density distribution function.
+A main motivating factor in designing our methodology was our wish to address for a given spectrum, the question: ``Is the spectrum consistent with the non-detection of starspots, and to what level of confidence can the properties of starspots be measured?''.  In order to answer this question, we need some way to gauge the uncertainty in the derived stellar properties, which we assumed would have some level of degeneracy among themselves.  For example, we expect the best fit effective temperature contrast will be partially degenerate with the areal coverage fraction: a slightly cooler, smaller sunspot can masquerade as a larger, warmer spot.  This degeneracy should be lessened in spectroscopic methods compared to photometric methods.  The desire to reveal these intra-parameter degeneracies motivated the choice of \emph{sampling} from the posterior probability density distribution function.
 
 % Overview and summary of existing model
 
 We adopted and extended an existing modular framework for spectral inference \citep[][hereafter \iancze]{2015ApJ...812..128C}.  We briefly summarize the model here for carity of notation, but see \iancze for more details.  We follow and expand the notation from \iancze, all summarized in Table \ref{table:params}. 
 
-The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR= \vD - \vM$.  The model encapsulates the major intrinstic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
+The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR= \vD - \vM$.  The model encapsulates the major intrinsic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
 
 \begin{eqnarray} \label{eqn:scaling}
 \vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
@@ -92,22 +92,42 @@ The main idea is that \iancze define a pixel-level forward model $\vM$ of the da
 
 The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  We use the \PHOENIX model grid \citep{2013A&A...553A...6H}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
 
-\subsection{Approach 1: Deriving unique Teff in each order}
+\subsection{Model design and implementation considerations}
 
-The model $\vM(\vT)$ was intended to apply a single set of stellar parameters to the entire wavelength range of interest, presumably the entire available spectrum.  For a spectrum from a multi-order echelle spectrograph, this means each spectral order is fit with the same stellar parameters.  Simultaneous fitting is the desired behavior for most applications involving a single stellar photospheric component.  In our case, however, we know that a single stellar photospheric component is a poor model for the data: there are \emph{two} components lurking in the composite spectrum.  But depending on the star spot properties, a single stellar photosphere component might fit the composite spectrum satisfactorily, like if the flux contrast of the starspot is simply too low compared to the noise.
+\subsubsection{Approach 11: Whole spectrum with a single photospheric component (Czekala et al. 2015)}
+
+Approach 11 is identical to the strategy in \iancze.  The model $\vM(\vT)$ was intended to apply a single set of stellar parameters to the entire wavelength range of interest, presumably the entire available spectrum.  For a spectrum from a multi-order echelle spectrograph, this means each spectral order is fit with the same stellar parameters.  Simultaneous fitting is the desired behavior for most applications involving a single stellar photospheric component.  In our case, however, we know that a single stellar photospheric component is a poor model for the data: there are \emph{two or more components} lurking in the composite spectrum.  We anticipate that these fits would be too uninformative, so we did not implement Approach 11 on the whole spectrum.
+
+\textbf{Other things to say: Optical and IR will have slightly different RV, perhaps different vsini based on erroneous spectral resolution.  This method could work with liberal assignment of local kernels, and the development of new kernels that deal with line-width mis-matches.}
+
+\subsubsection{Approach 12: Deriving unique Teff in each order}
+
+In local chunks of wavelength, a single stellar photosphere component might fit the composite spectrum satisfactorily.  Some wavelength chunks will fit the warm photosphere lines better and other wavelength chunks will fit prominent lines from cool spots better.  Wavelength chunks possessing lines that are present in both cool and warm stars will yield mixed results.
 
 The starspot contrast depends on wavelength, roughly as the ratio of blackbodies.  Figure XX shows a plot of the flux ratio of two stellar photospheres with identical stellar properties except for different effective temperatures.  So a sufficiently large bandwidth spectrum could exhibit differing levels of fit quality as a function of wavelength, if a single temperature photosphere fit is naively applied to different chunks of wavelengths.  
 
-We modified the \iancze spectral inference framework to fit $\vM$ in each spectral order \emph{independently}: $\vT \rightarrow \vT_o$, where $o$ signifies the spectral order, which could stem from multiple spectrographs, each with multiple orders.  This change does not represent reality: the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The na\"ive single-component fit to different wavelength provide a plausibility argument for the presence of a second photospheric component if the derived $\vT_o$ show a spread in $\teff$.  It is conceivable that other parameters, like $\logg$ could show a dependence on wavelength if non-standard physics---\emph{i.e.}physics not included in the pre-computed model grid---mimics the effect of \emph{e.g.} $\logg$ on the spectrum.  For example, magnetic fields could cause Zeeman broadening, which could alter the derived stellar parameters $\vT_o$.  For these reasons, we intentionally allowed \emph{all} the stellar parameters $\vT_o = \{T_{\mathrm{eff},o}, \log{g_o}, \Z_o, \Omega_{o}, v\sin{i}_o, v_{r,o}\}$ to vary by order.  
+We modified the \iancze spectral inference framework to fit $\vM$ in each spectral order \emph{independently}: $\vT \rightarrow \vT_o$, where $o$ signifies the spectral order, which could stem from multiple spectrographs, each with multiple orders.  
+
+This change does not represent reality: by definition, the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The na\"ive single-component fit to different wavelength chunks merely provides a plausibility argument for the presence of a second photospheric component if the derived $\vT_o$ show a spread in $\teff$.  
+
+It is conceivable that other parameters, like $\logg$ could show a dependence on wavelength if non-standard physics---\emph{i.e.}physics not included in the pre-computed model grid---mimics the effect of \emph{e.g.} $\logg$ on the spectrum.  For example, magnetic fields could cause Zeeman broadening, which could alter the derived stellar parameters $\vT_o$.  For these reasons, we intentionally allowed \emph{all} the stellar parameters $\vT_o = \{T_{\mathrm{eff},o}, \log{g_o}, \Z_o, \Omega_{o}, v\sin{i}_o, v_{r,o}\}$ to vary by order.  
 
 In principle, one could refine the inference on $T_{\mathrm{eff},o}$ in an \emph{empirical Bayes'} strategy CITE (XX, astroML book?), in which we re-evaluate $\vT_o$ by setting priors on all the stellar parameters except $T_{\mathrm{eff},o}$.  We elected not to pursue an empirical Bayes' approach.
 
-As a side benefit, the strategy of fitting $\vT_o$ in each spectral order provides a useful check on our instrumental calibration. If the stellar parameters in one order are routinely discrepant, we can examine and refine our instrumental calibration for that spectral order.  For example, the radial velocity $v_r$ could be systematically offset in one order due to instrumental calibration problems.  Or perhaps the $v\sin{i}$ could show a dependence on wavelength, since the spectral inference framework from \iancze assumes the spectral resolution is fixed across all wavelengths, but typical spectrographs exhibit a small dependence of spectral resolution on wavelength.  
+As a side benefit, the strategy of fitting $\vT_o$ in each spectral order provides a useful check on instrumental calibration. If the stellar parameters in one order are routinely discrepant, we can examine and refine our instrumental calibration for that spectral order.  For example, the radial velocity $v_r$ could be systematically offset in one order due to instrumental calibration problems.  Or perhaps the $v\sin{i}$ could show a dependence on wavelength, since the spectral inference framework from \iancze assumes the spectral resolution is fixed across all wavelengths, but typical spectrographs exhibit a small dependence of spectral resolution on wavelength.  (cite the SICK paper)
 
 Spectral-order level granularity in fit quality is not available in a fit that includes all $N_{order}$ spectral orders.  In fact, the benefits of spectral chunking could be made \emph{even more granular} by chunking the spectrum into individual spectral lines or line-groups.  The fit quality could then be assessed on a line-by-line basis, even taking into account systematic effects like individual elemental abundance patterns beyond the coarse $\Z$ estimates.  Future improvements to the spectral inference framework are directed at implementing this spectral-line chunking strategy.  
 
+\subsubsection{Approach 21: Whole spectrum with two components}
 
-\subsection{Approach 2: Two component photosphere mixture model}
+Ideally what we want to do is fit the entire spectrum with a two (or three, or $N_c-$component photosphere).  If we believe our model, the entire emergent spectrum of the star should be described by a single set of stellar parameters.  If nature had truly delivered a noisy version of this model, the large wavelength coverage of the 
+
+\subsubsection{Approach 22: Order-by-order with two components}
+
+
+\subsection{Implementation}
+
+\subsubsection{Mixture model definitions}
 
 We construct a mixture model spectrum of the form:
 

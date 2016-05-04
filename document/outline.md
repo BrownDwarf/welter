@@ -8,6 +8,7 @@
 - Methodology
 	- Full-spectrum fitting framework
 		- Motivation for sampling- the questions we want to answer
+		- Uncertain stellar parameters can be marginalized out
 		- Overview and summary of existing model
 	- Tradeoffs in wavelength coverage and number of stellar components.
 		- Approach 11: Whole spectrum with a single-component (Czekala et al. 2015)
