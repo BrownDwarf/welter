@@ -11,6 +11,7 @@
 		- Uncertain stellar parameters can be marginalized out
 		- Overview and summary of existing model
 	- Tradeoffs in wavelength coverage and number of stellar components.
+	  - FIGURE: Matrix of Approaches
 		- Approach 11: Whole spectrum with a single-component (Czekala et al. 2015)
 			- Bad model for *all* the data, doomed to have a bad fit.
 		- Approach 12: Order-by-order with a single-component
@@ -26,20 +27,28 @@
 		- FIGURE: New PGM(s)
 		- FIGURE: Mixture model spectrum
 - Observations
+	- Photometry
+		- Grankin/ASASSN
 	- IGRINS spectroscopy
 	- ESPaDOnS archival
 	- Where in the phase of variability were the spectra taken?
+	- Figures:
+		- Plot of Grankin sine curve inter/extra- polated to observation dates
 - Results
 	- Result 11
 	- Result 12
 	- Result 22
+	- FIGURE: Illustration of fit quality: model overplotted on data
+		- O'Neal OH Region
+	- FIGURE: Illustration of fit quality: model overplotted on data
+		- Neff TiO region
+	- FIGURE: Joint-plot of Teff2 vs Fill Factor
+	- FIGURE: Teff as a function of order (i.e. wavelength)
+	- Result from Photometry
+		- Figure: Model fit to light-curve
 - Discussion
 	- Interpretation of distribution of stellar properties
 	- Longitudinal/latitudinal spot distributions and phase
 	- Address limitations of assumptions made in Methodology section
 - Appendix
 	- Testing and tuning the mixture model
-
-## Stretch goals
-
-- Predicted limit for how small a signal we could detect

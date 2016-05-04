@@ -92,15 +92,26 @@ The main idea is that \iancze define a pixel-level forward model $\vM$ of the da
 
 The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  We use the \PHOENIX model grid \citep{2013A&A...553A...6H}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
 
-\subsection{Model design and implementation considerations}
 
-\subsubsection{Approach 11: Whole spectrum with a single photospheric component (Czekala et al. 2015)}
+\begin{tabular}{ r| p{5cm} | p{5cm} | }
+\multicolumn{1}{r}{}
+ &  \multicolumn{1}{c}{Whole spectrum (Gibbs Sampling)}
+ & \multicolumn{1}{c}{Order-by-order (emcee)} \\
+\cline{2-3}
+Single component photosphere & \citet{2015ApJ...812..128C}: Poor model for spotted stars & Sec. \ref{sec:approach12}- plausible evidence for starspots if $\teff$ varies with order \\
+\cline{2-3}
+Two component photosphere & \ref{sec:approach21}- Statistically principled inference on starspot properties given the whole spectrum.  But strongly correlated dimensions impose challenge on MCMC tuning. & \ref{sec:approach22}- Multiple independent posteriors of starspot properties.  But combining inferences is heuristic.  \\
+\cline{2-3}
+\end{tabular}
+
+\subsection{Approach 11: Whole spectrum with a single photospheric component (Czekala et al. 2015)}
 
 Approach 11 is identical to the strategy in \iancze.  The model $\vM(\vT)$ was intended to apply a single set of stellar parameters to the entire wavelength range of interest, presumably the entire available spectrum.  For a spectrum from a multi-order echelle spectrograph, this means each spectral order is fit with the same stellar parameters.  Simultaneous fitting is the desired behavior for most applications involving a single stellar photospheric component.  In our case, however, we know that a single stellar photospheric component is a poor model for the data: there are \emph{two or more components} lurking in the composite spectrum.  We anticipate that these fits would be too uninformative, so we did not implement Approach 11 on the whole spectrum.
 
 \textbf{Other things to say: Optical and IR will have slightly different RV, perhaps different vsini based on erroneous spectral resolution.  This method could work with liberal assignment of local kernels, and the development of new kernels that deal with line-width mis-matches.}
 
-\subsubsection{Approach 12: Deriving unique Teff in each order}
+\subsection{Approach 12: Deriving unique Teff in each order}
+\label{sec:approach12}
 
 In local chunks of wavelength, a single stellar photosphere component might fit the composite spectrum satisfactorily.  Some wavelength chunks will fit the warm photosphere lines better and other wavelength chunks will fit prominent lines from cool spots better.  Wavelength chunks possessing lines that are present in both cool and warm stars will yield mixed results.
 
@@ -118,14 +129,16 @@ As a side benefit, the strategy of fitting $\vT_o$ in each spectral order provid
 
 Spectral-order level granularity in fit quality is not available in a fit that includes all $N_{order}$ spectral orders.  In fact, the benefits of spectral chunking could be made \emph{even more granular} by chunking the spectrum into individual spectral lines or line-groups.  The fit quality could then be assessed on a line-by-line basis, even taking into account systematic effects like individual elemental abundance patterns beyond the coarse $\Z$ estimates.  Future improvements to the spectral inference framework are directed at implementing this spectral-line chunking strategy.  
 
-\subsubsection{Approach 21: Whole spectrum with two components}
+\subsection{Approach 21: Whole spectrum with two components}
+\label{sec:approach21}
 
 Ideally, we want to fit the entire spectrum with a two component photosphere.  If we believe our model, the entire emergent spectrum of the star should be described by a single set of stellar parameters.  In other words, if nature had truly delivered a noisy version of this model, the ability to measure starspot properties would scale with the number of spectral channels (to some power).
 
 Unfortunately there are two main limitations of Approach 21.  First, the Metropolis-Hastings Gibbs sampling is dramatically complicated by increasing from 6 to 8 stellar parameters: $theta-original to theta-multicomponent$.  The details of the problem are summarized in Section \ref{sec:MC-challenges}.
 
 
-\subsubsection{Approach 22: Order-by-order with two components}
+\subsection{Approach 22: Order-by-order with two components}
+\label{sec:approach22}
 
 Finally, Approach 22 is two sample each spectral order with a unique two-component photosphere model: 
 
