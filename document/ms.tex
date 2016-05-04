@@ -77,7 +77,7 @@ We extend a new spectral forward modeling framework to include two-temperature p
 
 % Motivation:  Why sampling?  Why full spectrum fitting?
 
-A main motivating factor in designing our methodology was our wish to address for a given spectrum, the question: ``Is the spectrum consistent with the non-detection of starspots, and to what level of confidence can the properties of starspots be measured?''.  In order to answer this question, we need some way to gauge the uncertainty in the derived stellar properties, which we assumed would have some level of degeneracy among themselves.  For example, we expect the best fit effective temperature contrast will be partially degenerate with the areal coverage fraction: a slightly cooler, smaller sunspot can masquerade as a larger, warmer spot.  This degeneracy should be lessened in spectroscopic methods compared to photometric methods.  The desire to reveal these intra-parameter degeneracies motivated the choice of \emph{sampling} from the posterior probability density distribution function.
+A main motivating factor in designing our methodology was our wish to address the question: ``Is a given spectrum consistent with the non-detection of starspots, and to what level of confidence can the properties of starspots be measured given uncertain stellar properties?''.  In order to answer this question, we need some way to gauge the uncertainty in the derived stellar properties, which we assumed would have some level of degeneracy among themselves.  For example, we expect the best fit effective temperature contrast will be partially degenerate with the areal coverage fraction: a slightly cooler, smaller sunspot can masquerade as a larger, warmer spot.  This degeneracy should be lessened in spectroscopic methods compared to photometric methods.  The desire to reveal these intra-parameter degeneracies motivated the choice of \emph{sampling} from the posterior probability density distribution function.
 
 % Overview and summary of existing model
 
@@ -120,9 +120,20 @@ Spectral-order level granularity in fit quality is not available in a fit that i
 
 \subsubsection{Approach 21: Whole spectrum with two components}
 
-Ideally what we want to do is fit the entire spectrum with a two (or three, or $N_c-$component photosphere).  If we believe our model, the entire emergent spectrum of the star should be described by a single set of stellar parameters.  If nature had truly delivered a noisy version of this model, the large wavelength coverage of the 
+Ideally, we want to fit the entire spectrum with a two component photosphere.  If we believe our model, the entire emergent spectrum of the star should be described by a single set of stellar parameters.  In other words, if nature had truly delivered a noisy version of this model, the ability to measure starspot properties would scale with the number of spectral channels (to some power).
+
+Unfortunately there are two main limitations of Approach 21.  First, the Metropolis-Hastings Gibbs sampling is dramatically complicated by increasing from 6 to 8 stellar parameters: $theta-original to theta-multicomponent$.  The details of the problem are summarized in Section \ref{sec:MC-challenges}.
+
 
 \subsubsection{Approach 22: Order-by-order with two components}
+
+Finally, Approach 22 is two sample each spectral order with a unique two-component photosphere model: 
+
+$$ theta by order$$. 
+
+In this case we altered the \iancze framework from a blocked Gibbs sampler with Metropolis-Hastings proposals to an affine invariant ensemble sampler with all stellar and nuisance parameters sampled simultaneously.  
+
+This strategy has the \emph{disadvantage} that there is no statistically principled way to combine the $N_{ord}$ inferences from the set of $\theta$ at the end.  There are many \emph{heuristic} ways to estimate the inferences at the end.  
 
 
 \subsection{Implementation}
@@ -206,8 +217,9 @@ $A_{\lambda}$ & Extinction towards the source & Y & \iancze \\
 
 
 \subsection{Challenges: Tuning the transition probability matrix}
+\label{sec:MC-challenges}
 
-Once we have the mixture model in hand, we can apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($\Omega_b, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$ CITE XX, so our 2 new parameters increased the tuning parameters from 15 to 36!  The tuning parameters are covariances between dimensions in the proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $\teffa, \teffb, \Omega_a, \Omega_b$ terms are likely to be correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.  We experimented with some of these transformations and found that the existing sampling was best, although still correlated.
+Once we have the mixture model in hand, we can apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($\Omega_b, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$ CITE XX, so our 2 new parameters increased the tuning parameters from 15 to 36.  The tuning parameters are covariances between dimensions in the proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $\teffa, \teffb, \Omega_a, \Omega_b$ terms are likely to be correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.  We experimented with some of these transformations and found that the existing stellar parameters were best, although still unacceptably correlated.
 
 
 \section{Observations}\label{sec:obs} 
@@ -223,13 +235,17 @@ We combined our IGRINS spectroscopy with existing ESPaDOnS panchromatic optical 
 
 \section{Results}
 
-\subsection{Result 1: Signal from deriving $\teff$ in each IGRINS order}
+\subsection{Result 12: Signal from deriving $\teff$ in each IGRINS order}
 
 We compared the IGRINS spectrum of \name to the \PHOENIX grid of pre-computed synthetic model spectra \citep{2013A&A...553A...6H}.  
 
 We modified the default implementation by chunking the spectrum into 58 of its cleanest spectral orders and deriving the stellar parameters $\vt_{\ast,m}$ \emph{independently} in each $m^{\mathrm{th}}$ order.  We therefore have 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The figure shows a dramatic effect: \textbf{The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.}  
 
 We interpret the cooler temperatures derived at $K-$band as the presence of sunspots contributing more flux at longer wavelengths, as shown in the bottom panel of Figure \ref{fig:teffOrder}.  Here we show the absolute flux ratio, $f_{\lambda, B} / f_{\lambda, A}$ at two different temperatures: $T_\textrm{eff,A} = 4100$ and $T_\textrm{eff,B} = 3300$.  We present the ratio of two synthetic spectra from Phoenix (blue solid line), and the black body ratio (red dashed line).  
+
+Table \ref{tbl_order_results} lists the values of Teff for all orders.
+
+\input{tables/tbl_order_results.tex}
 
 We further performed a plausibility check to constrain the effect size of starspots.  We generated flux calibrated spectra at two temperatures, and forward-modeled them to resemble the LkCa4 IGRINS and ESPaDOnS spectra in all other ways (\emph{i.e.} $\logg, \Z, \vt_{\rm ext}$), including noise and calibration parameters.  We coadded the spectra in a mixture model:  $ \mathsf{M}_{mix} = c \cdot \mathsf{M}_A(T_\textrm{eff,A}) + (1-c) \cdot \mathsf{M}_B(T_\textrm{eff,B})$.  We chose a fill factor of starspots of 30\%.  We then re-ran our single-temperature fitting procedure on the two-temperature, synthetic, noised-up data to see what stellar parameters one would na\"{\i}vely derive.  The noised-up optical data yields $\teff \sim 4100$ K, close to that of the A component.  We are awaiting the results from $K-$ band at the time of writing.
 
@@ -249,15 +265,11 @@ We measured the effective temperature in \emph{each of the 43 spectral orders} o
 	\label{fig:teffOrder}
 \end{figure*}
 
-\subsection{Result 2: Effect size from fitting synthetic data order-by-order}
-
-\subsection{Result 3: Direct measurement of spot properties with mixture model}
+\subsection{Result 22: Direct measurement of spot properties with mixture model}
 
 \section{Discussion}
 
 \subsection{Interpretation of distribution of stellar properties from Results 1 + 2}
-
-\subsection{Interpretation of star spot properties from Result 3}
 
 \subsection{Longitudinal / latitudinal spot distributions and phase}
 
