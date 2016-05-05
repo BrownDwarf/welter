@@ -229,12 +229,6 @@ $A_{\lambda}$ & Extinction towards the source & Y & \iancze \\
 \end{deluxetable}
 
 
-\subsection{Challenges: Tuning the transition probability matrix}
-\label{sec:MC-challenges}
-
-Once we have the mixture model in hand, we can apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($\Omega_b, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$ CITE XX, so our 2 new parameters increased the tuning parameters from 15 to 36.  The tuning parameters are covariances between dimensions in the proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $\teffa, \teffb, \Omega_a, \Omega_b$ terms are likely to be correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.  We experimented with some of these transformations and found that the existing stellar parameters were best, although still unacceptably correlated.
-
-
 \section{Observations}\label{sec:obs} 
 
 \subsection{IGRINS Spectroscopy}\label{sec:igrins} 
@@ -245,7 +239,9 @@ We combined our IGRINS spectroscopy with existing ESPaDOnS panchromatic optical 
 
 \subsection{At what phase of variability were the spectra acquired?}
 
-Figure XX shows the data of XX plotted from the interval X-Y.  Our IGRINS observation dates of Z and Q show that the spectra were probably acquired during a phase of XX.  The ESPaDoNs spectra were at a phase of Z, indicating...
+Figure XX shows the ASASSN X-band monitoring plotted from the interval X-Y.  Our IGRINS observation dates of Z and Q show that the spectra were probably acquired during a phase of XX.  The ESPaDoNs spectra were at a phase of Z, indicating...
+
+We fit all the data in the interval X to Z in the following way:
 
 \begin{figure*}
 	\centering
@@ -256,13 +252,12 @@ Figure XX shows the data of XX plotted from the interval X-Y.  Our IGRINS observ
 
 \section{Results}
 
+\subsection{Result 11}
+We expect that applying approach 11 (single component to all orders , \iancze) is a poor model for our multicomponent stellar data and would therefore yield a poor quality fit.  Nevertheless we experimented with a single temperature fit to $N_{ord}=X$ IGRINS spectral orders with X samples sampling Theta and Phi parameters in the blocked Gibbs sampler identically to \iancze.  We found relatively poor fit quality, with large typical residuals of X.  The poor fit is exemplified in the top panel of Figure X which shows the observed spectrum in the region of the X line.  The best fit model with theta = [x, y, z] does not achieve a good fit of the X line.  
+
 \subsection{Result 12: Signal from deriving $\teff$ in each IGRINS order}
 
-We compared the IGRINS spectrum of \name to the \PHOENIX grid of pre-computed synthetic model spectra \citep{2013A&A...553A...6H}.  
-
-We modified the default implementation by chunking the spectrum into 58 of its cleanest spectral orders and deriving the stellar parameters $\vt_{\ast,m}$ \emph{independently} in each $m^{\mathrm{th}}$ order.  We therefore have 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The figure shows a dramatic effect: \textbf{The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.}  
-
-We interpret the cooler temperatures derived at $K-$band as the presence of sunspots contributing more flux at longer wavelengths, as shown in the bottom panel of Figure \ref{fig:teffOrder}.  Here we show the absolute flux ratio, $f_{\lambda, B} / f_{\lambda, A}$ at two different temperatures: $T_\textrm{eff,A} = 4100$ and $T_\textrm{eff,B} = 3300$.  We present the ratio of two synthetic spectra from Phoenix (blue solid line), and the black body ratio (red dashed line).  
+We chunked the IGRINS spectrum into $N_{ord}=$58 of its cleanest spectral orders and derived the stellar parameters $\vt_{\ast,m}$ independently in each $m^{\mathrm{th}}$ order.  We found 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The figure shows a dramatic effect: \textbf{The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.}
 
 Table \ref{tbl_order_results} lists the values of Teff for all orders.
 
@@ -288,9 +283,24 @@ We measured the effective temperature in \emph{each of the 43 spectral orders} o
 
 \subsection{Result 22: Direct measurement of spot properties with mixture model}
 
+Figure XX shows the joint posterior probability density distribution of $\teffb$ versus $f$ calculated independently for $N_{ord}=25$ IGRINS orders.  
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/Star_spot_measurement} 
+	\caption{Effective temperature as derived by different orders.}
+	\label{fig:StarspotProperties}
+\end{figure*}
+
+
 \section{Discussion}
 
 \subsection{Interpretation of distribution of stellar properties from Results 1 + 2}
+
+We interpret the cooler temperatures derived at $K-$band in Approach 12 as the presence of sunspots contributing more flux at longer wavelengths, as shown in the bottom panel of Figure \ref{fig:teffOrder}.  Here we show the absolute flux ratio, $f_{\lambda, B} / f_{\lambda, A}$ at two different temperatures: $T_\textrm{eff,A} = 4100$ and $T_\textrm{eff,B} = 3300$.  We present the ratio of two synthetic spectra from Phoenix (blue solid line), and the black body ratio (red dashed line).  
+
+The systematically different teffs seen in Approach 12 could also be attributable to magnetic fields (cite XX).
 
 \subsection{Longitudinal / latitudinal spot distributions and phase}
 
@@ -310,6 +320,12 @@ Table REF lists measurements of LkCa4 from previous studies.
 \input{tables/tbl_history.tex}
 
 In short, here is what we know about \name.  It is a weak-lined \emph{T-Tauri} star.  It exhibits a 3.36-3.37 day period \citep{1993AJ....106.1608V,1994IBVS.4042....1G}, as evinced by photometric monitoring in $BVRI$ bands.  No periodic signal is detected at $U-$band.  Section 5 of \citet{1993AJ....106.1608V}, ``More on the nature of CTT and WTT spots'' goes into detail about the whether the photometric variability is attributable to hot or cold patches.  \name has no detected M-type-or-earlier binary companion down to $0.13''$ \citep{1993A&A...278..129L}.  \name demonstrates variability in X-rays with ROSAT \citep{1994ApJ...424..237S}, with $L_{x}=2.4$ ergs/s.
+
+
+\section{Challenges: Tuning the transition probability matrix}
+\label{sec:MC-challenges}
+
+Once we have the mixture model in hand, we can apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($\Omega_b, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$ CITE XX, so our 2 new parameters increased the tuning parameters from 15 to 36.  The tuning parameters are covariances between dimensions in the proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $\teffa, \teffb, \Omega_a, \Omega_b$ terms are likely to be correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.  We experimented with some of these transformations and found that the existing stellar parameters were best, although still unacceptably correlated.
 
 
 \acknowledgements

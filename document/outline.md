@@ -11,7 +11,7 @@
 		- Uncertain stellar parameters can be marginalized out
 		- Overview and summary of existing model
 	- Tradeoffs in wavelength coverage and number of stellar components.
-	  - FIGURE: Matrix of Approaches
+	  - ~~FIGURE: Matrix of Approaches~~
 		- Approach 11: Whole spectrum with a single-component (Czekala et al. 2015)
 			- Bad model for *all* the data, doomed to have a bad fit.
 		- Approach 12: Order-by-order with a single-component
@@ -22,8 +22,8 @@
 			- What we actually did
 		- FIGURE: Flux ratio of photospheric components- Phoenix, BB.	 
 	- Implementation
-		- Mixture model definitions
-		- TABLE: Parameter definitions
+		- ~~Mixture model definitions~~
+		- ~~TABLE: Parameter definitions~~
 		- FIGURE: New PGM(s)
 		- FIGURE: Mixture model spectrum
 - Observations
@@ -33,7 +33,7 @@
 	- ESPaDOnS archival
 	- Where in the phase of variability were the spectra taken?
 	- Figures:
-		- Plot of Grankin sine curve inter/extra- polated to observation dates
+		- ~~Plot of ASASSN sine curve inter/extra- polated to observation dates~~
 - Results
 	- Result 11
 	- Result 12
