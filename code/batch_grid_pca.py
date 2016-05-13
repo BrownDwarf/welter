@@ -17,6 +17,7 @@ for m in ms:
     os.chdir(path_out)
 
     # Do all the grid.py and pca.py setup.
+    os.makedirs('libraries', exist_ok=True)
     os.system('grid.py --create')
     os.system('pca.py --create')
     os.system('pca.py --optimize=emcee --samples=30')
