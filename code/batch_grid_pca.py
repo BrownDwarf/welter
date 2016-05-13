@@ -4,7 +4,8 @@ import yaml
 import numpy as np 
 import h5py
 
-ms = range(98, 125)
+#ms = range(98, 125)
+ms = range(71, 96+1)
 
 os.chdir(os.path.expandvars('$WELTER/sf/'))
 
@@ -12,7 +13,6 @@ os.getcwd()
 
 for m in ms:
 
-    dat_name = '../../data/reduced/LkCa4_IGRINS_m{:03d}.hdf5'.format(m)
     path_out = 'm{:03d}/'.format(m)
     os.chdir(path_out)
 
