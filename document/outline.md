@@ -28,7 +28,7 @@
 		- FIGURE: Mixture model spectrum
 - Observations
 	- Photometry
-		- Grankin/ASASSN
+		- ASASSN
 	- IGRINS spectroscopy
 	- ESPaDOnS archival
 	- Where in the phase of variability were the spectra taken?
