@@ -7,6 +7,9 @@ sf/plts
 *.log
 log.log
 
+#Ignore the batch rsync file because it has IP addresses hardcoded
+../code/batch_rsync.py
+
 # Intermediate model files.
 mixture_model.json
 model_A_spec.json
