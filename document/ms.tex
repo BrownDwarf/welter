@@ -98,30 +98,43 @@ where $\vM$ is the pixel-level forward model of a spectrum, and we assume the st
 f = \frac{\Omega_b}{\Omega_a + \Omega_b}
 \end{eqnarray}
 
-The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{2013PASP..125..306F}.  The affine-invariant ensemble sampler is more resilient to correlations expected among starspot temperature and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  There is no principled way to combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$, but there are ample heuristics like taking the weighted average of the $o$ sets of marginalized posterior distributions functions.  
+The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{2013PASP..125..306F}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among starspot temperature and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  There is no principled way to combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$, but there are ample heuristics like taking the weighted average of the $o$ sets of marginalized posterior distributions functions.
 
 
-
-\section{Observations}\label{sec:obs} 
+\section{Observations and data mining}\label{sec:obs} 
 
 \subsection{IGRINS Spectroscopy}\label{sec:igrins} 
-We acquired observations with IGRINS on the Harlan J. Smith Telescope at McDonald Observatory on 2015-11-18 $09^h$ UTC.  The Immersion Grating Infrared Spectrograph, IGRINS \citep{2014SPIE.9147E..1DP,2012SPIE.8450E..2SG}, is a high resolution near-infrared echelle spectrograph providing simultaneous $R\simeq45,000$ spectra over 1.48-2.48\um.  The spectrograph has two arms with 28 orders in $H-$band and 25 orders in $K-band$.
+We acquired observations with the Immersion Grating Infrared Spectrograph, IGRINS \citep{2014SPIE.9147E..1DP,2012SPIE.8450E..2SG} on the Harlan J. Smith Telescope at McDonald Observatory on 2015-11-18 $09^h$ UTC.  IGRINS is a high resolution near-infrared echelle spectrograph providing simultaneous $R\simeq45,000$ spectra over 1.48-2.48\um.  The spectrograph has two arms with 28 orders in $H-$band and 25 orders in $K-band$.  The data were reduced with the Pipeline Package (citeXX).  We performed telluric correction by dividing the spectrum of \name by an A0V star observed near-contemporaneously at similar air-mass.  The broad hydrogen lines in the A0V star produced broad flux excesses in the spectrum of \name.  No effort was made to remove these flux excesses, which affect several spectral orders. 
+%List the spectral orders these lines affect.
 
 \subsection{ESPaDOnS Spectroscopy}
-We combined our IGRINS spectroscopy with existing ESPaDOnS panchromatic optical echelle spectra to provide 88 spectral orders between 5100 and 25000 \AA \citep{2014MNRAS.444.3220D}.
+We combined our IGRINS spectroscopy with existing ESPaDOnS panchromatic optical echelle spectra to provide 88 spectral orders between 5100 and 25000 \AA \citep{2014MNRAS.444.3220D}.  There are 12 spectra observed over the 13 days between JD 2456665.72 and 2456678.90.  
 
-\subsection{At what phase of variability were the spectra acquired?}
+\subsection{Photometric monitoring from ASASSN and \citet{grankin08}}
 
-Figure XX shows the ASASSN X-band monitoring plotted from the interval X-Y.  Our IGRINS observation dates of Z and Q show that the spectra were probably acquired during a phase of XX.  The ESPaDoNs spectra were at a phase of Z, indicating...
+We retrieved $V-$band monitoring from the ASASSN survey (citeXX).  This data covered 2012 January - 2016 March.  The 777 raw data points included near-contemporaneous measurements from repeated observations during the same visits, which lasted typically $<10$ minutes.  We grouped datapoints by these visits yielding 186 data points, assigning a mean value and standard deviation when there was more than 1 observation per visit, enforcing a floor uncertainty of 0.01, the native quoted uncertainty of the data points.  We assigned the native uncertainty of 0.01 when there was only a single observation per visit.
 
-We fit all the data in the interval X to Z in the following way:
+We also retrieved $V-$band monitoring from \citet{grankin08} which covers 1992 August - 2004 October with 284 data points.  Of those, 278 have $B-V$, 268 have $V-R$, and 18 have $U-B$.  We also compiled the 10 additional $V-$band photometric data points provided in \citet{2014MNRAS.444.3220D}.
+
+Figure \ref{fig:PhotTime} assembles the \citet{grankin08} and ASASSN $V-$band monitoring plotted over the interval 1992-2016.  The dates of observations of the IGRINS spectra and ESPaDoNs spectra are demarcated as vertical lines.
 
 \begin{figure*}
 	\centering
-	\includegraphics[width=0.95\textwidth]{figures/phase_folded_lightcurve.pdf}
-	\caption{Phase of photometry at the time of IGRINS measurement}
+	\includegraphics[width=0.95\textwidth]{figures/LkCa4_phot1992-2016.pdf}
+	\caption{\name $V-$band photometric monitoring from 1992-2016.}
+	\label{fig:PhotTime}
+\end{figure*}
+
+Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V-$band data grouped by the 17 available observing seasons.  We folded the phase by a period $P=3.375$ days, which is the median position of the peaks of the multiterm ($M_{\rm max} = 4$) Lomb-Scargle periodogram derived separately from each of the 17 observing seasons.  The standard deviation of the 17 periodogram peaks was 0.003 days.  The general appearance of the phase-folded lightcurves do not change with perturbations to the period on the scale of 0.003 days.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/all_LCs_phase.pdf}
+	\caption{Phase-folded lightcurves constructed assuming the same period for all observing seasons.  The blue solid lines show a multi-term periodic fit keeping the first $M_{\rm max}=4$ Fourier components.  The vertical lines show the epochs of observations for available spectroscopy.  The unchanged vertical scale highlights the secular drift of the light curve amplitude and morphology.}
 	\label{fig:PhotPhase}
 \end{figure*}
+
+
 
 \section{Results}
 
