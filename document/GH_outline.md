@@ -22,7 +22,7 @@
      -Teff, HR diagram
      -temperatures from GAIA-ESO, APOGEE, TiO (Luhman)
      -cool spot or hot spot?  inclination?  consistency with Donati+?
-     
+
 
 ==================
 

@@ -125,7 +125,7 @@ Figure \ref{fig:PhotTime} assembles the \citet{grankin08} and ASASSN $V-$band mo
 	\label{fig:PhotTime}
 \end{figure*}
 
-Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V-$band data grouped by the 17 available observing seasons.  We folded the phase by a period $P=3.375$ days, which is the median position of the peaks of the multiterm ($M_{\rm max} = 4$) Lomb-Scargle periodogram derived separately from each of the 17 observing seasons.  The standard deviation of the 17 periodogram peaks was 0.003 days.  The general appearance of the phase-folded lightcurves do not change with perturbations to the period on the scale of 0.003 days.
+Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V-$band data grouped by the 17 observing seasons.  We folded the phase by a period $P=3.375$ days, which is the median position of the peaks of the multiterm ($M_{\rm max} = 4$) Lomb-Scargle periodogram derived separately from each of the 17 observing seasons.  The standard deviation of the 17 periodogram peaks was 0.003 days.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  We estimated $\hat V$, the $V-$band magnitude at the time of the spectral observations, from the multiterm fit shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists $\hat V$ and the observing epoch for the spectral observations with ESPaDoNs and IGRINS.
 
 \begin{figure*}
 	\centering
@@ -136,14 +136,14 @@ Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V
 
 
 
-\section{Results}
+\input{tables/tbl_estV_atObsEpoch.tex}
 
-\subsection{Result 11}
-We expect that applying approach 11 (single component to all orders , \iancze) is a poor model for our multicomponent stellar data and would therefore yield a poor quality fit.  Nevertheless we experimented with a single temperature fit to $N_{ord}=X$ IGRINS spectral orders with X samples sampling Theta and Phi parameters in the blocked Gibbs sampler identically to \iancze.  We found relatively poor fit quality, with large typical residuals of X.  The poor fit is exemplified in the top panel of Figure X which shows the observed spectrum in the region of the X line.  The best fit model with theta = [x, y, z] does not achieve a good fit of the X line.  
+
+\section{Results}
 
 \subsection{Result 12: Signal from deriving $\teff$ in each IGRINS order}
 
-We chunked the IGRINS spectrum into $N_{ord}=$58 of its cleanest spectral orders and derived the stellar parameters $\vt_{\ast,m}$ independently in each $m^{\mathrm{th}}$ order.  We found 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The figure shows a dramatic effect: \textbf{The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.}
+We combined the IGRINS spectrum with the fourth ESPaDoNs spectrum from Table \ref{tbl_estimated_V}.  These spectra have comparable $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  We chunked the spectra into $N_{ord}=$58 of their cleanest spectral orders and derived the stellar parameters $\vt_{\ast,m}$ independently in each $m^{\mathrm{th}}$ order.  We found 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.
 
 Table \ref{tbl_order_results} lists the values of Teff for all orders.
 
