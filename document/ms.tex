@@ -143,7 +143,15 @@ Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V
 
 \subsection{Result 12: Signal from deriving $\teff$ in each IGRINS order}
 
-We combined the IGRINS spectrum with the fourth ESPaDoNs spectrum from Table \ref{tbl_estimated_V}.  These spectra have comparable $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  We chunked the spectra into $N_{ord}=$58 of their cleanest spectral orders and derived the stellar parameters $\vt_{\ast,m}$ independently in each $m^{\mathrm{th}}$ order.  We found 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:teffOrder}.  The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical.
+We combined the IGRINS spectrum with the fourth ESPaDoNs spectrum from Table \ref{tbl_estimated_V}.  These spectra have comparable $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  We chunked the spectra into $N_{ord}=$58 of their cleanest spectral orders and derived the stellar parameters $\vt_{\ast,m}$ independently in each $m^{\mathrm{th}}$ order.  We found 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:SingleTeffvsOrder}.  The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical or short-wavelength end of $H-$band.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/single_Teff_v_order}
+	\caption{Effective temperature as derived from unique full spectrum fitting to each of 58 spectral orders in the optical through infrared portions of the spectrum assuming a single component photosphere.  }
+	\label{fig:SingleTeffvsOrder}
+\end{figure*}
+
 
 Table \ref{tbl_order_results} lists the values of Teff for all orders.
 
@@ -159,13 +167,6 @@ The fit of a single-temperature forward-modeled spectrum to different regions of
 In principle, one could estimate the effective temperature \emph{evaluated independently for each spectral line}.  The line strength is often degenerate with other properties (\emph{e.g.} magnetic field, $\log{g}$, $[\mathrm{Fe}/\mathrm{H}]$, etc.), but \emph{on average} these correlations would be averaged over.
 
 We measured the effective temperature in \emph{each of the 43 spectral orders} of IGRINS.  Figure \ref{fig:teffOrder} plots each derived effective temperature value and uncertainty at the center position of each order.
-
-\begin{figure*}
-	\centering
-	\includegraphics[width=0.95\textwidth]{figures/teff_v_wl_example} 
-	\caption{Effective temperature as derived by different orders.}
-	\label{fig:teffOrder}
-\end{figure*}
 
 \subsection{Result 22: Direct measurement of spot properties with mixture model}
 
