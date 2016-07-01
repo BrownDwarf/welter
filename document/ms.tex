@@ -141,7 +141,7 @@ Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V
 
 \section{Results}
 
-\subsection{Result 12: Signal from deriving $\teff$ in each IGRINS order}
+\subsection{Na\"ieve Single Component spectral fit to each spectral order}
 
 We combined the IGRINS spectrum with the fourth ESPaDoNs spectrum from Table \ref{tbl_estimated_V}.  These spectra have comparable $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  We chunked the spectra into $N_{ord}=$58 of their cleanest spectral orders and derived the stellar parameters $\vt_{\ast,m}$ independently in each $m^{\mathrm{th}}$ order.  We found 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:SingleTeffvsOrder}.  The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical or short-wavelength end of $H-$band.
 
@@ -168,17 +168,51 @@ In principle, one could estimate the effective temperature \emph{evaluated indep
 
 We measured the effective temperature in \emph{each of the 43 spectral orders} of IGRINS.  Figure \ref{fig:teffOrder} plots each derived effective temperature value and uncertainty at the center position of each order.
 
-\subsection{Result 22: Direct measurement of spot properties with mixture model}
+\subsection{Two-temperature photophere model fit to each spectral order}
 
-Figure XX shows the joint posterior probability density distribution of $\teffb$ versus $f$ calculated independently for $N_{ord}=25$ IGRINS orders.  
+Figure \ref{fig:TwoTempResults} shows the starspot and photospheric temperature derived independently for 43 IGRINS orders.
+%% Things to say:
+% - Range of allowed temperatures and assumptions for each run
+% - H-band is tight
+% - Scatter in $K-Band$
+% - Telluric lines and other artifacts in the data
+% - Metal lines affected 
 
 
 \begin{figure*}
 	\centering
-	\includegraphics[width=0.95\textwidth]{figures/Star_spot_measurement} 
-	\caption{Effective temperature as derived by different orders.}
-	\label{fig:StarspotProperties}
+	\includegraphics[width=0.95\textwidth]{figures/LkCa4_HK_mixTeff_by_order} 
+	\caption{Two-temperature model properties, $\teffa$ and $\teffb$, derived independently from full-spectrum fitting 43 IGRINS orders.  The top panel denotes typical telluric transmission for all of the possible 54 IGRINS orders.  The derived effective temperatures show enhanced scatter in $K-$band.}
+	\label{fig:TwoTempResults}
 \end{figure*}
+
+
+
+%% Plot of all spectra (vis-a-vis the poster)
+%(In the appendix for now)
+%% Things to say:
+% - Systematics-dominated traps
+% - Metal lines, and derived [Fe/H]
+% - Calibration artifacts
+% - Nice agreement
+% - Not every order has strongly temperature-sensitive lines
+% - Orders with very strong lines at one temperature will dominate
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.39\textwidth]{figures/LkCa4_fill_vs_Teff2} 
+	\caption{Joint constraint on the temperature of starspots $\teffb$, and their observed solid-angular filling factor $f$.  Each data point and error bar are taken from Table \ref{tbl_order_results}, with the error bars therefore representing 2$\sigma$ errors.}
+	\label{fig:TwoTempResults}
+\end{figure*}
+
+%% Plot of starspot fill factor vs. Teff2
+%% Things to say:
+% - Many ways to combine the posteriors
+% - "Observed" fill factor
+% - Scatter
+% - Large range in fill factor is like adding a DC component and renormalizing
+
 
 
 \section{Monitoring the Spots of LkCa 4}
@@ -211,11 +245,6 @@ Needs a lot more.
 
 
 \subsection{Phased colors}
-
-
-
-
-
 
 
 
@@ -255,6 +284,26 @@ The systematically different teffs seen in Approach 12 could also be attributabl
 
 
 \appendix
+
+\section{Examples of full spectrum fitting}
+
+Figures \ref{fig:Hband3x7} and \ref{fig:Kband3x7} show spectra from 42 IGRINS orders.
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/H_band_spectra_3x7}
+	\caption{IGRINS Orders 94 and $99-119$.  Note that the $y-$axis is on a logarithmic scale.  }
+	\label{fig:Hband3x7}
+\end{figure*}
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/K_band_spectra_3x7}
+	\caption{IGRINS Orders $73-93$.  Note that the $y-$axis is on a logarithmic scale.  }
+	\label{fig:Kband3x7}
+\end{figure*}
+
 
 \section{Methodological details}
 \label{methods-details}

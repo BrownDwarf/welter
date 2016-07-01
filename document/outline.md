@@ -10,20 +10,20 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 	- Previous studies/techniques of Starspots
 	- Motication for LkCa4- biased selection as proof-of-concept, no disk
 - **Methodology**
-	- Simple description of two major changes to C15, point to detailed appendix
+	- :white_check_mark: Simple description of two major changes to C15, point to detailed appendix
 - **Observations**
-	- IGRINS spectroscopy
-	- ESPaDOnS archival
-	- Photometry
+	- :white_check_mark: IGRINS spectroscopy
+	- :white_check_mark: ESPaDOnS archival
+	- :white_check_mark: Photometry
 		- ASASSN
 		- Grankin
-	- Where in the phase of variability were the spectra taken?
-	- **Table 1-** Dates and inferred V
-	- **Figure 1** Overview of 17 seasons of photometry with observing epochs
-	- **Figure 2** Phase-folded 17 seasons plus observing epochs
+	- :white_check_mark: Where in the phase of variability were the spectra taken?
+	- :white_check_mark: **Table 1-** Dates and inferred V
+	- :white_check_mark: **Figure 1** Overview of 17 seasons of photometry with observing epochs
+	- :white_check_mark: **Figure 2** Phase-folded 17 seasons plus observing epochs
 - **Results from spectral fitting**
-	- Result from single-temperature fitting
-	- **Figure 3** Teff vs. Wavelength for single temp
+	- :soon: Result from single-temperature fitting
+	- :white_check_mark: **Figure 3** Teff vs. Wavelength for single temp
 	- Result from two-temperature fitting
 	- **Figure 4** Joint-plot of Teff2 vs Fill Factor
 	- **Figure 5** Teff as a function of order (i.e. wavelength)
@@ -63,19 +63,18 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 
 # Plot Summary
 
-1. Grankin and ASASSN photometric overview
-2. ASAS-SN rotation, long-term consistency, precession
-3. Single Temperature Fit Results: Teff vs. Wavelength
-4. Two-temperature fit plots:
-   - Triangle plot for one order
-   - Teff2 vs fill factor for all orders
-   - Example spectra, data compared to model, cherry picked regions
-5. Confirmation of results  
-	- Synthetic SED versus photometry  
-	- Colors versus rotation phase (V-R vs. V)
-  - TiO variability?
-  - Low-res spectral convolution
-6.  HR diagram
+1. :white_check_mark: Grankin and ASASSN photometric overview
+2. :white_check_mark: ASAS-SN rotation, long-term consistency, precession
+3. :white_check_mark: Single Temperature Fit Results: Teff vs. Wavelength
+4. :white_check_mark: Two Temperature Fit Results: Teff1, Teff2 vs Wavelength
+5. :white_check_mark: Teff2 vs fill factor for all orders
+6. Example spectra, data compared to model in cherry picked regions
+7. :white_check_mark: Synthetic SED versus flux-calibrated spectra
+8. :white_check_mark: TiO variability
+9. Colors versus rotation phase (V-R vs. V)
+10. :grey_question: Low-res spectral convolution
+11.  HR diagram
+12. :white_check_mark: All the spectra, one panel per order
 
 
 # Table Summary
@@ -83,6 +82,6 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 Table:
 ---------
 
-1. Estimated V photometry from phased light-curve analysis
-2. Teff vs. spectral order for all orders
+1. :white_check_mark: Estimated V photometry from phased light-curve analysis
+2. :white_check_mark: Teff vs. spectral order for all orders
 3. Final (best fit) Results:  v sin i, RV, T1, T2, A2, Av, L, M, age, etc....
