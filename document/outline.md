@@ -25,8 +25,8 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 	- :soon: Result from single-temperature fitting
 	- :white_check_mark: **Figure 3** Teff vs. Wavelength for single temp
 	- Result from two-temperature fitting
-	- **Figure 4** Joint-plot of Teff2 vs Fill Factor
-	- **Figure 5** Teff as a function of order (i.e. wavelength)
+	- :white_check_mark: **Figure 4** Teff1, Teff 2 vs. Wavelength for two temp
+	- :white_check_mark: **Figure 5** Joint-plot of Teff2 vs Fill Factor
 - **Confirmation of results from other methods**
 	- Reproduce colors, photometry
 		 -- Common sense of large covering fraction

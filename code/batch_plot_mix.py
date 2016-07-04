@@ -4,8 +4,9 @@ import yaml
 import numpy as np 
 import h5py
 
-ms = range(99, 119)
+#ms = range(99, 119)
 #ms = range(72, 94+1)
+ms = list(range(72, 94+1)) + list(range(99, 119))
 
 os.chdir(os.path.expandvars('$WELTER/sf/'))
 
