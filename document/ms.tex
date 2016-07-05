@@ -64,6 +64,10 @@ Modeling the periodic light curves of spotted stars can answer these questions: 
 
 By modeling the composite \emph{spectrum} of a spotted star, it is possible to directly measure the collective areal coverage and effective temperature contrast.  Spectroscopic modeling can still measure the starspot properties in pole-on stars, stars with longitudinally symmetric stars, and non-rotating stars.
 
+% Previous efforts to derive starspot properties via spectroscopy:
+
+%% Put in text here!
+
 In principle, more advanced questions could be asked about the properties of the spots: ``How many distinct spot groups are there?  Is there evidence for both hot spots and cool spots?  What is the longitudinal distribution of the spots?  What is the (co-)latitudinal distribution of the spots?  What is the distribution of effective temperature within a spot or spot group?  What are the morphologies of the spots?''.  Solving these questions would require a complex model comparison framework, combining all available data and lines of evidence from photometric, spectroscopic, and spectropolarimetric monitoring.  We seek to answer the much easier questions about the aggregate properties of the stellar photosphere, assuming the star is well described by two distinct photospheric components.  
 
 %\subsection{Previous studies of \name}
@@ -98,7 +102,7 @@ where $\vM$ is the pixel-level forward model of a spectrum, and we assume the st
 f = \frac{\Omega_b}{\Omega_a + \Omega_b}
 \end{eqnarray}
 
-The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{2013PASP..125..306F}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among starspot temperature and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  There is no principled way to combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$, but there are ample heuristics like taking the weighted average of the $o$ sets of marginalized posterior distributions functions.
+The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{2013PASP..125..306F}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  There is no principled way to combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$, but there are ample heuristics like taking the weighted average of the $o$ sets of marginalized posterior distributions functions.
 
 
 \section{Observations and data mining}\label{sec:obs} 
@@ -112,11 +116,11 @@ We combined our IGRINS spectroscopy with existing ESPaDOnS panchromatic optical 
 
 \subsection{Photometric monitoring from ASASSN and \citet{grankin08}}
 
-We retrieved $V-$band monitoring from the ASASSN survey (citeXX).  This data covered 2012 January - 2016 March.  The 777 raw data points included near-contemporaneous measurements from repeated observations during the same visits, which lasted typically $<10$ minutes.  We grouped datapoints by these visits yielding 186 data points, assigning a mean value and standard deviation when there was more than 1 observation per visit, enforcing a floor uncertainty of 0.01, the native quoted uncertainty of the data points.  We assigned the native uncertainty of 0.01 when there was only a single observation per visit.
+We retrieved $V-$band monitoring from the ASASSN survey \citep{2014ApJ...788...48S}.  This data covered 2012 January - 2016 March.  The 777 raw data points included near-contemporaneous measurements from repeated observations during the same visits, which lasted typically $<10$ minutes.  We grouped datapoints by these visits yielding 186 data points, assigning a mean value and standard deviation when there was more than 1 observation per visit, enforcing a floor uncertainty of 0.01, the native quoted uncertainty of the data points.  We assigned the native uncertainty of 0.01 when there was only a single observation per visit.
 
 We also retrieved $V-$band monitoring from \citet{grankin08} which covers 1992 August - 2004 October with 284 data points.  Of those, 278 have $B-V$, 268 have $V-R$, and 18 have $U-B$.  We also compiled the 10 additional $V-$band photometric data points provided in \citet{2014MNRAS.444.3220D}.
 
-Figure \ref{fig:PhotTime} assembles the \citet{grankin08} and ASASSN $V-$band monitoring plotted over the interval 1992-2016.  The dates of observations of the IGRINS spectra and ESPaDoNs spectra are demarcated as vertical lines.
+Figure \ref{fig:PhotTime} assembles the \citet{grankin08}, \citet{2014MNRAS.444.3220D}, and ASASSN $V-$band monitoring plotted over the interval 1992-2016.  The dates of observations of the IGRINS spectra and ESPaDoNs spectra are demarcated as vertical lines.
 
 \begin{figure*}
 	\centering
@@ -125,7 +129,7 @@ Figure \ref{fig:PhotTime} assembles the \citet{grankin08} and ASASSN $V-$band mo
 	\label{fig:PhotTime}
 \end{figure*}
 
-Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V-$band data grouped by the 17 observing seasons.  We folded the phase by a period $P=3.375$ days, which is the median position of the peaks of the multiterm ($M_{\rm max} = 4$) Lomb-Scargle periodogram derived separately from each of the 17 observing seasons.  The standard deviation of the 17 periodogram peaks was 0.003 days.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  We estimated $\hat V$, the $V-$band magnitude at the time of the spectral observations, from the multiterm fit shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists $\hat V$ and the observing epoch for the spectral observations with ESPaDoNs and IGRINS.
+Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V-$band data grouped by the 17 observing seasons.  We folded the phase by a period $P=3.375$ days, which is the median position of the peaks of the multiterm ($M_{\rm max} = 4$) Lomb-Scargle periodogram derived separately from each of the 17 observing seasons \citep{2014sdmm.book.....I}.  The standard deviation of the 17 periodogram peaks was 0.003 days.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  We estimated $\hat V$, the $V-$band magnitude at the time of the spectral observations, from a regularized multiterm fit \citep{2015ApJ...812...18V, Jake Vanderplas_2015} shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists $\hat V$ and the observing epoch for the spectral observations with ESPaDoNs and IGRINS.
 
 \begin{figure*}
 	\centering
@@ -135,15 +139,25 @@ Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V
 \end{figure*}
 
 
-
 \input{tables/tbl_estV_atObsEpoch.tex}
 
 
 \section{Results}
 
-\subsection{Na\"ieve Single Component spectral fit to each spectral order}
+\subsection{Single Component spectral fit to each spectral order}
 
-We combined the IGRINS spectrum with the fourth ESPaDoNs spectrum from Table \ref{tbl_estimated_V}.  These spectra have comparable $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  We chunked the spectra into $N_{ord}=$58 of their cleanest spectral orders and derived the stellar parameters $\vt_{\ast,m}$ independently in each $m^{\mathrm{th}}$ order.  We found 58 unique estimates for $\teff$ as a function of wavelength, which we compile in Figure \ref{fig:SingleTeffvsOrder}.  The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical or short-wavelength end of $H-$band.
+We performed spectral fitting on the ESPaDoNs spectrum acquired on 2014 January 11, the fourth spectrum from Table \ref{tbl_estimated_V}.  We chunked the spectrum into a subset of $N_{ord}=$26 spectral orders and performed full-spectrum fitting separately on each of these 26 spectral orders following the Metropolis-Hasting MCMC sampling procedure described in \iancze.  We employed the \PHOENIX model grid with a search range of $\logg \in [3.5, 4.0]$, $\Z \in [-0.5, 0.5]$, and $\teff \in [3500, 4200]$ and trained a spectral emulator as described in \iancze.  
+
+We tuned the Metropolis-Hasting step sizes with several iterations of burn-in procedure and visually checked the final chains for convergence.  Our number of samples was generally much longer than the estimated integrated autocorrelation length.  We spot-checked full-spectrum fits in comparison with the observed spectrum, finding modest agreement with the exception of spectral line outliers.  No attempt was made to downweight spectral-line outliers as described in \iancze.  
+
+We computed the median value and 5$^{th}$ and $95^{th}$ percentiles of a burned-in subset of the samples.  Overall these 26 sets of point estimates for $\vt_{\ast,m}$ show relatively good agreement, with exceptions.  We have little constraint on $\logg$ and $\Z$ since full-spectrum fitting tends to wash out the weak signal contained in line wings for spectra with a finite level of random noise and systematic error.  Meanwhile, strong metal lines can bias estimates of $\Z$ at the expense of estimates for $\teff$.  We get consistent estimates for $v_z \sim 15.6 \pm 0.6$ and $\vsini \sim 28.0 \pm 0.9$, with the exception of two spectral orders at $6920 <\lambda \;(\mathrm{nm})< 7057$ and $8473 < \lambda \;(\mathrm{nm}) < 8706$.  These two outlying spectral orders converged to unreasonably large values for $\vsini$ and $a_{\rm G}$, the amplitude of the Gaussian process covariance kernel, and one of these orders has an unusually small value for effective temperature, $\teff\sim3500$, comparable to the lower limit of the employed model grid.  Visual comparison of the observed spectrum for a range of fits for these orders shows that no single emulated spectrum could reasonably fit these discrepant spectral orders because there are several large spectral outliers.  The other spectral orders show effective temperature point estimates in the range $\teff=4000\pm130$ K.  Figure \ref{fig:SingleTeffvsOrder} displays the $\teff$ point estimates, with the 5$^{th}$ and $95^{th}$ percentile error bars, placed at the central wavelength of each of the 26 spectral orders for the subset of ESPaDoNs orders that received full-spectrum fitting.  Full spectrum fitting was attempted for some of the other available ESPaDoNs orders, but many of these orders did not achieve convergence in the MCMC chains.  
+
+
+% Comparing the single-component results from Optical to Infrared
+These spectra have comparable $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  
+
+
+The effective temperature derived from the optical spectral orders shows some scatter in the range 3500 K - 4250, with a median   is about The derived effective temperature is on-average about 800 K cooler in the $K-$band than in the optical or short-wavelength end of $H-$band.
 
 \begin{figure*}
 	\centering
