@@ -192,7 +192,21 @@ In summary, the visible portion of the spectrum will be dominated by the warm pa
 
 \subsection{Two-temperature fitting to IGRINS spectra}
 
-Motivated by the failure of single-temperature model full-spectrum fitting, we added two new model parameters our forward model: a starspot temperature and a fill factor, as described by Equation \ref{eqn:Mix_M}.  We also altered the model as described in Section \ref{sec:methods} and detailed in Appendix \ref{methods-details}.  
+Motivated by the failure of single-temperature spectral fits, we added two new model parameters to our forward model: a starspot temperature and a fill factor, as described by Equation \ref{eqn:Mix_M}.  For computational complexity reasons, we altered the model framework as described in Section \ref{sec:methods} and detailed in Appendix \ref{methods-details}.  
+
+We computed full-spectrum fitting to 43 of 54 IGRINS spectral orders.  We fit all 14 stellar and nuissance parameters simultaneously.  We ran the fits for 5000 steps with 40 walkers in \texttt{emcee}.  The stellar parameter ranges were $\logg \in [-3.5, 4.0]$ and $\Z \in [-0.5, 0.5]$; the effective temperature range for $H-$ band was $\teffa, \teffb \in [3000, 4300]$, and was expanded to $\teffa, \teffb \in [2700, 4500]$ for $K-$band.  We used the same priors for stellar and nuissance parameters as \iancze.  We enforced $\teffb < \teffa$ to limit the combinatoric degeneracy and mode-mixing that's possible if MCMC samples with $\teffa \approx \teffb$ arise.  This false mode mixing matters for the \texttt{emcee} algorithm since the step size distribution would be artificially inflated if some walkers mixed modes with $\teffa \Leftrightarrow \teffb$.  The MCMC chains all appeared to converge after about 1500 steps.  \footnote{We spot-checked a few of the MCMC chains for convergence by computing the integrated autocorrelation times.  Most of the parameters had integrated autocorrelation times much less than our number of steps, except for the $\log{\Omega}$ terms.  This makes sense because the $\log{\Omega_1}$ and $\log{\Omega_2}$ are strongly correlated, so it takes many steps for each walker to explore the joint probability space.  We have a strong constraint on the filling factor with all 40 walkers combined.}
+
+
+We computed point estimates for each parameter by selecting the final 200 $\times$ 40 walkers = 8000 samples and computing the median, $5^{th}$ and $95^{th}$ percentiles of the marginal distributions.
+
+%
+We assessed the fit quality by both overplotting models to data, and examining the distribution of the derived stellar parameters.  The distribution of $v_z$ and $\vsini$ were informative for finding extremely poor fits.  We find median point estimates and standard deviations of all 43 orders of $v_z = 12.4 \pm 2.6$ and $\vsini = 28.8 \pm 2.0$.  Spectral orders $m=91 \mathrm{ and }94$ had exceptionally large uncertainties on their values for $v_z$ and $\vsini$, which makes sense since these two orders are badly affected by telluric absorption artifacts.
+
+As noted previously, our full-spectrum fitting method does not have much constraining power on $\logg$, and $\Z$ can be biased in the face of systematic spectral line outliers.  We find a preference for values of $\logg$ on the high end of our search range, $3.5 <\logg <4.0$, finding a median value of the point estimates of 3.8 and a standard deviation of 0.1, consistent with previously published values from \citet{2014MNRAS.444.3220D}.  For $\Z$ we find a slight trend with wavelength-- the longest wavelength orders tend to prefer higher metalicity, while the shorter wavelength values prefer
+
+
+
+Table \ref{tbl_order_results} lists the values of $\teff$ for all IGRINS orders.
 
 Figure \ref{fig:TwoTempResults} shows the starspot and photospheric temperature derived independently for 43 IGRINS orders.
 %% Things to say:
@@ -202,7 +216,7 @@ Figure \ref{fig:TwoTempResults} shows the starspot and photospheric temperature 
 % - Telluric lines and other artifacts in the data
 % - Metal lines affected 
 
-Table \ref{tbl_order_results} lists the values of $\teff$ for all IGRINS orders.
+
 \input{tables/tbl_order_results.tex}
 
 \begin{figure*}
