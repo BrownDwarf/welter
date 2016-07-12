@@ -14,8 +14,9 @@ for m in ms:
 
     path_out = 'm{:03d}/'.format(m)
     sf_out = 'm{:03d}/config.yaml'.format(m)
-    
-    f = open("m112/config.yaml")
+
+    # Presuppose that the file exists...    
+    f = open("m{:03d}/config.yaml".format(m))
     config = yaml.load(f)
     f.close()
     
