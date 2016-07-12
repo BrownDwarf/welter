@@ -29,6 +29,7 @@ results/
 Starfish
 
 # Formatting for the document
+document/review/
 document/apj.bst
 document/emulateapj-rtx4.cls
 document/emulateapj.cls
