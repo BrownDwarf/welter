@@ -225,15 +225,16 @@ We experimented on the $K-$band spectra with expanded effective temperature sear
 	\label{fig:TwoTempResults}
 \end{figure*}
 
-Figures \ref{fig:Hband3x7} and \ref{fig:Kband3x7} show the 42 of the $H-$ and $K-$band spectra on a log scale with a single random composite model spectrum overplotted.  The red and blue lines show the hot photosphere and cool spot spectra respectively.  We inspected the quality of the fits, generally finding remarkable agreement with most spectral orders.  Many orders demonstrated spectral line outliers, as noted in \iancze.  Most of the gross spectral features are captured by the composite model.  There are many examples of spectral lines that are present only in the hot photosphere model, or only in the cool photosphere model.  
+Figures \ref{fig:Hband3x7} and \ref{fig:Kband3x7} in the Appendix show 42 of the $H-$ and $K-$band spectra on a log scale with a single random composite model spectrum overplotted.  The red and blue lines show the hot photosphere and cool spot spectra respectively.  We inspected the quality of the fits, generally finding remarkable agreement with most spectral orders.  Many orders demonstrated spectral line outliers, as noted in \iancze.  Most of the gross spectral features are captured by the composite model.  There are many examples of spectral lines that are present only in the hot photosphere model, or only in the cool photosphere model.  
 
 %% Examples of selected regions.
 For example...
 
 \todo{Compile a list of Line IDs, and maybe little postage stamp figures for each line with a range of fits.}
 
-The most compelling results from the full spectrum fitting method come from orders for which there exist strongly temperature-sensitive spectral lines.  We spot-checked each spectrum, flagging the orders that possessed these types of lines.  We then computed the weighted mean of the stellar parameter point statistics only for these effective temperatures and fill factors.  We arrived at best fit values for the stellar parameters summarized in Table XY.  We adopt these parameters as the stellar properties at the epoch of the IGRINS observations.  We find a large filling factor of cool starspots, with a best value of $f=XX\pm yy$.
-\todo{Table of best fit parameters.}
+The most compelling results from the full spectrum fitting method come from orders for which there exist strongly temperature-sensitive spectral lines.  We spot-checked each spectrum, flagging the orders that possessed these types of lines.  We then computed the weighted mean of the stellar parameter point statistics only for these effective temperatures and fill factors.  We arrived at best fit values for the stellar parameters summarized in Table \ref{tbl_adopted_props}.  We adopt these parameters as the stellar properties at the epoch of the IGRINS observations.  We find a large filling factor of cool starspots, with a best value of $f=75\pm 10 \% $.
+
+\input{tables/tbl_best_fit.tex}
 
 
 \section{Monitoring the Spots of LkCa 4}
@@ -241,7 +242,6 @@ The most compelling results from the full spectrum fitting method come from orde
 The previous sections established that the high resolution optical and near-IR spectra of LkCa 4 may be explained by a cool photosphere with a hot spot.  In this section, we will demonstrate that this same model explains the broadband spectral energy distribution and flux-calibrated optical/near-IR spectra of LkCa 4.  Periodic variability in photometry and spectral indices are reproduced by modest changes in the visible fraction of the hot spot.
 
 \subsection{Reproducing the Spectral Energy Distribution}
-
 
 
 
@@ -293,12 +293,35 @@ Needs a lot more.
 \section{Discussion}
 
 
-\subsection{Interpretation of distribution of stellar properties}
-
 \subsection{Longitudinal / latitudinal spot distributions and phase}
+
+
 
 \subsection{Addressing limitations of assumptions in the methodology}
 
+\emph{Number of photospheric components-}  Our full spectrum fitting method assumed \emph{only} two temperature components present in the photosphere.  In reality, starspots are probably described by a range of effective temperatures like umbra, penumbra, and plages on the sun's surface.  A model possessing three unique temperatures and two unique fill factors might better approximate the minor constituents of the emergent spectrum than our two temperature model can.  Computational infeasibility limited our ability to rerun new multi-temperature models and compute model comparison diagnostics like AIC, BIC, or cross validation \citep{2014sdmm.book.....I}.  Such investigations could be considered in future works, but we suspect systematic errors in the models would ultimately limit the interpretability of models with more than two temperature components.  High-precision polychromatic planetary transit photometry could offer an avenue to measure the morphologies and temperatures of starspots for the subset of transiting exoplanet host stars.
+% The fact that we get consistent estimates for Teff tells us something.
+% The fits are pretty good, also tells us something.
+% Coarsely sampled models + spectral emulator acts as a smoother in Teff, as does the GP global covariance kernel.
+%(cite Charlotte Norris CS19 poster?)
+
+\emph{Suitability of pre-computed \PHOENIX model spectra, model ranges, $\A \neq 0$, and magnetic fields-} We have assumed that the \PHOENIX synthetic spectra are a good representation to our observed IGRINS spectrum of \name, a young star likely to possess a large magnetic field.  Furthermore, cool sunspots are associated with heightened magnetic fields on the sun.  Magnetic fields will have two effects on the emergent spectrum- line broadening attributable to the Zeeman effect, and pressure broadening attributable to seeing deeper into deeper layers in the photosphere compared to the surrounding hotter photosphere.  The former effect will differentially impact lines with high Lande-g factors (cite XX, fix the g formatting).  The latter effect could masquerade as an apparent shift in surface gravity, as seen in mixture models of spotted stars with empirical templates composed of dwarfs and giants (cite XX Saar and collaborators).  Our tacit assumption has been that these effects are 1) relatively small compared to the gross appearance and disappearance of spectral lines at disparate temperatures and 2) there exist many orders and lines that are not affected at all.  We see tentative evidence for physics outside of the pre-computed model grids in the poor fits to the observed spectra in $K-$band.  Strong metal lines demonstrate large departures in their best fit $\Z$ due to Zeeman broadening.  No pre-computed model grids including a range of surface magnetic fields are available at the wavelength range and spectral sampling needed to approach these questions within this spectral inference framework.
+% Note that these two effects would differently affect the spectra
+
+We also assumed that the spectral pattern of metallicity can be captured by a single coarse metric, $\Z$.  In reality, the low temperature starspot spectrum of \name could exhibit $\A \neq 0$, resulting in a greater amplitude of residual spectrum correlations, and/or biased estimates for other parameters.  Our Gaussian process inference framework yields some resilence to the former problem.  For the latter, nonzero $\A$ would only impact a subset of all lines, and only to at a magnitude of typical departures of $\A$ in the solar neighborhood.  The large number of IGRINS orders and spectral lines offers us some resilience to isolated orders badly affected by spectral line outliers.
+
+
+\subsection{Interpretation of the large filling factor of cool starspots}
+
+
+
+\subsection{Is \name an extreme source?}
+
+
+
+
+
+\subsection{What would APOGEE have derived for this source with single temperature fitting?}
 
 
 \appendix
