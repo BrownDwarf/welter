@@ -4,12 +4,12 @@ import yaml
 import numpy as np 
 import h5py
 
-#ms = range(98, 125)
-ms = range(71, 96+1)
+ms = range(98, 126)
+#ms = range(71, 96+1)
 
 os.chdir(os.path.expandvars('$WELTER/sf/'))
 
-os.getcwd()
+#os.getcwd()
 
 for m in ms:
 
