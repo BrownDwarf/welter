@@ -1,0 +1,607 @@
+%\documentclass[iop,revtex4]{emulateapj}% change onecolumn to iop for fancy, iop to twocolumn for manuscript
+\documentclass[twocolumn]{emulateapj}% change onecolumn to iop for fancy, iop to onecolumn for manuscript
+%\documentclass[12pt,preprint]{aastex}
+
+%\usepackage{lineno}
+%\usepackage{blindtext}
+%\linenumbers
+
+\let\pwiflocal=\iffalse \let\pwifjournal=\iffalse
+%From: http://arxiv.org/format/1512.00483
+%\input{setup}
+\input{mgs_setup}
+
+
+\newcommand{\iancze}{{\sc C15 }}
+
+\providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{#1}}
+\providecommand{\adsurl}[1]{\href{#1}{ADS}}
+\newcommand{\name}{LkCa4 }
+%\def\vsini{$v\sin{i_*}$}
+
+\slugcomment{In preparation}
+
+\shorttitle{\name IGRINS spectroscopy}
+
+\shortauthors{Gully-Santiago et al.}
+
+\bibliographystyle{yahapj}
+
+\begin{document}
+ 
+\title{Placing the spotted T Tauri star LkCa 4 on an HR diagram}
+
+\author{Michael A. Gully-Santiago,\altaffilmark{1} Gregory J. Herczeg,\altaffilmark{1} et al.}
+
+
+\altaffiltext{1}{Kavli Institute for Astronomy and Astrophysics, Beijing, China}
+
+\begin{abstract}
+We interpret the high resolution near-IR spectra of \name.  We used the instrument IGRINS.
+\end{abstract}
+
+\keywords{stars: fundamental parameters --- stars: individual (\name) ---  stars: low-mass -- stars: statistics}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+%\subsection{Pre Main Sequence HR diagram spread}
+
+Pre-main sequence stellar evolution is an unsolved problem \citep[see review by][]{soderblom14}.  Systematic uncertainties in ages of pre-main sequence stars lead to uncertainties in dissipation timescales of envelopes and protoplanetary disks as evaluated in global studies.  All clusters have large spreads in luminosity at any given temperature \citep[e.g.][]{reggiani11}, which frustrates the interpretation of individual star/disk properties as related to age.  
+
+The causes of global age uncertainties and of large luminosity spreads in individual clusters are controversial.  Observationally, \citet{hartmann01} and \citet{slesnick08} argue that measurement uncertainties may mask any real differences in ages within a cluster.  In models, \citet{hartmann97} and \citet{baraffe09} describe how non-static accretion histories change the stellar contraction at early times.  Contraction rates also depend on the prescription for convection, which may vary with mass.
+
+Magnetic activity is a likely source of significant uncertainty in both the models and observations of young low-mass stars. 
+Convection at these young ages generate strong magnetic fields, as measured in Zeeman broadening and polarimetry \citep[e.g.][]{johnskrull07,donati09} and as seen in starspots \citep[e.g.][]{stauffer03,grankin08}, which cause significant jitter in radial velocity surveys for young planets \citep[e.g.][]{donati14}.  Evolutionary models are just now starting to implement new prescriptions for convection with magnetic fields (Somers et al.~2015, Feiden 2016; see also Baraffe et al.~2015 for an updated treatment of convection without introducing magnetic fields).  Stellar evolution models including the effect of starspots can make a coeval 10 Myr population exhibit apparent age spreads of 3$-$10 Myr, with derived masses biased towards lower masses \citep{somers15}.  
+
+Starspots may also be responsible for biases in stellar effective temperatures derived by different methods.  For example, effective temperatures for 3493 young stars measured using the APOGEE spectrograph ($1.5-1.70 \;\mu$m at $R=22,500$) are offset by 200$-$500 K ($\sim$0.02$-$0.05 dex) and as high as 1000 K ($\sim$0.1 dex) relative to previous measurements, usually from optical \citep{cottaar14}.  Jackson \& Jeffries 2014ab needs to go somewhere.
+
+...The importance of starspots needs to be empirically evaluated to assess systematic biases of pre-main sequence stellar evolutionary models.
+
+
+\todo{Discuss limitations and capabilities of photometry alone: presence or absence of starspots, joint constraint on areal coverage and temperature, longitudinal asymmetry.}
+Cyclical light curve variations indicate only the longitudinally asymmetric component of the star spots \citep{harrison12}.  Photometric modeling of the light curve taken alone can only yield degenerate estimates in the temperature contrast and areal coverage fraction.  A star possessing longitudinally symmetric distribution of starspots, or a pole-on star with a single spot, or a non-rotating (or very slowly rotating) star would all show zero or secular amplitude of photometric variability, yet they all contain star spots.  
+
+By modeling the composite spectrum of a spotted star, it is possible to directly measure the collective areal coverage and effective temperature contrast.  Spectroscopic modeling can still measure the starspot properties in pole-on stars, stars with longitudinally symmetric stars, and non-rotating stars.
+
+\todo{Cite previous efforts to derive starspot properties via spectroscopy}
+
+\todo{More advanced approaches to understanding stellar surface properties.  How many distinct spot groups are there?  Is there evidence for both hot spots and cool spots?  What is the longitudinal distribution of the spots?  What is the (co-)latitudinal distribution of the spots?  What is the distribution of effective temperature within a spot or spot group?  What are the morphologies of the spots?}
+In principle, more advanced questions could be asked about the properties of the spots....  
+
+Solving these questions would require a complex model comparison framework, combining all available data and lines of evidence from photometric, spectroscopic, and spectropolarimetric monitoring.  We seek to answer the much easier questions about the aggregate properties of the stellar photosphere, assuming the star is well described by two distinct photospheric components.  
+
+\todo{Previous studies of \name}
+
+In this paper we characterize the starspot coverage and temperature contrast of \name by fitting photospheric models to high-resolution optical and near-IR spectra.  We chose \name for its likelihood of large areal coverage of starspots, as seen in large-amplitude photometric variability  detected in $BVRI$ bands with a period is 3.37$\pm$0.01 days \citep{vrba93,grankin94,grankin08,xiao12}.  Recent optical spectro-polarimetry showed evidence for hot or cool starspots covering an estimated $25\%$ of the stellar surface \citep{donati14}.  
+
+%This statement needs to be fact-checked, maybe some more supporting info.
+
+Past spectroscopic detections of spots on young stars have focused on TW Hya, an active accretor, and DQ Tau, a close binary in which both components are accreting \citep{debes13,bary14}.  \name does not have any mid-IR or mm excess \citep[e.g.][]{furlan06}, is not actively accreting (ref?), and does not have any known companion (some Kraus? paper).  The spectrum of \name should be devoid of complicating factors like near-IR excess veiling and accretion excess.  
+
+
+
+We extend a new spectral forward modeling framework to include two-temperature photosphere models.  We demonstrate the constraining power of full spectrum fitting with panchromatic optical and near-IR echelle spectroscopy.
+% Consider putting in Section references here
+
+
+\section{Methodology}\label{sec:methods} 
+
+\iancze developed a modular framework to infer stellar properties from high resolution spectra.  In this section, we describe how we extended this framework to include spots in a 2-temperature fit to spectra.  Further details of this methodology are described in Appendix \ref{methods-details}.
+
+We experimented with several extensions to the modular framework for spectral inference described in \iancze \footnote{The open source codebase and its full revision history is available at https://github.com/iancze/Starfish.  The experimental fork discussed in this paper is at https://github.com/gully/Starfish}.  The \iancze technique forward models ``emulated'' synthetic spectra from pre-computed model grids, taking into account the discretization error attributable to the coarsely sampled stellar intrinsic parameters.  We use the \PHOENIX~ grid of pre-computed synthetic stellar spectra that span a wide range of wavelengths at high spectral resolution with sampling of 100 K in $\teff$ in our range of interest\citep{husser13}.  \todo{Put in a hyperlink?} After experimenting with the base model from \iancze, we made two principal changes to the modular framework: 1) the introduction of a starspot mixture model characterized by a second $\teff$ and areal fill factor $f$, and 2) the switch from Gibbs sampling to ensemble sampling with chunking by spectral order.  We discuss these two changes below.
+
+We assume the stellar photosphere is characterized as two photospheric components with different effective temperatures, $\teffa$ and $\teffb$, and scalar solid angular coverages $\Omega_a$ and $\Omega_b$, but sharing all the same intrinisic and extrinsic stellar parameters otherwise.  Following and extending the notation of \iancze, we can write down the mixture model as:
+
+\begin{eqnarray} \label{eqn:mix_M}
+\vM_{\mathrm{mix}} = \Omega_a \vM(\teffa)  + \Omega_b \vM(\teffb)
+\end{eqnarray}
+
+The observed filling factor of photosphere $b$ is simply the ratio:
+
+\begin{eqnarray} \label{eqn:fill_factor}
+f = \frac{\Omega_b}{\Omega_a + \Omega_b}
+\end{eqnarray}
+
+The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{foreman13.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  We combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$ with heuristics like taking the weighted average of point estimates of parameter distributions of the most reliable subsets of orders.  We assume that these lossy heuristics offer a regression to the mean with a large number of spectral orders.
+
+
+\section{Observations}\label{sec:obs} 
+
+\subsection{IGRINS Spectroscopy}\label{sec:igrins} 
+We acquired observations with the Immersion Grating Infrared Spectrograph, IGRINS \citep{park14,gully12} on the Harlan J. Smith Telescope at McDonald Observatory on 2015-11-18 $09^h$ UTC.  IGRINS is a high resolution near-infrared echelle spectrograph providing simultaneous $R\simeq45,000$ spectra over 1.48-2.48\um.  The spectrograph has two arms with 28 orders in $H-$band and 25 orders in $K-band$.  The data were reduced with the Pipeline Package\footnote{\url{https://github.com/igrins/plp}}.  We performed telluric correction by dividing the spectrum of \name by an A0V star observed near-contemporaneously at similar air-mass.  The broad hydrogen lines in the A0V star produced broad flux excesses in the spectrum of \name.  No effort was made to remove these flux excesses, which affect several spectral orders. 
+%List the spectral orders these lines affect.
+
+\subsection{ESPaDOnS Spectroscopy}
+We used ESPaDOnS on CFHT to obtain twelve high resolution optical spectra of \name from 8-21 Jan.~2014 as part of the MATYSSE Large Program.  These spectra cover 3900-10000 \AA\ at $R\sim68,000$ and were obtained in spectropolarimetry mode.  The Zeeman Doppler Imaging obtained from these observations were analyzed by \citet{donati14}.  In this paper we concentrate on the intensity spectrum.
+
+Chunking, estimate flux calibration...
+
+
+\subsection{Low-resolution optical and near-IR spectra}
+
+Palomar/DBSP \citep{herczeg14}
+
+APO/TripleSpec (Covey)
+
+
+
+\subsection{Photometric monitoring from ASAS-SN and \citet{grankin08}}
+
+We retrieved $V-$band monitoring from the ASAS-SN survey \citep{shappee14}, obtained from 2012 January -- 2016 March in 186 visits.
+We also retrieved optical photometry of \name\ obtained in 284 visits in $V$-band (278 with $B$ and 268 with $R$ from 1992 August - 2004 October \citep{grankin08}, and 10 additional $BVR$ epochs obtained by \citet{donati14}.   Figure \ref{fig:PhotTime} assembles the \citet{grankin08}, \citet{donati14}, and ASAS-SN $V-$band monitoring plotted over the interval 1992-2016.  The dates of observations of the IGRINS spectra and ESPaDoNs spectra are demarcated as vertical lines.
+
+
+
+%The 777 raw data points included near-contemporaneous measurements from repeated observations during the same visits, which lasted typically $<10$ minutes.  We group these near-simultaneous observations by assigning 
+% datapoints by these visits yielding 186 data points, assigning a mean value and standard deviation when there was more than 1 observation per visit, enforcing a floor uncertainty of 0.01, the native quoted uncertainty of the data points.  We assigned the native uncertainty of 0.01 when there was only a single observation per visit.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/LkCa4_phot1992-2016.pdf}
+	\caption{\name $V-$band photometric monitoring from 1992-2016.}
+	\label{fig:PhotTime}
+\end{figure*}
+
+Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V-$band data grouped by the 17 observing seasons.  We folded the phase by a period $P=3.375$ days, which is the median position of the peaks of the multiterm ($M_{\rm max} = 4$) Lomb-Scargle periodogram derived separately from each of the 17 observing seasons \citep{ivezic14}.  The standard deviation of the 17 periodogram peaks was 0.003 days.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  We estimated $\hat V$, the $V-$band magnitude at the time of the spectral observations, from a regularized multiterm fit \citep{vanderplas15a} shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists $\hat V$ and the observing epoch for the spectral observations with ESPaDoNs and IGRINS.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/all_LCs_phase.pdf}
+	\caption{Phase-folded lightcurves constructed assuming the same period for all observing seasons.  The blue solid lines show a multi-term periodic fit keeping the first $M_{\rm max}=4$ Fourier components.  The vertical lines show the epochs of observations for available spectroscopy.  The unchanged vertical scale highlights the secular drift of the light curve amplitude and morphology.}
+	\label{fig:PhotPhase}
+\end{figure*}
+
+
+\input{tables/tbl_estV_atObsEpoch.tex}
+
+
+\section{FITS TO HIGH RESOLUTION SPECTRA}
+
+Provide overview of section...  
+
+
+\subsection{Single temperature fitting to the ESPaDoNs spectrum}
+
+We performed spectral fitting on the ESPaDoNs spectrum acquired on 2014 January 11, the fourth spectrum from Table \ref{tbl_estimated_V}.  We chunked the spectrum into a subset of $N_{ord}=$26 spectral orders and performed full-spectrum fitting separately on each of these 26 spectral orders following the Metropolis-Hasting MCMC sampling procedure described in \iancze.  We employed the \PHOENIX model grid with a search range of $\logg \in [3.5, 4.0]$, $\Z \in [-0.5, 0.5]$, and $\teff \in [3500, 4200]$ and trained a spectral emulator as described in \iancze.  
+
+We tuned the Metropolis-Hasting step sizes with several iterations of burn-in procedure and visually checked the final chains for convergence.  Our number of samples was generally much longer than the estimated integrated autocorrelation length.  We spot-checked full-spectrum fits in comparison with the observed spectrum, finding modest agreement with the exception of spectral line outliers.  No attempt was made to downweight spectral-line outliers as described in \iancze.  We attempted fits to 9 more of the 35 spectral orders available for this ESPaDoNs spectrum, but the MCMC computations for these orders failed to converge, possibly due to numerical artifacts arising from poor model fits.
+
+We computed the median value and 5$^{th}$ and $95^{th}$ percentiles of burned-in subsets of the MCMC samples described above.  Overall these 26 sets of point estimates for $\vT_{m}$, $\vP_m$ show relatively good agreement, with exceptions.  We have little constraint on $\logg$ and $\Z$ since full-spectrum fitting tends to wash out the weak signal contained in line wings for spectra with a finite level of random noise and systematic error.  Meanwhile, strong metal lines can bias estimates of $\Z$ at the expense of estimates for $\teff$.  We get consistent estimates for\footnote{Note, $v_z$ is an uncorrected recessional velocity, not a proper radial velocity} $v_z \sim 15.6 \pm 0.6$ km/s and $\vsini \sim 28.0 \pm 0.9$ km/s, with the exception of two spectral orders at $6920 <\lambda \;(\mathrm{nm})< 7057$ and $8473 < \lambda \;(\mathrm{nm}) < 8706$.  These two outlying spectral orders converged to unreasonably large values for $\vsini$ and $a_{\rm G}$, the amplitude of the Gaussian process covariance kernel.  One of these orders has an unusually small value for effective temperature, $\teff\sim3500$, comparable to the lower limit of the employed model grid.  Visual comparison of the observed spectrum for a range of fits for these orders shows that no single emulated spectrum could reasonably fit their spectrum because there are numerous large spectral outliers.  The more-well-behaved spectral orders show effective temperature point estimates in the range $\teff=4000\pm130$ K.  Figure \ref{fig:SingleTeffvsOrder} displays the $\teff$ point estimates with 5$^{th}$ and $95^{th}$ percentile error bars placed at the central wavelength of each of the 26 spectral orders for the subset of ESPaDoNs orders that received full-spectrum fitting.  
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/single_Teff_v_order}
+	\caption{Effective temperature as derived from unique full spectrum fitting to each of 58 spectral orders in the optical through infrared portions of the spectrum assuming a single component photosphere.  }
+	\label{fig:SingleTeffvsOrder}
+\end{figure*}
+
+\subsection{Single temperature fitting to the IGRINS spectrum}
+
+We performed full-spectrum fitting on 32 of the 54 available IGRINS spectral orders, again fitting unique stellar parameters $\vt = (\teff, \logg, \Z)$ for each spectral order $m$.  We used the same analysis procedure as described for the ESPaDoNs spectra, with one exception.  For the IGRINS $K-$band, we employed an expanded search range for the effective temperature, $\teff \in [3000, 4200]$ K, since the IGRINS $H-$ band demonstrated some saturation at the $\teff=3500$ K lower bound.  No effort was made to shift the wavelength scales of the IGRINS data and $\PHOENIX$ model into the same system, so the absolute values of $v_z$ are arbitrary shifted.
+
+We find a larger dispersion in the point estimates for the stellar parameters derived from the IGRINS data with single temperature fits.  The most conspicuous trend is in the derived effective temperature as a function of wavelength shown in Figure \ref{fig:SingleTeffvsOrder}.  Here we see dramatic result that the effective temperature peaks at a values of $\sim4200$K in the short wavelength end of $H-$band and saturates at $<3500$ K at the long wavelength end of $H-$band.  The $K-$band shows even lower derived effective temperatures of $\sim3300$ K.
+
+\subsection{Interpretation of the single temperature fitting results}
+
+The effective temperature derived at different wavelength intervals exhibit a $\Delta \teff \sim 800$ K spread.  To put this level of effective temperature in context, authors using 4200 K and 3300 K values would conclude evolutionary model derived masses of XX or YY as shown in Figure XX. 
+\todo{Put in the numbers and HR diagram figure here.}
+
+It is clear that the single-temperature model is a poor fit to the data.  Our model assumptions were incorrect: no single temperature can describe all the spectral lines present in the spectra.  This discrepancy is circumstantial evidence for the direct detection of spectral lines attributable to starspots.  This circumstantial evidence should not be surprising given the previous evidence that \name possesses a large coverage fraction of starspots \citep{donati14}, along with its large amplitude of photometric variations, as shown in Figure \ref{fig:PhotPhase} and discussed previously by \citet{grankin08}.
+
+We performed a further plausibility check to constrain the effect size of starspots.  We generated flux calibrated spectra at two temperatures, and forward-modeled them to resemble the LkCa4 IGRINS and ESPaDOnS spectra in all other ways (\emph{i.e.} $\logg, \Z, \vt_{\rm ext}$), including noise and calibration parameters.  We coadded the spectra in a mixture model:  $ \mathsf{M}_{mix} = c \cdot \mathsf{M}_A(T_\textrm{eff,A}) + (1-c) \cdot \mathsf{M}_B(T_\textrm{eff,B})$.  We chose a fill factor of starspots of 30\%.  We then re-ran our single-temperature fitting procedure on the two-temperature, synthetic, noised-up data to see what stellar parameters our full-spectrum fitting procedure would na\"{\i}vely derive.  
+\comm{I don't think I ever put together a figure for this, should we just skip it?  I think so.}
+
+
+\subsection{Heightened sensitivity to starspot spectral lines in the infrared}
+
+Some care should be taken when directly comparing results between the ESPaDoNs and IGRINS spectra since they were not taken at the same time.  These spectra have comparable albeit different $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  If we assume the areal coverage fraction of spots was the same or greater during the ESPaDoNs spectrum acquisition, we can derive the result that the optical bands and short-wavelength end of $H$-band are relatively insensitive to the spectral signatures of starspots in this system.  The long wavelength portion of $H-$band and all of $K-$band are more sensitive to starspot spectral signatures than the shorter wavelength portions.
+
+We can understand the heightened sensitivity to starspot spectral lines as wavelength increases in the following way.  The effective temperature of a starspot is, by definition, cooler than its surrounding photosphere, and will therefore have a longer wavelength of peak emission, according to Wein's displacement law.  So the ratio of flux density between starspot and bulk photosphere as a function of wavelength will generally increase with wavelength until it assymptotes to a fixed value in the Rayleigh-Jeans tail.  In Figure XX we plot the ratio of black body flux density at temperatures 4100 K and 3300 K with a red line.  The blue line is the ratio of two smoothed \PHOENIX model spectra with 4100 K and 3300 K, solar metalicity, and $\logg=3.5$.  The flux density ratio is the flux per solid angle, so the delivered flux ratio for a finite sized starspot will depend on the (flux-weighted) solid angle of the starspot relative to the (flux-weighted) solid angle of the stellar disk, vis-a-vis Equations \ref{eqn:Mix_M} and \ref{eqn:fill_factor}.  
+
+\todo{Put in the flux density ratio plot.}
+
+\comm{Should we change the plot numbers from 4100 and 3300 to 4200 and 3000?  -These would end up being closer to the best fit values.}
+
+In summary, the visible portion of the spectrum will be dominated by the warm patches, but the contrast with the starspots will be higher.  The infrared spectrum will have a lower overall spot contast, but will have higher relative contribution attributable to the cool patches.  This observation has motivated precision radial velocity (RV) planet searches in the infrared, where the modulation of RV signals is lessened \citep{prato08}.
+\comm{This blurb should probably go in the introduction.}
+
+
+\subsection{Two-temperature fitting to IGRINS spectra}
+
+Motivated by the failure of single-temperature spectral fits, we added two new model parameters to our forward model: a starspot temperature and a fill factor, as described by Equation \ref{eqn:Mix_M}.  For computational complexity reasons, we altered the model framework as described in Section \ref{sec:methods} and detailed in Appendix \ref{methods-details}.  
+
+We computed full-spectrum fitting of 43 of 54 IGRINS spectral orders.  We fit all 14 stellar and nuissance parameters simultaneously.  We ran the fits for 5000 steps with 40 walkers in \texttt{emcee}.  The stellar parameter ranges were $\logg \in [-3.5, 4.0]$ and $\Z \in [-0.5, 0.5]$; the effective temperature range for $H-$ band was $\teffa, \teffb \in [3000, 4300]$, and was expanded to $\teffa, \teffb \in [2700, 4500]$ for $K-$band.  We used the same priors for stellar and nuissance parameters as \iancze.  We enforced $\teffb < \teffa$ to limit the combinatoric degeneracy and mode-mixing that's possible if MCMC samples with $\teffa \approx \teffb$ arise.  This false mode mixing matters for the \texttt{emcee} algorithm since the step size distribution would be artificially inflated if some walkers mixed modes with $\teffa \Leftrightarrow \teffb$.  The MCMC chains all appeared to converge after about 1500 steps.  \footnote{We spot-checked a few of the MCMC chains for convergence by computing the integrated autocorrelation times.  Most of the parameters had integrated autocorrelation times much less than our number of steps, except for the $\log{\Omega}$ terms.  This makes sense because the $\log{\Omega_1}$ and $\log{\Omega_2}$ are strongly correlated, so it takes many steps for each walker to explore the joint probability space.  We have a strong constraint on the filling factor with all 40 walkers combined.}
+
+
+We computed point estimates for each parameter by selecting the final 200 $\times$ 40 walkers = 8000 samples, and computing the median, $5^{th}$ and $95^{th}$ percentiles of the marginal distributions.
+
+We assessed the fit quality by examining the consistency of the point estimates across the spectral orders.  The distribution of $v_z$ and $\vsini$ were informative for finding extremely poor fits.  We find median point estimates and standard deviations of all 43 orders of $v_z = 12.4 \pm 2.6$ and $\vsini = 28.8 \pm 2.0$.  Spectral orders $m=91 \mathrm{ and }94$ had exceptionally large uncertainties on their values for $v_z$ and $\vsini$, which makes sense since these two orders are badly affected by telluric absorption artifacts.
+
+As noted previously, our full-spectrum fitting method offers little constraining power on $\logg$, and $\Z$ can be biased in the face of systematic spectral line outliers.  We find a preference for values of $\logg$ on the high end of our search range, $3.5 <\logg <4.0$, finding a median value of the point estimates of 3.8 and a standard deviation of 0.1, consistent with previously published values from \citet{donati14}.  For $\Z$ we find a slight trend with wavelength-- the longest wavelength orders tend to prefer higher metalicity, while the shorter wavelength values prefer slightly sub-solar metalicity.  Orders 79, 81, 90, and to a lesser extent 78 and 76 showed aritificially tight constraints on $\Z$, biased to large values.  Similarly, orders 86, 101, 102, 104, 106, all had $\Z$ estimates biased to extremely low values.   Visual inspection of these orders indicates that their spectrum is dominated by spectral line outliers--deep metal lines that cannot be described by a coarse metalicity estimate alone.  These spectral line outlier orders also tend to bias estimates of effective temperature.  The interpretation of these lines will be addressed in the discussion section.  
+
+Finally, the posteriors on $\teffa$ and $\teffb$ show several trends- see Figure \ref{fig:TwoTempResults} and Table \ref{tbl_order_results} for the results of effective temperatures for all IGRINS orders.  At first sight, the $H-$ band estimates show remarkably tight distributions centered near $\teffa\sim4100$ K and $\teffb\sim3000$ K, with the exception of a few spectral order outliers- $m=$ 107, 108, 109. The apparent tight constraint is an illusion from pileup near our effective temperature search range for $H-$band.  So the point estimates for $\teffa$ and $\teffb$ should really be considered lower- and upper- limits respectively.  Orders 107, 108, and 109 converged on solutions with nearly equal effective tempatures for starspot and photosphere, $\teffa \sim \teffb$.  These nearly-equal solutions could be explained by vanishingly weak spectral lines in one or the other of the effective temperature ranges, in which case the method offers little constraint on $\teffb$, but improves the fit around $\teffa$.  
+
+We experimented on the $K-$band spectra with expanded effective temperature search ranges.  Here we see much more scatter, with no single photospheric temperature sticking out as strongly favored, but with values of $\teffa \sim 3900$ K and $\teffb \sim 2800$ K consistent with many orders.  The $K-$band spectra possess strongly correlated residuals from poor telluric correction, as well as uncorrected hydrogen line features that appear as flux excessess after division by telluric standard spectrum.  These instrumental afflictions degraded fits to several orders.
+
+\input{tables/tbl_order_results.tex}
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/LkCa4_HK_mixTeff_by_order} 
+	\caption{Two-temperature model properties, $\teffa$ and $\teffb$, derived independently from full-spectrum fitting 43 IGRINS orders.  The top panel denotes typical telluric transmission for all of the possible 54 IGRINS orders.  The derived effective temperatures show enhanced scatter in $K-$band.}
+	\label{fig:TwoTempResults}
+\end{figure*}
+
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.39\textwidth]{figures/LkCa4_fill_vs_Teff2} 
+	\caption{Joint constraint on the temperature of starspots $\teffb$, and their observed solid-angular filling factor $f$.  Each data point and error bar are taken from Table \ref{tbl_order_results}, with the error bars therefore representing 2$\sigma$ errors.}
+	\label{fig:TwoTempResults}
+\end{figure*}
+
+Figures \ref{fig:Hband3x7} and \ref{fig:Kband3x7} in the Appendix show 42 of the $H-$ and $K-$band spectra on a log scale with a single random composite model spectrum overplotted.  The red and blue lines show the hot photosphere and cool spot spectra respectively.  We inspected the quality of the fits, generally finding remarkable agreement with most spectral orders.  Many orders demonstrated spectral line outliers, as noted in \iancze.  Most of the gross spectral features are captured by the composite model.  There are many examples of spectral lines that are present only in the hot photosphere model, or only in the cool photosphere model.  
+
+%% Examples of selected regions.
+For example...
+
+\todo{Compile a list of Line IDs, and maybe little postage stamp figures for each line with a range of fits.}
+
+The most compelling results from the full spectrum fitting method come from orders for which there exist strongly temperature-sensitive spectral lines.  We spot-checked each spectrum, flagging the orders that possessed these types of lines.  We then computed the weighted mean of the stellar parameter point statistics only for these effective temperatures and fill factors.  We arrived at best fit values for the stellar parameters summarized in Table \ref{tbl_adopted_props}.  We adopt these parameters as the stellar properties at the epoch of the IGRINS observations.  We find a large filling factor of cool starspots, with a best value of $f=75\pm 10 \% $.
+
+\input{tables/tbl_best_fit.tex}
+
+
+
+\section{Monitoring the Spots of LkCa 4}
+
+In the previous sections we established that the high resolution optical and near-IR spectra of LkCa 4 may be explained by a cool photosphere with a hot spot.  These results have testable predictions for the spectral energy distribution (SED) and rotational modulation of features of the SED.
+
+% quantify the spot fraction versus rotation period, and then
+
+In \S 4.1 we describe how the two components of the photosphere fit low resolution spectra and optical photometry.  The spectral features and colors should change as the spot rotates around the star, so that the visible fraction of hot and cool spot changes.  While the variability in optical brightness is well documented and motivatet this study, in \S 4.2-4.3 we convert the $V$ band brightness to a spot filling factor and then quantify spectroscopic and color variability caused by changes in the spot filling factor.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/lkca4_lores} 
+	\vspace{-100mm}
+	\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
+	\label{fig:lores}
+\end{figure}
+
+
+\subsection{The Spectral Energy Distribution}
+
+Figure~\ref{fig:lores} shows that the two-component photosphere matches flux-calibrated spectra well from $\sim 6000-2.5$ $\mu$m.  The two components have fixed temperatures of 4200 K covering 30\% of the visible surface and 3000 K covering 70\% of the visible surface area.  The flux and extinction are then scaled to match the spectrum.
+
+
+The value for the extinction depends on XXX...
+
+
+
+
+
+\subsection{Rotational modulation of the hot spot}
+
+Since 1992 the $V$ band brightness has varied from $12.3$ to $13.2$ mag, with a typical range of $0.5$ mag in any single epoch.  In a two-temperature atmosphere, this brightness corresponds directly to a filling factor for both components.  
+
+We model the rotational modulation of LkCa 4 in different photometric bands by fixing the two temperatures to 4200 and 3000 K and setting the 70\% covering fraction of the cool component to $V_{est}=12.85$, as estimated at the time of the IGRINS spectrum.  The colors for the two components are obtained from the main sequence colors compiled by \citet{kenyon95}.  The colors from dwarfs stars should have minimal contribution from spots; measurements of pre-main sequence colors will include some unknown contribution of spots and cannot be used for this analysis.  
+
+In these simple models, the blue emission is dominated by the hotter component, while both components contribute to the red and infrared emission.   
+The $0.5$ mag range in $V$-band brightness requires at least a factor of 1.6 change in the visible surface area of hot component.  Figure~\ref{fig:spotcolors} shows the 
+
+
+
+\subsection{Rotational Modulation of TiO Depth}
+
+The depths of TiO and other molecular bands are common diagnostics of spectral type (and therefore temperature) in optical spectra \citep[e.g.][]{kirkpatrick91}.  In a 2-temperature photosphere, the depth of observed TiO bands will depend on the fractional coverage of the components.  In this subsection, we demonstrate that the TiO band depths vary with spot coverage.
+
+\citet{donati14} spectroscopically monitored LkCa 4 with 12 spectra obtained over 14 days, covering $\sim 4$ rotation periods.  The top panel Figure~\ref{fig:tiovar} shows two of these spectra obtained at the estimated maximum and minimum optical brightness.  Small but significant changes are seen in the TiO bands.  The blue spectrum does not change.
+
+The TiO variability is quantified through TiO indices listed in Table~\ref{tab:tiO}.  The TiO indices are also combined into a single index by calculating by 
+calculating how many standard deviations each point is from the median value of the index, and then averaging the standard deviation.  Both the raw TiO 7140 index and this combined TiO index correlate strongly with the optical brightness.  In the spectral type scheme derived by \citet{herczeg14}, the change in TiO-7140 index corresponds to a range from M1.5 (3640 K) to M2.2 (3530 K).
+
+
+
+\subsection{Phased colors}
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/lkca4_tio_forpaper} 
+	\vspace{-100mm}
+	\caption{Variability in TiO bands measured with ESPaDOnS (see also Table X).  The V-band emission is estimated from fits to the ASAS-SN lightcurve obtained during the same period.  The main panel shows a correlation between V-band magnitude and the TiO-7140 index, while the inset shows a similar correlation with the average of the TiO 6200, CaH 6800, and TiO 7600 indices.}
+	\label{fig:tiovar}
+\end{figure*}
+
+
+
+
+\section{Discussion}
+
+
+\begin{table*}
+\begin{tabular}{lccccc}
+Method & $T_{eff}$ & $A_V$ & $M$ & $\log$ Age \\
+\hline
+Blue, high resolution & 4100 & 0.68 \\
+Low resolution optical & 3670 & 0.35 & \\
+\hline
+\multicolumn{5}{c}{Simulated}
+GAIA-ESO\\
+APOGEE \\
+\hline
+This work & 3525 & \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Placing LkCa 4 on an HR Diagram}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.95\textwidth]{lkca4_hrdiag}
+	\caption{Placeholder for HR Diagram Figure}
+	\label{fig:hrdiag}
+\end{figure}
+
+The spectrum of LkCa 4 is well reproduced by a cool component of $3000$ K covering 75\% of the surface and a $4200$ K component covering 25\% of the surface.  The effective temperature of these two components is 3525 K, based on the average surface flux.  Decreasing the cool spot size to 60\% would increase the effective temperature to 3670 K, while increasing the spot size to 85\% would decrease the effective temperature to 3370 K.  {\bf GJH note:  holy crap!!!}  Scaling our composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.2$ $R_\odot$ and $\log L/L_\odot=0.17$, assuming a distance of 131 pc based the parallax distance of the nearest Taurus member \citep{torres12}.
+
+This improved characterization of LkCa 4 should lead to more accurate estimates of mass and age from pre-main sequence tracks.  However, our effective temperature and luminosity yield a mass of 0.33 $M_\odot$ and an age of $\sim 0.5$ Myr in the \citet{baraffe15} evolutionary models.  This age is uncomfortably young.  LkCa 4 is not located deeply within a molecular cloud and is not associated with any nearby Class 0/1 stars, which would be expected for a 0.5 Myr star.  The inferred age and low mass may instead be evidence that strong magnetic fields are inhibiting convection and slowing the contraction rate.
+
+
+Comparisons to other results (both real and simulated):  APOGEE, GAIA-ESO, 
+
+
+
+\subsection{Longitudinal / latitudinal spot distributions and phase}
+
+
+
+\subsection{Addressing limitations of assumptions in the methodology}
+
+\emph{Number of photospheric components-}  Our full spectrum fitting method assumed \emph{only} two temperature components present in the photosphere.  In reality, starspots are probably described by a range of effective temperatures like umbra, penumbra, and plages on the sun's surface.  A model possessing three unique temperatures and two unique fill factors might better approximate the minor constituents of the emergent spectrum than our two temperature model can.  Computational infeasibility limited our ability to rerun new multi-temperature models and compute model comparison diagnostics like AIC, BIC, or cross validation \citep{ivezic14}.  Such investigations could be considered in future works, but we suspect systematic errors in the models would ultimately limit the interpretability of models with more than two temperature components.  High-precision polychromatic planetary transit photometry could offer an avenue to measure the morphologies and temperatures of starspots for the subset of transiting exoplanet host stars.
+% The fact that we get consistent estimates for Teff tells us something.
+% The fits are pretty good, also tells us something.
+% Coarsely sampled models + spectral emulator acts as a smoother in Teff, as does the GP global covariance kernel.
+%(cite Charlotte Norris CS19 poster?)
+
+\emph{Suitability of pre-computed \PHOENIX model spectra, model ranges, $\A \neq 0$, and magnetic fields-} We have assumed that the \PHOENIX synthetic spectra are a good representation to our observed IGRINS spectrum of \name, a young star likely to possess a large magnetic field.  Cool sunspots are associated with heightened magnetic fields on the sun.  Magnetic fields will have two effects on the emergent spectrum- line broadening attributable to the Zeeman effect, and pressure broadening attributable to seeing deeper into deeper layers in the photosphere compared to the surrounding hotter photosphere.  The former effect will differentially impact lines with high Lande-g factors (cite XX, fix the g formatting).  The latter effect could masquerade as an apparent shift in surface gravity, as seen in mixture models of spotted stars with empirical templates composed of dwarfs and giants (cite XX Saar and collaborators).  Our tacit assumption has been that these effects are 1) relatively small compared to the gross appearance and disappearance of spectral lines at disparate temperatures and 2) there exist many orders and lines that are not affected at all.  We see tentative evidence for physics outside of the pre-computed model grids in the poor fits to the observed spectra in $K-$band.  Strong metal lines demonstrate large departures in their best fit $\Z$ due to Zeeman broadening.  No pre-computed model grids including a range of surface magnetic fields are available at the wavelength range and spectral sampling needed to approach these questions within this spectral inference framework.
+% Note that these two effects would differently affect the spectra
+
+We also assumed that the spectral pattern of metallicity can be captured by a single coarse metric, $\Z$.  In reality, the low temperature starspot spectrum of \name could exhibit $\A \neq 0$, resulting in a greater amplitude of residual spectrum correlations, and/or biased estimates for other parameters.  Our Gaussian process inference framework yields some resilence to the former problem.  For the latter, nonzero $\A$ would only impact a subset of all lines, and only to at a magnitude of typical departures of $\A$ in the solar neighborhood.  The large number of IGRINS orders and spectral lines offers us some resilience to isolated orders badly affected by spectral line outliers.
+
+
+\subsection{Interpretation of the large filling factor of cool starspots}
+
+
+
+\subsection{Is \name an extreme source?}
+
+
+
+
+
+
+
+
+
+\clearpage
+\pagebreak
+
+
+\appendix
+
+\section{Examples of full spectrum fitting}
+
+Figures \ref{fig:Hband3x7} and \ref{fig:Kband3x7} show spectra from 42 IGRINS orders.
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/H_band_spectra_3x7}
+	\caption{IGRINS Orders 94 and $99-119$.  Note that the $y-$axis is on a logarithmic scale.  }
+	\label{fig:Hband3x7}
+\end{figure*}
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/K_band_spectra_3x7}
+	\caption{IGRINS Orders $73-93$.  Note that the $y-$axis is on a logarithmic scale.  }
+	\label{fig:Kband3x7}
+\end{figure*}
+
+
+\section{Methodological details}
+\label{methods-details}
+
+\subsection{Full-spectrum fitting framework}
+
+% Motivation:  Why sampling?  Why full spectrum fitting?
+
+A main motivating factor in designing our methodology was our wish to address the question: ``Is a given spectrum consistent with the non-detection of starspots, and to what level of confidence can the properties of starspots be measured given uncertain stellar properties?''.  In order to answer this question, we need some way to gauge the uncertainty in the derived stellar properties, which we assumed would have some level of degeneracy among themselves.  For example, we expect the best fit effective temperature contrast will be partially degenerate with the areal coverage fraction: a slightly cooler, smaller sunspot can masquerade as a larger, warmer spot.  This degeneracy should be lessened in spectroscopic methods compared to photometric methods.  The desire to reveal these intra-parameter degeneracies motivated the choice of \emph{sampling} from the posterior probability density distribution function.
+
+% Overview and summary of existing model
+
+We adopted and extended an existing modular framework for spectral inference \citep[][hereafter \iancze]{czekala15}.  We briefly summarize the model here for carity of notation, but see \iancze for more details.  We follow and expand the notation from \iancze, all summarized in Table \ref{table:params}. 
+
+The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR= \vD - \vM$.  The model encapsulates the major intrinsic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
+
+\begin{eqnarray} \label{eqn:scaling}
+\vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
+         &=& \vM(\vt_{\ast}, \sigma_v, v\sin{i}, v_r) \times \Omega \times 10^{-0.4\,A_{\lambda}}, \nonumber
+\end{eqnarray}
+
+The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  We use the \PHOENIX model grid \citep{husser13}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
+
+
+\todo{Simplify this discussion to what matters here.}
+
+
+\subsection{Approach 11: Whole spectrum with a single photospheric component (Czekala et al. 2015)}
+
+Approach 11 is identical to the strategy in \iancze.  The model $\vM(\vT)$ was intended to apply a single set of stellar parameters to the entire wavelength range of interest, presumably the entire available spectrum.  For a spectrum from a multi-order echelle spectrograph, this means each spectral order is fit with the same stellar parameters.  Simultaneous fitting is the desired behavior for most applications involving a single stellar photospheric component.  In our case, however, we know that a single stellar photospheric component is a poor model for the data: there are \emph{two or more components} lurking in the composite spectrum.  We anticipate that these fits would be too uninformative, so we did not implement Approach 11 on the whole spectrum.
+
+\textbf{Other things to say: Optical and IR will have slightly different RV, perhaps different vsini based on erroneous spectral resolution.  This method could work with liberal assignment of local kernels, and the development of new kernels that deal with line-width mis-matches.}
+
+\subsection{Approach 12: Deriving unique Teff in each order}
+\label{sec:approach12}
+
+In local chunks of wavelength, a single stellar photosphere component might fit the composite spectrum satisfactorily.  Some wavelength chunks will fit the warm photosphere lines better and other wavelength chunks will fit prominent lines from cool spots better.  Wavelength chunks possessing lines that are present in both cool and warm stars will yield mixed results.
+
+The starspot contrast depends on wavelength, roughly as the ratio of blackbodies.  Figure XX shows a plot of the flux ratio of two stellar photospheres with identical stellar properties except for different effective temperatures.  So a sufficiently large bandwidth spectrum could exhibit differing levels of fit quality as a function of wavelength, if a single temperature photosphere fit is naively applied to different chunks of wavelengths.  
+
+We modified the \iancze spectral inference framework to fit $\vM$ in each spectral order \emph{independently}: $\vT \rightarrow \vT_o$, where $o$ signifies the spectral order, which could stem from multiple spectrographs, each with multiple orders.  
+
+This change does not represent reality: by definition, the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The na\"ive single-component fit to different wavelength chunks merely provides a plausibility argument for the presence of a second photospheric component if the derived $\vT_o$ show a spread in $\teff$.  
+
+It is conceivable that other parameters, like $\logg$ could show a dependence on wavelength if non-standard physics---\emph{i.e.}physics not included in the pre-computed model grid---mimics the effect of \emph{e.g.} $\logg$ on the spectrum.  For example, magnetic fields could cause Zeeman broadening, which could alter the derived stellar parameters $\vT_o$.  For these reasons, we intentionally allowed \emph{all} the stellar parameters $\vT_o = \{T_{\mathrm{eff},o}, \log{g_o}, \Z_o, \Omega_{o}, v\sin{i}_o, v_{r,o}\}$ to vary by order.  
+
+In principle, one could refine the inference on $T_{\mathrm{eff},o}$ in an \emph{empirical Bayes'} strategy CITE (XX, astroML book?), in which we re-evaluate $\vT_o$ by setting priors on all the stellar parameters except $T_{\mathrm{eff},o}$.  We elected not to pursue an empirical Bayes' approach.
+
+As a side benefit, the strategy of fitting $\vT_o$ in each spectral order provides a useful check on instrumental calibration. If the stellar parameters in one order are routinely discrepant, we can examine and refine our instrumental calibration for that spectral order.  For example, the radial velocity $v_r$ could be systematically offset in one order due to instrumental calibration problems.  Or perhaps the $v\sin{i}$ could show a dependence on wavelength, since the spectral inference framework from \iancze assumes the spectral resolution is fixed across all wavelengths, but typical spectrographs exhibit a small dependence of spectral resolution on wavelength.  (cite the SICK paper)
+
+Spectral-order level granularity in fit quality is not available in a fit that includes all $N_{order}$ spectral orders.  In fact, the benefits of spectral chunking could be made \emph{even more granular} by chunking the spectrum into individual spectral lines or line-groups.  The fit quality could then be assessed on a line-by-line basis, even taking into account systematic effects like individual elemental abundance patterns beyond the coarse $\Z$ estimates.  Future improvements to the spectral inference framework are directed at implementing this spectral-line chunking strategy.  
+
+\subsection{Approach 21: Whole spectrum with two components}
+\label{sec:approach21}
+
+Ideally, we want to fit the entire spectrum with a two component photosphere.  If we believe our model, the entire emergent spectrum of the star should be described by a single set of stellar parameters.  In other words, if nature had truly delivered a noisy version of this model, the ability to measure starspot properties would scale with the number of spectral channels (to some power).
+
+Unfortunately there are two main limitations of Approach 21.  First, the Metropolis-Hastings Gibbs sampling is dramatically complicated by increasing from 6 to 8 stellar parameters: $theta-original to theta-multicomponent$.  The details of the problem are summarized in Section \ref{sec:MC-challenges}.
+
+
+\subsection{Approach 22: Order-by-order with two components}
+\label{sec:approach22}
+
+Finally, Approach 22 is two sample each spectral order with a unique two-component photosphere model: 
+
+$$ theta by order$$. 
+
+In this case we altered the \iancze framework from a blocked Gibbs sampler with Metropolis-Hastings proposals to an affine invariant ensemble sampler with all stellar and nuisance parameters sampled simultaneously.  
+
+This strategy has the \emph{disadvantage} that there is no statistically principled way to combine the $N_{ord}$ inferences from the set of $\theta$ at the end.  There are many \emph{heuristic} ways to estimate the inferences at the end.  
+
+
+\subsection{Implementation}
+
+\subsubsection{Mixture model definitions}
+
+We construct a mixture model spectrum of the form:
+
+\begin{eqnarray} \label{eqn:mix_M}
+\vM_{\mathrm{mix}}(\vT) = \vM(\teffa, ...) \times \Omega_a + \vM(\teffb, ...) \times \Omega_b
+\end{eqnarray}
+
+
+Where $\teffa, \teffb, \Omega_a, \Omega_b$ are temperatures and solid angles of two photospheric components respectively.  All other stellar intrinsic and extrinsic parameters, and instrumental nuisance calibration parameters are shared among the two components, as chronicled in Table \ref{table:params}.
+
+If the stellar models are in absolute flux units, our mixture model is complete as stated in Equation \ref{eqn:mix_M}.  However \iancze employ \emph{standardized} $\flam$ when constructing the forward model $\vM$:
+
+
+\begin{eqnarray} \label{eqn:normalization}
+\bar \flam = \frac{\flam}{\int_{0}^{\infty} \flam d\lambda} = \frac{\flam}{f}
+\end{eqnarray}
+
+The reason for standardizing the flux is a matter of practicality: the number of PCA eigenspectra components in the spectral emulator scales steeply with the pixel-to-pixel variance of $f_{\lambda}(\{\vt_{\ast}\}^\textrm{grid})$, increasing the computational cost of spectral emulation.  The choice to standardize fluxes makes no difference for modeling a single photospheric component.  But for two-component photosphere models, the relative flux of the two model spectra needs to be accounted for to get an accurate estimate of the areal coverage fraction of the cool spots, $c \equiv \Omega_b/(\Omega_a+\Omega_b)$.  So we scale the mixture model in the following way:
+
+\begin{eqnarray} \label{eqn:norm_scaling}
+f_{\lambda, \mathrm{mix}} &=& f_{\mathrm{a}} \bar f_{\lambda, \mathrm{a}} \times \Omega_a + f_{\mathrm{b}} \bar f_{\lambda, \mathrm{b}} \times \Omega_b \\
+q &=& q(\vt_{\ast})\equiv \frac{f_{\mathrm{b}}(\teffb, ...)}{f_{\mathrm{a}}(\teffa, ...)} \\
+f_{\lambda, \mathrm{mix}}^{\prime} &=& \bar f_{\lambda, \mathrm{a}} \times \Omega_a + q \bar f_{\lambda, \mathrm{b}} \times \Omega_b
+\end{eqnarray}
+
+where the prime symbol in the final line indicates a re-standarized mixture model flux, where the relative fluxes of the model components are now correctly scaled.
+
+We are then tasked with computing an estimator, $\hat f(\vt_{\ast})$, for estimating the scale factor $q$ in-between model gridpoints.  The Right Thing to Do would be to follow \iancze by training a Gaussian process on the $f(\{\vt_{\ast}\}^\textrm{grid})$.  What We Actually Did was linearly interpolate between the model grid-points.  Interpolation can cause pile-up near model grid-points, as noted in \citet{cottaar14}, which motivated the spectral emulation procedure in \iancze.  We assume the interpolation of $\hat f$ is smooth enough that we will not see such pileups and if even we did see pileups, they would mostly be discernable in the distribution of samples in the starspot areal coverage fraction $c$.  One drawback of our estimator method compared to the Gaussian Process regression method is that we do not propagate the uncertainty associated with the absolute flux ratio interpolation into our estimate of $c$.  We assume this uncertainty is relatively small and can be ignored.
+
+The mixture model is a linear operation with all the same stellar extrinsic parameters, so we can re-use all the same post-processed eigenspectra $\widetilde{\mathbf{\Xi}}$, mean spectrum $\widetilde{\xi}_\mu$, and variance spectrum $\widetilde{\xi}_\sigma$, with the tildes representing all post processing \emph{except} the $\Omega$ scaling.  We calulate \emph{two} sets of eigenspectra weights $\mathbf{w}_{\in (\mathrm{a}, \mathrm{b})}$, and their associated mean and covariances following the Appendix of \iancze, and yielding:
+
+\begin{equation}
+  \mathsf{M}_{\mathrm{mix}}^\prime = \Omega_a (\widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{a}}) + q \Omega_b (\widetilde{\xi}_\mu + \mathbf{X} \mathbf{\mu}_{\mathbf{w}, \mathrm{b}})
+\end{equation}
+
+\begin{equation}
+  \mathsf{C}_{\mathrm{mix}}^\prime = \Omega_a^2 \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{a}} \mathbf{X}^T + q \Omega_b^2 \mathbf{X} \mathbf{\Sigma}_\mathbf{w, \mathrm{b}} \mathbf{X}^T + \mathsf{C}
+  \label{eqn:modC}
+\end{equation}
+
+
+
+\begin{deluxetable}{clcc}[!bh]
+\tablecaption{\label{table:params} Definition of symbols and parameters used}
+\tablehead{
+\colhead{Label} &
+\colhead{Description} & 
+\colhead{Shared?} &
+\colhead{Source}
+}
+\startdata
+$\vM$ & Pixel-level model & - & \iancze \\
+$\vT$ & Stellar parameters in the model & - & \iancze \\
+$q(\vt_{\ast})$ & Absolute mean flux ratio in order $o$  & N & This Work \\
+\hline
+ \multicolumn{4}{c}{$\vt_{\ast}$} \\
+\hline
+$\teffa$ & Effective temperature of component A & N & This Work \\
+$\teffb$ & Effective temperature of component B & N & This Work \\
+$\Delta \teff$ & Spot temperature contrast $\teffa - \teffb $ & - & This Work \\
+$\logg$ & Stellar surface gravity & Y & \iancze \\
+$\Z$ & Metallicity & Y & \iancze \\
+\hline
+\multicolumn{4}{c}{$\vt_{\rm ext}$} \\
+\hline
+$v\sin{i}$ & Projected stellar rotation & Y$^a$ & \iancze \\
+$\sigma_v$ & Instrumental resolution & Y & \iancze \\
+$v_r$ & Radial Velocity & Y & \iancze \\
+$\Omega_a$ & Solid angle subtended by component A & N & This Work \\
+$\Omega_b$ & Solid angle subtended by component B & N & This Work \\
+$c$ & Spot fill factor, $\Omega_b / (\Omega_a+\Omega_b)$ & N & This Work \\
+$A_{\lambda}$ & Extinction towards the source & Y & \iancze \\
+\enddata
+\tablecomments{\emph{a}- In principle, star spots could have non-uniform latitudinal distributions, resulting in slight differences in $v\sin{i}$ between the components CITE XX-McDonald Obs.  We ignore this effect for now, but it could be an interesting line of study for future work.}
+\end{deluxetable}
+
+
+
+
+
+
+
+\section{Previous work}
+
+Table REF lists measurements of LkCa4 from previous studies.
+\input{tables/tbl_history.tex}
+
+In short, here is what we know about \name.  It is a weak-lined \emph{T-Tauri} star.  It exhibits a 3.36-3.37 day period \citep{vrba93,grankin94}, as seen in photometric monitoring in $BVRI$ bands.  No periodic signal is detected at $U-$band.  Section 5 of \citet{vrba93}, ``More on the nature of CTT and WTT spots'' goes into detail about the whether the photometric variability is attributable to hot or cold patches.  \name has no detected M-type-or-earlier binary companion down to $0.13''$ (Kraus, plus Nguyen for SBs?).  \name demonstrates variability in X-rays with ROSAT \citep{strom94}, with $L_{x}=2.4$ ergs/s.
+
+
+\section{Challenges: Tuning the transition probability matrix}
+\label{sec:MC-challenges}
+
+Once we have the mixture model in hand, we can apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($\Omega_b, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$ CITE XX, so our 2 new parameters increased the tuning parameters from 15 to 36.  The tuning parameters are covariances between dimensions in the proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $\teffa, \teffb, \Omega_a, \Omega_b$ terms are likely to be correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.  We experimented with some of these transformations and found that the existing stellar parameters were best, although still unacceptably correlated.
+
+
+\acknowledgements
+The authors thank Gregory N. Mace and Kyle Kaplan for carrying out the IGRINS observations. 
+
+MG-S and GJH are supported by general grant 11473005 awarded by the National
+Science Foundation of China.   The ESPaDOnS observations are supported by the contribution to the MATYSSE Large Project on CFHT obtained  through the Telescope Access Program (TAP), which has been funded by the ``the Strategic Priority Research Program---The Emergence of Cosmological Structures'' of the Chinese Academy of Sciences (Grant No.11 XDB09000000) and the Special Fund for Astronomy from the Ministry of Finance. 
+
+This research has made use of NASA's Astrophysics Data System.
+
+{\it Facilities:} \facility{Smith (IGRINS)}
+
+\clearpage
+
+\bibliographystyle{apj}
+\bibliography{msv1}
+
+\end{document}
+
+
