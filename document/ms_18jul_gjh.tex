@@ -104,7 +104,7 @@ The observed filling factor of photosphere $b$ is simply the ratio:
 f = \frac{\Omega_b}{\Omega_a + \Omega_b}
 \end{eqnarray}
 
-The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{foreman13.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  We combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$ with heuristics like taking the weighted average of point estimates of parameter distributions of the most reliable subsets of orders.  We assume that these lossy heuristics offer a regression to the mean with a large number of spectral orders.
+The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{foreman13}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  We combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$ with heuristics like taking the weighted average of point estimates of parameter distributions of the most reliable subsets of orders.  We assume that these lossy heuristics offer a regression to the mean with a large number of spectral orders.
 
 
 \section{Observations}\label{sec:obs} 
@@ -265,13 +265,14 @@ In the previous sections we established that the high resolution optical and nea
 In \S 4.1 we describe how the two components of the photosphere fit low resolution spectra and optical photometry.  The spectral features and colors should change as the spot rotates around the star, so that the visible fraction of hot and cool spot changes.  While the variability in optical brightness is well documented and motivatet this study, in \S 4.2-4.3 we convert the $V$ band brightness to a spot filling factor and then quantify spectroscopic and color variability caused by changes in the spot filling factor.
 
 
-\begin{figure}
+\begin{figure*}
+    	\vspace{-60mm}
 	\centering
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_lores} 
 	\vspace{-100mm}
 	\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
 	\label{fig:lores}
-\end{figure}
+\end{figure*}
 
 
 \subsection{The Spectral Energy Distribution}
@@ -312,8 +313,9 @@ calculating how many standard deviations each point is from the median value of 
 
 \begin{figure*}
 	\centering
+	\vspace{-60mm}
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_tio_forpaper} 
-	\vspace{-100mm}
+    	\vspace{-30mm}
 	\caption{Variability in TiO bands measured with ESPaDOnS (see also Table X).  The V-band emission is estimated from fits to the ASAS-SN lightcurve obtained during the same period.  The main panel shows a correlation between V-band magnitude and the TiO-7140 index, while the inset shows a similar correlation with the average of the TiO 6200, CaH 6800, and TiO 7600 indices.}
 	\label{fig:tiovar}
 \end{figure*}
@@ -324,7 +326,7 @@ calculating how many standard deviations each point is from the median value of 
 \section{Discussion}
 
 
-\begin{table*}
+\begin{table}
 \begin{tabular}{lccccc}
 Method & $T_{eff}$ & $A_V$ & $M$ & $\log$ Age \\
 \hline
@@ -345,7 +347,9 @@ This work & 3525 & \\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.95\textwidth]{lkca4_hrdiag}
+    	\vspace{-30mm}
+	\includegraphics[width=0.95\textwidth]{figures/lkca4_hrdiag}
+    	\vspace{-30mm}
 	\caption{Placeholder for HR Diagram Figure}
 	\label{fig:hrdiag}
 \end{figure}
@@ -600,7 +604,7 @@ This research has made use of NASA's Astrophysics Data System.
 \clearpage
 
 \bibliographystyle{apj}
-\bibliography{msv1}
+\bibliography{ms}
 
 \end{document}
 
