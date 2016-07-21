@@ -1,5 +1,3 @@
-import numpy as np
-
 def user_defined_lnprior(p):
     '''
     Takes a vector of stellar parameters and returns the ln prior.
