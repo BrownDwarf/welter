@@ -90,21 +90,21 @@ We extend a new spectral forward modeling framework to include two-temperature p
 
 \iancze developed a modular framework to infer stellar properties from high resolution spectra.  In this section, we describe how we extended this framework to include spots in a 2-temperature fit to spectra.  Further details of this methodology are described in Appendix \ref{methods-details}.
 
-We experimented with several extensions to the modular framework for spectral inference described in \iancze \footnote{The open source codebase and its full revision history is available at https://github.com/iancze/Starfish.  The experimental fork discussed in this paper is at https://github.com/gully/Starfish}.  The \iancze technique forward models ``emulated'' synthetic spectra from pre-computed model grids, taking into account the discretization error attributable to the coarsely sampled stellar intrinsic parameters.  We use the \PHOENIX~ grid of pre-computed synthetic stellar spectra that span a wide range of wavelengths at high spectral resolution with sampling of 100 K in $\teff$ in our range of interest\citep{husser13}.  \todo{Put in a hyperlink?} After experimenting with the base model from \iancze, we made two principal changes to the modular framework: 1) the introduction of a starspot mixture model characterized by a second $\teff$ and areal fill factor $f$, and 2) the switch from Gibbs sampling to ensemble sampling with chunking by spectral order.  We discuss these two changes below.
+We experimented with several extensions to the modular framework for spectral inference described in \iancze \footnote{The open source codebase and its full revision history is available at https://github.com/iancze/Starfish.  The experimental fork discussed in this paper is at https://github.com/gully/Starfish}.  The \iancze technique forward models ``emulated'' synthetic spectra from pre-computed model grids, taking into account the discretization error attributable to the coarsely sampled stellar intrinsic parameters.  We use the \PHOENIX~ grid of pre-computed synthetic stellar spectra that span a wide range of wavelengths at high spectral resolution with sampling of 100 K in $\teff$ in our range of interest \citep{husser13}.  \todo{Put in a hyperlink?} We made two principal changes to the modular framework: 1) the introduction of a starspot mixture model characterized by a second $\teff$ and areal fill factor $f$, and 2) the switch from Gibbs sampling to ensemble sampling with chunking by spectral order.  We discuss these two changes below.
 
 We assume the stellar photosphere is characterized as two photospheric components with different effective temperatures, $\teffa$ and $\teffb$, and scalar solid angular coverages $\Omega_a$ and $\Omega_b$, but sharing all the same intrinisic and extrinsic stellar parameters otherwise.  Following and extending the notation of \iancze, we can write down the mixture model as:
 
 \begin{eqnarray} \label{eqn:mix_M}
-\vM_{\mathrm{mix}} = \Omega_a \vM(\teffa)  + \Omega_b \vM(\teffb)
+\f_{\mathrm{mix}} = \Omega_a f(\teffa)  + \Omega_b f(\teffb)
 \end{eqnarray}
 
-The observed filling factor of photosphere $b$ is simply the ratio:
+The observed filling factor of photosphere $c$ is simply the ratio:
 
 \begin{eqnarray} \label{eqn:fill_factor}
-f = \frac{\Omega_b}{\Omega_a + \Omega_b}
+c = \frac{\Omega_b}{\Omega_a + \Omega_b}
 \end{eqnarray}
 
-The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \cite{foreman13}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  We combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$ with heuristics like taking the weighted average of point estimates of parameter distributions of the most reliable subsets of orders.  We assume that these lossy heuristics offer a regression to the mean with a large number of spectral orders.
+The second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \citep{foreman13}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations expected among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that we obtain unique stellar parameter estimates $\vT_{o}$ for each spectral order $o$, whereas the \iancze strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  We combine the $N_{\rm ord}$ sets of inferences on $\vT_{o}$ with heuristics like taking the weighted average of point estimates of parameter distributions of the most reliable subsets of orders.  We assume that these lossy heuristics offer a regression to the mean with a large number of spectral orders.
 
 
 \section{Observations}\label{sec:obs} 
@@ -130,12 +130,8 @@ APO/TripleSpec (Covey)
 \subsection{Photometric monitoring from ASAS-SN and \citet{grankin08}}
 
 We retrieved $V-$band monitoring from the ASAS-SN survey \citep{shappee14}, obtained from 2012 January -- 2016 March in 186 visits.
-We also retrieved optical photometry of \name\ obtained in 284 visits in $V$-band (278 with $B$ and 268 with $R$ from 1992 August - 2004 October \citep{grankin08}, and 10 additional $BVR$ epochs obtained by \citet{donati14}.   Figure \ref{fig:PhotTime} assembles the \citet{grankin08}, \citet{donati14}, and ASAS-SN $V-$band monitoring plotted over the interval 1992-2016.  The dates of observations of the IGRINS spectra and ESPaDoNs spectra are demarcated as vertical lines.
+We also retrieved optical photometry of \name\ obtained in 284 visits in $V$-band (278 with $B$ and 268 with $R$) from 1992 August - 2004 October \citep{grankin08}, and 10 additional $BVR$ epochs obtained by \citet{donati14}.   Figure \ref{fig:PhotTime} assembles the \citet{grankin08}, \citet{donati14}, and ASAS-SN $V-$band monitoring plotted over the interval 1992-2016.  The dates of observations of the IGRINS spectra and ESPaDoNs spectra are demarcated as vertical lines.
 
-
-
-%The 777 raw data points included near-contemporaneous measurements from repeated observations during the same visits, which lasted typically $<10$ minutes.  We group these near-simultaneous observations by assigning 
-% datapoints by these visits yielding 186 data points, assigning a mean value and standard deviation when there was more than 1 observation per visit, enforcing a floor uncertainty of 0.01, the native quoted uncertainty of the data points.  We assigned the native uncertainty of 0.01 when there was only a single observation per visit.
 
 \begin{figure*}
 	\centering
@@ -144,7 +140,7 @@ We also retrieved optical photometry of \name\ obtained in 284 visits in $V$-ban
 	\label{fig:PhotTime}
 \end{figure*}
 
-Figure \ref{fig:PhotPhase} shows the phase-folded lightcurve of all available $V-$band data grouped by the 17 observing seasons.  We folded the phase by a period $P=3.375$ days, which is the median position of the peaks of the multiterm ($M_{\rm max} = 4$) Lomb-Scargle periodogram derived separately from each of the 17 observing seasons \citep{ivezic14}.  The standard deviation of the 17 periodogram peaks was 0.003 days.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  We estimated $\hat V$, the $V-$band magnitude at the time of the spectral observations, from a regularized multiterm fit \citep{vanderplas15a} shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists $\hat V$ and the observing epoch for the spectral observations with ESPaDoNs and IGRINS.
+Figure \ref{fig:PhotPhase} shows all available $V-$band data grouped by the 17 observing seasons and phase-folded by period $P=3.375$ days obtained from multiterm Lomb-Scargle periodograms \citep{ivezic14}.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  We estimate $\hat V$, the $V-$band magnitude at the time of the spectral observations, from a regularized multiterm fit \citep{vanderplas15a} shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists $\hat V$ and the observing epoch for the spectral observations with ESPaDoNs and IGRINS.
 
 \begin{figure*}
 	\centering
