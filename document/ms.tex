@@ -52,12 +52,19 @@ Pre-main sequence stellar evolution is an unsolved problem \citep[see review by]
 
 The causes of global age uncertainties and of large luminosity spreads in individual clusters are controversial.  Observationally, \citet{hartmann01} and \citet{slesnick08} argue that measurement uncertainties may mask any real differences in ages within a cluster.  In models, \citet{hartmann97} and \citet{baraffe09} describe how non-static accretion histories change the stellar contraction at early times.  Contraction rates also depend on the prescription for convection, which may vary with mass.
 
-Magnetic activity is a likely source of significant uncertainty in both the models and observations of young low-mass stars. 
-Convection at these young ages generate strong magnetic fields, as measured in Zeeman broadening and polarimetry \citep[e.g.][]{johnskrull07,donati09} and as seen in starspots \citep[e.g.][]{stauffer03,grankin08}, which cause significant jitter in radial velocity surveys for young planets \citep[e.g.][]{donati14}.  Evolutionary models are just now starting to implement new prescriptions for convection with magnetic fields (Somers et al.~2015, Feiden 2016; see also Baraffe et al.~2015 for an updated treatment of convection without introducing magnetic fields).  Stellar evolution models including the effect of starspots can make a coeval 10 Myr population exhibit apparent age spreads of 3$-$10 Myr, with derived masses biased towards lower masses \citep{somers15}.  
+Magnetic activity is a likely source of significant uncertainty in both the models and observations of young low-mass stars. Convection at these young ages generate strong magnetic fields, as measured in Zeeman broadening and polarimetry \citep[e.g.][]{johnskrull07,donati09} and as seen in starspots \citep[e.g.][]{stauffer03,grankin08}, which cause significant jitter in radial velocity surveys for young planets \citep[e.g.][]{donati14}.  Evolutionary models are just now starting to implement new prescriptions for convection with magnetic fields (\citet{somers15}, \citet{feiden16}; see also \citet{baraffe15} for an updated treatment of convection without introducing magnetic fields).  Stellar evolution models including the effect of starspots can make a coeval 10 Myr population exhibit apparent age spreads of 3$-$10 Myr, with derived masses biased towards lower masses \citep{somers15}.  
 
-Starspots may also be responsible for biases in stellar effective temperatures derived by different methods.  For example, effective temperatures for 3493 young stars measured using the APOGEE spectrograph ($1.5-1.70 \;\mu$m at $R=22,500$) are offset by 200$-$500 K ($\sim$0.02$-$0.05 dex) and as high as 1000 K ($\sim$0.1 dex) relative to previous measurements, usually from optical \citep{cottaar14}.  Jackson \& Jeffries 2014ab needs to go somewhere.
+Starspots may also be responsible for biases in stellar effective temperatures derived by different methods.  For example, effective temperatures for 3493 young stars measured using the APOGEE spectrograph ($1.5-1.70 \;\mu$m at $R=22,500$) are offset by 200$-$500 K ($\sim$0.02$-$0.05 dex) and as high as 1000 K ($\sim$0.1 dex) relative to previous measurements, usually from optical \citep{cottaar14}.  
 
-...The importance of starspots needs to be empirically evaluated to assess systematic biases of pre-main sequence stellar evolutionary models.
+%Jackson \& Jeffries 2014ab needs to go somewhere.
+
+
+Starspots have recently been observed with few parts per million photometric precision from monitoring surveys targeting exoplanet transits (Harrison, Davenport, etc.).  Contemporaneous or near-contemporaneous panchromatic photometric monitoring (Grankin, etc.) can break the degeneracy between starspot areal filling factor and starspot temperature. Photometric measurements are limited to detecting the largest longitudinally asymmetric starspots.  Transiting planets or eclipsing binaries passing in front of starspots (cite XX) can break geometric degeneracies, providing estimates for the characteristic sizes and lifetimes of starspots or starspot groups.  Zeeman Doppler Imaging (ZDI, cite XX) suffers from the same longitudinally-asymmetric limitation as photometry, but yields information on the latitudinal distribution of starspots.  All of these techniques would underestimate the starspot areal coverage of pole-on stars, stars with longitudinally symmetric bands of starspots (e.g. bands), or stars with an isotropic distribution of small starspots.  
+
+Spectroscopic strategies have the power to measure both the average areal coverage and the area-weighted average starspot temperature contrast in any geometric configuration.  At low resolution, SED modeling (Wolk and Walker) has detected evidence for sunspots in weak-lined T-Tauri stars (WTTS).  At high resolution, line depth ratio analysis (Neff, etc) has historically been demonstrated in isolated regions of spectrum, namely the TiO bands (cite O'Neal, Neff, etc), OH 1.5 micron feature (O'Neal, etc.), and others.  
+
+The WTTS \name is an ideal exemplar for a spotted pre-MS star because it has no close companion (cite Kraus, etc.), demonstrates large amplitude sinusoidal photometric variability indicative of spots (cite Grankin), has recently been examined with ZDI (cite Donati), and has large (dTeff~500 K) disagreement about its effective temperature (cite Herczeg and Hillenbrand).  In this work we constrain the starspot properties of \name with 4 complementary techniques.  Section 2 and Appendix YY describe a spectral inference technique aimed at generalizing line depth ratio analysis.  Section 3 applies the spectral inference technique to a high resolution panchromatic near-IR spectrum of \name.  Sections 4.1, 4.2, and 4.3 show results from polychromatic photometric monitoring analysis, SED fitting, and optical TiO line-depth ratio fitting.  All lines of evidence are ultimately combined to build a (in?)harmonious picture of the spectral and temporal evolution of \name, and what can be understood about pre-MS stellar evolution from this exemplar.
+
 
 
 \todo{Discuss limitations and capabilities of photometry alone: presence or absence of starspots, joint constraint on areal coverage and temperature, longitudinal asymmetry.}
@@ -95,7 +102,7 @@ We experimented with several extensions to the modular framework for spectral in
 We assume the stellar photosphere is characterized as two photospheric components with different effective temperatures, $\teffa$ and $\teffb$, and scalar solid angular coverages $\Omega_a$ and $\Omega_b$, but sharing all the same intrinisic and extrinsic stellar parameters otherwise.  Following and extending the notation of \iancze, we can write down the mixture model as:
 
 \begin{eqnarray} \label{eqn:mix_M}
-\f_{\mathrm{mix}} = \Omega_a f(\teffa)  + \Omega_b f(\teffb)
+f_{\mathrm{mix}} = \Omega_a f(\teffa)  + \Omega_b f(\teffb)
 \end{eqnarray}
 
 The observed filling factor of photosphere $c$ is simply the ratio:
@@ -262,10 +269,10 @@ In \S 4.1 we describe how the two components of the photosphere fit low resoluti
 
 
 \begin{figure*}
-    	\vspace{-60mm}
+    	%\vspace{-60mm}
 	\centering
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_lores} 
-	\vspace{-100mm}
+	%\vspace{-100mm}
 	\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
 	\label{fig:lores}
 \end{figure*}
@@ -309,9 +316,9 @@ calculating how many standard deviations each point is from the median value of 
 
 \begin{figure*}
 	\centering
-	\vspace{-60mm}
+	%\vspace{-60mm}
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_tio_forpaper} 
-    	\vspace{-30mm}
+    %	\vspace{-30mm}
 	\caption{Variability in TiO bands measured with ESPaDOnS (see also Table X).  The V-band emission is estimated from fits to the ASAS-SN lightcurve obtained during the same period.  The main panel shows a correlation between V-band magnitude and the TiO-7140 index, while the inset shows a similar correlation with the average of the TiO 6200, CaH 6800, and TiO 7600 indices.}
 	\label{fig:tiovar}
 \end{figure*}
@@ -341,14 +348,14 @@ This work & 3525 & \\
 \subsection{Placing LkCa 4 on an HR Diagram}
 
 
-\begin{figure}
+\begin{figure*}
 	\centering
-    	\vspace{-30mm}
+    %	\vspace{-30mm}
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_hrdiag}
-    	\vspace{-30mm}
+    %	\vspace{-30mm}
 	\caption{Placeholder for HR Diagram Figure}
 	\label{fig:hrdiag}
-\end{figure}
+\end{figure*}
 
 The spectrum of LkCa 4 is well reproduced by a cool component of $3000$ K covering 75\% of the surface and a $4200$ K component covering 25\% of the surface.  The effective temperature of these two components is 3525 K, based on the average surface flux.  Decreasing the cool spot size to 60\% would increase the effective temperature to 3670 K, while increasing the spot size to 85\% would decrease the effective temperature to 3370 K.  {\bf GJH note:  holy crap!!!}  Scaling our composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.2$ $R_\odot$ and $\log L/L_\odot=0.17$, assuming a distance of 131 pc based the parallax distance of the nearest Taurus member \citep{torres12}.
 
