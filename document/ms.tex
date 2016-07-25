@@ -350,14 +350,7 @@ We also assumed that the spectral pattern of metallicity can be captured by a si
 \subsection{Interpretation of the large filling factor of cool starspots}
 
 
-
 \subsection{Is \name an extreme source?}
-
-
-
-
-
-
 
 
 
@@ -392,15 +385,7 @@ Figures \ref{fig:Hband3x7} and \ref{fig:Kband3x7} show spectra from 42 IGRINS or
 
 \subsection{Full-spectrum fitting framework}
 
-% Motivation:  Why sampling?  Why full spectrum fitting?
-
-A main motivating factor in designing our methodology was our wish to address the question: ``Is a given spectrum consistent with the non-detection of starspots, and to what level of confidence can the properties of starspots be measured given uncertain stellar properties?''.  In order to answer this question, we need some way to gauge the uncertainty in the derived stellar properties, which we assumed would have some level of degeneracy among themselves.  For example, we expect the best fit effective temperature contrast will be partially degenerate with the areal coverage fraction: a slightly cooler, smaller sunspot can masquerade as a larger, warmer spot.  This degeneracy should be lessened in spectroscopic methods compared to photometric methods.  The desire to reveal these intra-parameter degeneracies motivated the choice of \emph{sampling} from the posterior probability density distribution function.
-
-% Overview and summary of existing model
-
-We adopted and extended an existing modular framework for spectral inference \citep[][hereafter \iancze]{czekala15}.  We briefly summarize the model here for carity of notation, but see \iancze for more details.  We follow and expand the notation from \iancze, all summarized in Table \ref{table:params}. 
-
-The main idea is that \iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR= \vD - \vM$.  The model encapsulates the major intrinsic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
+\iancze define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR= \vD - \vM$.  The model encapsulates the major intrinsic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
 
 \begin{eqnarray} \label{eqn:scaling}
 \vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
@@ -409,53 +394,16 @@ The main idea is that \iancze define a pixel-level forward model $\vM$ of the da
 
 The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  We use the \PHOENIX model grid \citep{husser13}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
 
+\todo{Remove the matrix/approach jargon and simplify}
 
-\todo{Simplify this discussion to what matters here.}
-
-
-\subsection{Approach 11: Whole spectrum with a single photospheric component (Czekala et al. 2015)}
-
-Approach 11 is identical to the strategy in \iancze.  The model $\vM(\vT)$ was intended to apply a single set of stellar parameters to the entire wavelength range of interest, presumably the entire available spectrum.  For a spectrum from a multi-order echelle spectrograph, this means each spectral order is fit with the same stellar parameters.  Simultaneous fitting is the desired behavior for most applications involving a single stellar photospheric component.  In our case, however, we know that a single stellar photospheric component is a poor model for the data: there are \emph{two or more components} lurking in the composite spectrum.  We anticipate that these fits would be too uninformative, so we did not implement Approach 11 on the whole spectrum.
-
-\textbf{Other things to say: Optical and IR will have slightly different RV, perhaps different vsini based on erroneous spectral resolution.  This method could work with liberal assignment of local kernels, and the development of new kernels that deal with line-width mis-matches.}
-
-\subsection{Approach 12: Deriving unique Teff in each order}
+\subsection{Discussion of deriving unique Teff in each order}
 \label{sec:approach12}
 
-In local chunks of wavelength, a single stellar photosphere component might fit the composite spectrum satisfactorily.  Some wavelength chunks will fit the warm photosphere lines better and other wavelength chunks will fit prominent lines from cool spots better.  Wavelength chunks possessing lines that are present in both cool and warm stars will yield mixed results.
-
-The starspot contrast depends on wavelength, roughly as the ratio of blackbodies.  Figure XX shows a plot of the flux ratio of two stellar photospheres with identical stellar properties except for different effective temperatures.  So a sufficiently large bandwidth spectrum could exhibit differing levels of fit quality as a function of wavelength, if a single temperature photosphere fit is naively applied to different chunks of wavelengths.  
-
-We modified the \iancze spectral inference framework to fit $\vM$ in each spectral order \emph{independently}: $\vT \rightarrow \vT_o$, where $o$ signifies the spectral order, which could stem from multiple spectrographs, each with multiple orders.  
+\todo{Move or delete this section}
 
 This change does not represent reality: by definition, the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The na\"ive single-component fit to different wavelength chunks merely provides a plausibility argument for the presence of a second photospheric component if the derived $\vT_o$ show a spread in $\teff$.  
 
 It is conceivable that other parameters, like $\logg$ could show a dependence on wavelength if non-standard physics---\emph{i.e.}physics not included in the pre-computed model grid---mimics the effect of \emph{e.g.} $\logg$ on the spectrum.  For example, magnetic fields could cause Zeeman broadening, which could alter the derived stellar parameters $\vT_o$.  For these reasons, we intentionally allowed \emph{all} the stellar parameters $\vT_o = \{T_{\mathrm{eff},o}, \log{g_o}, \Z_o, \Omega_{o}, v\sin{i}_o, v_{r,o}\}$ to vary by order.  
-
-In principle, one could refine the inference on $T_{\mathrm{eff},o}$ in an \emph{empirical Bayes'} strategy CITE (XX, astroML book?), in which we re-evaluate $\vT_o$ by setting priors on all the stellar parameters except $T_{\mathrm{eff},o}$.  We elected not to pursue an empirical Bayes' approach.
-
-As a side benefit, the strategy of fitting $\vT_o$ in each spectral order provides a useful check on instrumental calibration. If the stellar parameters in one order are routinely discrepant, we can examine and refine our instrumental calibration for that spectral order.  For example, the radial velocity $v_r$ could be systematically offset in one order due to instrumental calibration problems.  Or perhaps the $v\sin{i}$ could show a dependence on wavelength, since the spectral inference framework from \iancze assumes the spectral resolution is fixed across all wavelengths, but typical spectrographs exhibit a small dependence of spectral resolution on wavelength.  (cite the SICK paper)
-
-Spectral-order level granularity in fit quality is not available in a fit that includes all $N_{order}$ spectral orders.  In fact, the benefits of spectral chunking could be made \emph{even more granular} by chunking the spectrum into individual spectral lines or line-groups.  The fit quality could then be assessed on a line-by-line basis, even taking into account systematic effects like individual elemental abundance patterns beyond the coarse $\Z$ estimates.  Future improvements to the spectral inference framework are directed at implementing this spectral-line chunking strategy.  
-
-\subsection{Approach 21: Whole spectrum with two components}
-\label{sec:approach21}
-
-Ideally, we want to fit the entire spectrum with a two component photosphere.  If we believe our model, the entire emergent spectrum of the star should be described by a single set of stellar parameters.  In other words, if nature had truly delivered a noisy version of this model, the ability to measure starspot properties would scale with the number of spectral channels (to some power).
-
-Unfortunately there are two main limitations of Approach 21.  First, the Metropolis-Hastings Gibbs sampling is dramatically complicated by increasing from 6 to 8 stellar parameters: $theta-original to theta-multicomponent$.  The details of the problem are summarized in Section \ref{sec:MC-challenges}.
-
-
-\subsection{Approach 22: Order-by-order with two components}
-\label{sec:approach22}
-
-Finally, Approach 22 is two sample each spectral order with a unique two-component photosphere model: 
-
-$$ theta by order$$. 
-
-In this case we altered the \iancze framework from a blocked Gibbs sampler with Metropolis-Hastings proposals to an affine invariant ensemble sampler with all stellar and nuisance parameters sampled simultaneously.  
-
-This strategy has the \emph{disadvantage} that there is no statistically principled way to combine the $N_{ord}$ inferences from the set of $\theta$ at the end.  There are many \emph{heuristic} ways to estimate the inferences at the end.  
 
 
 \subsection{Implementation}
@@ -503,58 +451,10 @@ The mixture model is a linear operation with all the same stellar extrinsic para
 
 
 
-\begin{deluxetable}{clcc}[!bh]
-\tablecaption{\label{table:params} Definition of symbols and parameters used}
-\tablehead{
-\colhead{Label} &
-\colhead{Description} & 
-\colhead{Shared?} &
-\colhead{Source}
-}
-\startdata
-$\vM$ & Pixel-level model & - & \iancze \\
-$\vT$ & Stellar parameters in the model & - & \iancze \\
-$q(\vt_{\ast})$ & Absolute mean flux ratio in order $o$  & N & This Work \\
-\hline
- \multicolumn{4}{c}{$\vt_{\ast}$} \\
-\hline
-$\teffa$ & Effective temperature of component A & N & This Work \\
-$\teffb$ & Effective temperature of component B & N & This Work \\
-$\Delta \teff$ & Spot temperature contrast $\teffa - \teffb $ & - & This Work \\
-$\logg$ & Stellar surface gravity & Y & \iancze \\
-$\Z$ & Metallicity & Y & \iancze \\
-\hline
-\multicolumn{4}{c}{$\vt_{\rm ext}$} \\
-\hline
-$v\sin{i}$ & Projected stellar rotation & Y$^a$ & \iancze \\
-$\sigma_v$ & Instrumental resolution & Y & \iancze \\
-$v_r$ & Radial Velocity & Y & \iancze \\
-$\Omega_a$ & Solid angle subtended by component A & N & This Work \\
-$\Omega_b$ & Solid angle subtended by component B & N & This Work \\
-$c$ & Spot fill factor, $\Omega_b / (\Omega_a+\Omega_b)$ & N & This Work \\
-$A_{\lambda}$ & Extinction towards the source & Y & \iancze \\
-\enddata
-\tablecomments{\emph{a}- In principle, star spots could have non-uniform latitudinal distributions, resulting in slight differences in $v\sin{i}$ between the components CITE XX-McDonald Obs.  We ignore this effect for now, but it could be an interesting line of study for future work.}
-\end{deluxetable}
-
-
-
-
-
-
-
 \section{Previous work}
 
 Table REF lists measurements of LkCa4 from previous studies.
 \input{tables/tbl_history.tex}
-
-In short, here is what we know about \name.  It is a weak-lined \emph{T-Tauri} star.  It exhibits a 3.36-3.37 day period \citep{vrba93,grankin94}, as seen in photometric monitoring in $BVRI$ bands.  No periodic signal is detected at $U-$band.  Section 5 of \citet{vrba93}, ``More on the nature of CTT and WTT spots'' goes into detail about the whether the photometric variability is attributable to hot or cold patches.  \name has no detected M-type-or-earlier binary companion down to $0.13''$ (Kraus, plus Nguyen for SBs?).  \name demonstrates variability in X-rays with ROSAT \citep{strom94}, with $L_{x}=2.4$ ergs/s.
-
-
-\section{Challenges: Tuning the transition probability matrix}
-\label{sec:MC-challenges}
-
-Once we have the mixture model in hand, we can apply the blocked Gibbs MCMC sampling framework from \iancze.  We have added 2 more parameters ($\Omega_b, \teffb$) to the model, expanding from 6 to 8 total stellar parameters.  Unfortunately this increase in dimensionality adds considerable complexity to tuning the model.  The number of possible tuning parameters in a conventional Metropolis Hastings MCMC sampler scales as $N(N+1)/2$ CITE XX, so our 2 new parameters increased the tuning parameters from 15 to 36.  The tuning parameters are covariances between dimensions in the proposal distribution.  Luckily, most of the covariances are negligibly small.  However the $\teffa, \teffb, \Omega_a, \Omega_b$ terms are likely to be correlated, suggesting an affine transformation of the parameters would accelerate the convergence of the MCMC chains.  We experimented with some of these transformations and found that the existing stellar parameters were best, although still unacceptably correlated.
 
 
 \acknowledgements
