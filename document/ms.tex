@@ -89,9 +89,9 @@ APO/TripleSpec (Covey)
 \todo{fill in details about TripleSpec data}
 
 
-\subsection{Photometric monitoring for 22 seasons over 31 years}
+\subsection{Photometric monitoring}
 
-An archive of 1173 $B$, $V$ and/or $R$ photometric monitoring visits was assembled from published and unpublished data sources spanning 31 years in 22 observing seasons.  Published data targeting \name\ is composed of 29 $BVR$ visits from 1985$-$1986 \citep{vrba93}, 26 $BVR$ epochs from 1990$-$1991 \citep{bouvier93}, 284 visits in $V$-band (278 with $B$ and 268 with $R$) from 1992 August - 2004 October \citep{grankin08}, and 10 $BVR$ visits from 2013 \citep{donati14}.  ASAS3 \citep{pojmanski04} acquired 63 $V-$band measurements from 2002-2004.  Integral-OMC obtained 138 $V-$band measurements from 2006-2008 \citep{garzon12}.  The AAVSO archive \citep{kafka16} includes 385 $V$, 23 $B$ and 10 $R$ measurements from 2013$-$2016.  Finally, unpublished data from the ASAS-SN survey \citep{shappee14}, were obtained from 2012 January -- 2016 March in 186 visits.  Figure \ref{fig:PhotTime} displays all the $V-$band photometry over the interval 1986-2016.
+An archive of 1173 $B$, $V$ and/or $R$ photometric monitoring visits was assembled from published and unpublished data sources spanning 31 years in 22 observing seasons.  Published data targeting \name\ is composed of 29 $BVR$ visits from 1985$-$1986 \citep{vrba93}, 26 $BVR$ epochs from 1990$-$1991 \citep{bouvier93}, 284 visits in $V$-band (278 with $B$ and 268 with $R$) from 1992 August - 2004 October \citep{grankin08}, and 10 $BVR$ visits from 2013 \citep{donati14}.  ASAS3 \citep{pojmanski04} acquired 63 $V-$band measurements from 2002$-$2004.  Integral-OMC obtained 138 $V-$band measurements from 2006$-$2008 \citep{garzon12}.  The AAVSO archive \citep{kafka16} includes 385 $V$, 23 $B$ and 10 $R$ measurements from 2013$-$2016.  Finally, unpublished data from the ASAS-SN survey \citep{shappee14}, were obtained from 2012 January -- 2016 March in 186 visits.  Figure \ref{fig:PhotTime} displays all the $V-$band photometry over the interval 1986-2016.
 
 
 \begin{figure*}
@@ -101,12 +101,12 @@ An archive of 1173 $B$, $V$ and/or $R$ photometric monitoring visits was assembl
 	\label{fig:PhotTime}
 \end{figure*}
 
-Figure \ref{fig:PhotPhase} shows all available $V-$band data grouped by the 17 observing seasons and phase-folded by period $P=3.375$ days obtained from multiterm Lomb-Scargle periodograms \citep{ivezic14}.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  We estimate $\hat V$, the $V-$band magnitude at the time of the spectral observations, from a regularized multiterm fit \citep{vanderplas15a} shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists $\hat V$ and the observing epoch for the spectral observations with ESPaDoNs and IGRINS.
+Figure \ref{fig:PhotPhase} shows all available $V-$band data grouped by the 22 observing seasons and phase-folded by period $P=3.375$ days obtained from multiterm Lomb-Scargle periodograms \citep{ivezic14}.  The general appearance of the phase-folded lightcurves does not change with perturbations to the period on the scale of 0.003 days.  The estimated $BVR$ magnitudes at the time of the spectral observations are determined from a regularized multiterm fit \citep{vanderplas15a} shown as the solid blue line in Figure \ref{fig:PhotPhase}.  Table \ref{tbl_estimated_V} lists the estimated $BVR$ photometry and the observing epoch for data from IGRINS, ESPaDOnS, 2MASS \citep{skrutskie06}, DoubleSpec, and TripleSpec.  
 
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.95\textwidth]{figures/Vband_22s.pdf}
-	\caption{Phase-folded lightcurves constructed assuming the same period for all observing seasons.  The blue solid lines show a multi-term periodic fit keeping the first $M_{\rm max}=4$ Fourier components.  The vertical lines show the epochs of observations for available spectroscopy.  The unchanged vertical scale highlights the secular drift of the light curve amplitude and morphology.}
+	\caption{Phase-folded lightcurves constructed assuming the same period for all observing seasons.  The blue solid lines show a multi-term regularized periodic fit keeping the first $M_{\rm max}=4$ Fourier components.  The vertical lines show the epochs of observations for ancillary data, with the same line styles and colors as Figure \ref{fig:PhotTime}.  The unchanged vertical and horizontal scales highlight the secular drift of the light curve amplitude and morphology.}
 	\label{fig:PhotPhase}
 \end{figure*}
 
@@ -546,6 +546,8 @@ This research has made use of NASA's Astrophysics Data System.
 Based on data from the OMC Archive at CAB (INTA-CSIC), pre-processed by ISDC.
 
 We acknowledge with thanks the variable star observations from the AAVSO International Database contributed by observers worldwide and used in this research.
+
+This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
 
 
 {\it Facilities:} \facility{Smith (IGRINS)}, \facility{AAVSO}, \facility{CFHT (ESPaDOnS)}, \facility{INTEGRAL (OMC)}, \facility{ASAS}, 
