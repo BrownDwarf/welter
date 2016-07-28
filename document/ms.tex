@@ -70,27 +70,6 @@ Past spectroscopic detections of spots on young stars have focused on TW Hya, an
 In this work we constrain the starspot properties of \name with 4 complementary techniques.  Section 2 and Appendix \ref{methods-details} describe a spectral inference technique aimed at generalizing line depth ratio analysis.  Section 3 applies the spectral inference technique to a high resolution panchromatic near-IR spectrum of \name.  Sections 5.1, 5.2, and 5.3 show results from SED fitting, polychromatic photometric monitoring, and optical TiO line-depth ratio fitting.  All lines of evidence are ultimately combined to build a consistent picture of the spectral and temporal evolution of \name, and what can be understood about pre-MS stellar evolution from this exemplar.
 
 
-\section{Methodology}\label{sec:methods} 
-
-\citet[hereafter \iancze]{czekala15} developed a modular framework\footnote{The open source codebase and its full revision history is available at \url{https://github.com/iancze/Starfish}.  The experimental fork discussed in this paper is at \url{https://github.com/gully/Starfish}} to infer stellar properties from high resolution spectra.  The \iancze technique forward models ``emulated'' synthetic spectra from pre-computed model grids, taking into account the discretization error attributable to the coarsely sampled stellar intrinsic parameters.  We employed the \PHOENIX~ grid of pre-computed synthetic stellar spectra that span a wide range of wavelengths at high spectral resolution with sampling of 100 K in $\teff$ in our range of interest \citep{husser13}.  The modular framework was altered to accommodate starspot measurements in two ways. First, the single photospheric component was updated to includes a starspot spectrum. Second, the MCMC sampling strategy was altered to accommodate the additional free parameters added in the starspot model.
-
-The stellar photosphere is characterized as two photospheric components with a starspot temperature $\teffb$ and ambient photosphere temperature $\teffa$, with scalar solid angular coverages $\Omega_b$ and $\Omega_a$, respectively.    Starspots (or spot groups) are assumed to be cooler than the ambient photosphere, and they share the same average intrinsic and extrinsic stellar parameters otherwise; that is $(\vsini, \logg, \Z, v_z)$ are identical for starspots and ambient photosphere.  The composite mixture model for observed flux density can be written down as:
-
-\begin{eqnarray} \label{eqn:mix_M}
-f_{\mathrm{mix}} = \Omega_a f(\teffa)  + \Omega_b f(\teffb)
-\end{eqnarray}
-
-The observed filling factor of starspots $c$ is simply the ratio:
-
-\begin{eqnarray} \label{eqn:fill_factor}
-c = \frac{\Omega_b}{\Omega_a + \Omega_b}
-\end{eqnarray}
-
-The starspot model includes two more free parameters than the standard \iancze\ model, namely $\teffb$ and $c$.  The addition of these two parameters makes the MCMC sampling much more correlated than it was before because the relative contribution of the starspot and ambient photosphere are nearly degenerate over small changes in effective temperature.  So the second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \citep{foreman13}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that all 14 stellar and nuisance parameters are fit simultaneously in a single spectral order.  So stellar parameter estimates $\vT_{o}$ are unique for each spectral order $o$, whereas the \iancze\ strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  The $N_{\rm ord}$ sets of inferences on $\vT_{o}$ are combined by weighted averaging point estimates of results from reliable orders, which offers resilience to flagrant calibration artifacts or clear model mismatches.  This process can be thought of as a course approximation to the much more sophisticated spectral line outlier rejection described in \iancze.
-
-Further details of the spectral inference methodology are described in Appendix \ref{methods-details}.
-
-
 \section{Observations}\label{sec:obs} 
 
 \subsection{IGRINS Spectroscopy}\label{sec:igrins} 
@@ -98,7 +77,7 @@ We acquired observations with the Immersion Grating Infrared Spectrograph, IGRIN
 
 
 \subsection{ESPaDOnS Spectroscopy}
-We used ESPaDOnS on CFHT to obtain twelve high resolution optical spectra of \name from 8-21 Jan.~2014 as part of the MATYSSE Large Program.  These spectra cover 3900$-$10000 \AA\ at $R\sim68,000$ and were obtained in spectropolarimetry mode.  The Zeeman Doppler Imaging obtained from these observations were analyzed by \citet{donati14}.  In this paper we concentrate on the intensity spectrum.  We apportioned the spectrum into a subsets of $N=35$ chunks, corresponding approximately to spectral order boundaries.
+We used ESPaDOnS on CFHT to obtain twelve high resolution optical spectra of \name from 8-21 Jan.~2014 as part of the MATYSSE Large Program.  These spectra cover 3900$-$10000 \AA\ at $R\sim68,000$ and were obtained in spectropolarimetry mode.  The Zeeman Doppler Imaging obtained from these observations were analyzed by \citet{donati14}.  In this paper we concentrate on the intensity spectrum.  The spectrum was apportioned into a subsets of $N=35$ chunks, corresponding approximately to spectral order boundaries.
 \todo{Flux calibration?}
 
 
@@ -138,6 +117,26 @@ Figure \ref{fig:PhotPhase} shows all available $V-$band data grouped by the 17 o
 \section{FITS TO HIGH RESOLUTION SPECTRA}
 
 \todo{Provide overview of section...}
+
+\section{Methodology}\label{sec:methods} 
+
+\citet[hereafter \iancze]{czekala15} developed a modular framework\footnote{The open source codebase and its full revision history is available at \url{https://github.com/iancze/Starfish}.  The experimental fork discussed in this paper is at \url{https://github.com/gully/Starfish}} to infer stellar properties from high resolution spectra.  The \iancze technique forward models ``emulated'' synthetic spectra from pre-computed model grids, taking into account the discretization error attributable to the coarsely sampled stellar intrinsic parameters.  We employed the \PHOENIX~ grid of pre-computed synthetic stellar spectra that span a wide range of wavelengths at high spectral resolution with sampling of 100 K in $\teff$ in our range of interest \citep{husser13}.  The modular framework was altered to accommodate starspot measurements in two ways. First, the single photospheric component was updated to includes a starspot spectrum. Second, the MCMC sampling strategy was altered to accommodate the additional free parameters added in the starspot model.
+
+The stellar photosphere is characterized as two photospheric components with a starspot temperature $\teffb$ and ambient photosphere temperature $\teffa$, with scalar solid angular coverages $\Omega_b$ and $\Omega_a$, respectively.    Starspots (or spot groups) are assumed to be cooler than the ambient photosphere, and they share the same average intrinsic and extrinsic stellar parameters otherwise; that is $(\vsini, \logg, \Z, v_z)$ are identical for starspots and ambient photosphere.  The composite mixture model for observed flux density can be written down as:
+
+\begin{eqnarray} \label{eqn:mix_M}
+f_{\mathrm{mix}} = \Omega_a f(\teffa)  + \Omega_b f(\teffb)
+\end{eqnarray}
+
+The observed filling factor of starspots $c$ is simply the ratio:
+
+\begin{eqnarray} \label{eqn:fill_factor}
+c = \frac{\Omega_b}{\Omega_a + \Omega_b}
+\end{eqnarray}
+
+The starspot model includes two more free parameters than the standard \iancze\ model, namely $\teffb$ and $c$.  The addition of these two parameters makes the MCMC sampling much more correlated than it was before because the relative contribution of the starspot and ambient photosphere are nearly degenerate over small changes in effective temperature.  So the second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \citep{foreman13}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that all 14 stellar and nuisance parameters are fit simultaneously in a single spectral order.  So stellar parameter estimates $\vT_{o}$ are unique for each spectral order $o$, whereas the \iancze\ strategy had the power to provide a single set of stellar parameters $\vT$ that was based on all $N_{\rm ord}$ spectral orders.  The $N_{\rm ord}$ sets of inferences on $\vT_{o}$ are combined by weighted averaging point estimates of results from reliable orders, which offers resilience to flagrant calibration artifacts or clear model mismatches.  This process can be thought of as a course approximation to the much more sophisticated spectral line outlier rejection described in \iancze.
+
+Further details of the spectral inference methodology are described in Appendix \ref{methods-details}.
 
 
 \subsection{Single temperature fitting to the ESPaDoNs spectrum}
