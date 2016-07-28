@@ -228,11 +228,21 @@ In the previous sections we established that the high resolution optical and nea
 
 In \S 4.1 we describe how the two components of the photosphere fit low resolution spectra and optical/near-IR photometry.  The brightness, colors, spectral features should change as the spot rotates around the star.  In \S 4.2, we convert the $V$ brightness to a filling factor of the cool spot, and then in \S 4.2-4.3 we compare how the expected rotational modulation of photometry and spectral indices compares with observed measurements.
 
+\begin{figure}
+	\centering
+    	\vspace{-20mm}
+	\includegraphics[width=0.95\textwidth]{figures/phot1_paper} 
+    	\vspace{-100mm}
+\caption{The SED of LkCa 4 (red) compared with the two-temperature spectrum obtained from the best fit to the IGRINS spectra (black).}
+\label{fig:sed}
+\end{figure}
+
+
 \begin{figure*}
 	\centering
     	\vspace{-120mm}
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_lores} 
-	\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
+	\caption{The low-resolution optical/near-IR spectrum of LkCa 4 obtained from Palomar/DBSP and APO/Triplespec on 30 December 2008 (black), compared to a synthetic spectrum of a two temperature photosphere (purple).  The inset shows that the 3000 K (red, 70\% fill factor) and 4200 K (blue, 30\% fill factor) components contribute equally to the near-IR spectrum, but the 4200 K component dominates the blue emission.  The synthetic spectrum is reddened by $A_V=0.4$ mag and scaled to the observed $J$-band spectrum.}
 	\label{fig:lores}
 \end{figure*}
 
@@ -242,7 +252,7 @@ In \S 4.1 we describe how the two components of the photosphere fit low resoluti
 	\centering
     	\vspace{-120mm}
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_lores_twopanel} 
-	\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
+	\caption{The low-resolution optical (left) and near-IR (right) spectrum of LkCa 4, compared with a 3900 K photosphere (blue), a 3500 K photosphere, and the two temperature photosphere that best fit the IGRINS spectrum.  The synthetic spectra are scaled separately to the optical spectrum at 0.75 $\mu$m and to the near-IR spectrum at 1.5 $\mu$m.  Warm photospheres accurately reproduce molecular bands at $0.7$ $\mu$m but fail to fit the spectral features at longer wavelengths.  Cooler photospheres predict molecular bands at $<0.7$ $\mu$m that are much deeper than observed.  The two temperature photosphere accurately fits spectral features in the optical and near-IR.}
 	\label{fig:lores_twopanel}
 \end{figure*}
 
@@ -252,34 +262,25 @@ In \S 4.1 we describe how the two components of the photosphere fit low resoluti
     	\vspace{-20mm}
 	\includegraphics[width=0.95\textwidth]{figures/vband_spot} 
     	\vspace{-100mm}
-\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
+\caption{The $V$-band magnitude in 2014--2015 {\bf check}, converted into fill factor for the cool component.  The optical brightness depends mostly on the hot component.  If we fix a 75\% filling factor, as measured in the IGRINS spectrum, to $V=12.83$ at the time of the observation, then the $V$-band amplitude  corresponds to filling factors of 67--83\%.  The factor of $\sim 2$ change in visible surface area of the hot component, from 33\% to 17\%, is required to produce the $\delta V=0.6$. }
 \label{fig:vband_spot}
 \end{figure*}
 
 
 
-\begin{figure}
-	\centering
-    	\vspace{-20mm}
-	\includegraphics[width=0.95\textwidth]{figures/phot1_paper} 
-    	\vspace{-100mm}
-\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
-\label{fig:vband_spot}
-\end{figure}
-
 
 
 \subsection{The Spectral Energy Distribution}
 
-Figure~\ref{fig:lores} shows that the two-component photosphere matches flux-calibrated spectra well from $\sim 0.6-2.5$ $\mu$m.  The two components have fixed temperatures of 4200 K covering 30\% of the visible surface and 3000 K covering 70\% of the visible surface area.  The flux and extinction are then scaled to match the spectrum.
+Figures~\ref{fig:sed}-\ref{fig:lores} shows that the two-component photosphere matches the SED and flux-calibrated spectra well from $\sim 0.6-2.5$ $\mu$m.  The two components have fixed temperatures of 4200 K covering 30\% of the visible surface and 3000 K covering 70\% of the visible surface area.  The only free parameters are the luminosity and extinction, which are both scaled to match the spectrum.
 
 The lower panels show photospheric spectra scaled separately to the observed red-optical and near-IR spectra.  The single temperature spectra are unable to reproduce the observed emission.  The $3900$ K component fits the TiO bands at reasonably well at $<7400$ \AA\ but fails to reproduce molecular bands at longer wavelengths.  The $3500$ K component hotter component suffers from the opposite problem, yielding molecular bands at short wavelengths that are too deep.  On the best-fit photosphere from \S 3 fits both the optical and the near-IR bands well.
 
-SED...
+Extinction paragraph, needs overhaul...  Relative to main sequence colors, the $E(B-V)=0.24$ would yield $A_V=0.72$ mag....  
+The $J-K=0.93$ color is equal to the expected color to within 0.05 => 0.3 mag (for T=3000, 4200)... The $B-V$ is always dominated by the hot component and therefore does not depend on the filling factor of the hot component.  The $V-R$ varies more with $V$, indicating a larger contribution from the cool component.  The difference between observed and predicted $B-V$ color, $E(B-V)$, may correspond to the extinction.  After accounting for extinction synthetic model underpredicts both the $V-R$...
 
-The value for the extinction depends on. 
 
-Relative to main sequence colors, the $E(B-V)=0.24$ would yield.  
+
 
 %Furlan:  K7, V-IC=1.92, E(V-I)=1.6 => 0.85 mag;  close enough to their 1.1 mag
 %V-K = 4.18  ; MS colors:  3.16 (KH95) => Av=1.1 mag
@@ -290,17 +291,12 @@ Relative to main sequence colors, the $E(B-V)=0.24$ would yield.
 
 
 
- The upper limit may be estimated by comparing the observed $B-V$ color to main sequence $B-V$ colors.
-
-The $B-V$
-
-The $J-K=0.93$ color is equal to the expected color to within 0.05 => 0.3 mag (for T=3000, 4200)
 
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.49\textwidth]{figures/bv_kh95} 
     \includegraphics[width=0.49\textwidth]{figures/vr_kh95} 
-\caption{The low-resolution optical/near-IR spectrum of LkCa 4 is }
+\caption{The observed optical colors of LkCa 4 from \citet{grankin08}, compared with predictions from converting $V$-band brightness to a cool spot filling factor and subsequently calculating colors from main sequence colors and bolometric corrections of \citet{kenyon95} (purple lines).}
 \vspace{-50mm}
 \label{fig:colors}
 \end{figure*}
@@ -327,7 +323,7 @@ The rotational modulation leads to much smaller brightness changes at near-IR wa
 Band & Low Spot & High Spot & Range\\
 Cool Spot & 68\% & 83\% &\\
 \hline
-\multicolumn{4}{c}{Based on $V$, adapt for $A_V$}\\
+\multicolumn{4}{c}{Based on $V$, need to adapt for $A_V$}\\
 $B$ & 13.80 & 14.48 & 0.68\\
 $V$ & 12.56 & 13.23 & 0.67\\
 $R$ & 11.53 & 12.17 & 0.64 \\
@@ -346,11 +342,11 @@ $K$ & 8.89 & 9.04 & 0.15\\
 
 The depths of TiO and other molecular bands are common diagnostics of spectral type (and therefore temperature) in optical spectra \citep[e.g.][]{kirkpatrick91}.  In a 2-temperature photosphere, the depth of observed TiO bands will depend on the fractional coverage of the components.  In this subsection, we demonstrate that the TiO band depths vary with spot coverage.
 
-\citet{donati14} spectroscopically monitored LkCa 4 with 12 spectra obtained over 14 days, covering $\sim 4$ rotation periods.  The top panel Figure~\ref{fig:tiovar} shows two of these spectra obtained at the estimated maximum and minimum optical brightness.  Small but significant changes are seen in the TiO bands.  The blue spectrum does not change.
+\citet{donati14} spectroscopically monitored LkCa 4 with 12 spectra obtained over 14 days covering $\sim 4$ rotation periods.  The spectra obtained near the estimated maximum and minimum optical brightness are shown in the top panel of Figure~\ref{fig:tiovar}.  Small but significant changes are seen in the TiO bands.  The blue spectrum does not change.
 
-The TiO variability is quantified through TiO indices listed in Table~\ref{tab:tiO}.  The TiO indices are also combined into a single index by calculating by 
-calculating how many standard deviations each point is from the median value of the index, and then averaging the standard deviation.  Both the raw TiO 7140 index and this combined TiO index correlate strongly with the optical brightness.  In the spectral type scheme derived by \citet{herczeg14}, the change in TiO-7140 index corresponds to a range from M1.5 (3640 K) to M2.2 (3530 K).
+The TiO band depths in these spectra are measured from spectral indices listed in Table~\ref{tab:tio}.  The TiO indices are also combined into a single index by calculating by  calculating how many standard deviations each point is from the median value of the index, and then averaging the standard deviation.  
 
+Both the raw TiO 7140 index and this combined TiO index correlate strongly with the optical brightness.  In the spectral type scheme derived by \citet{herczeg14}, the change in TiO-7140 index corresponds to a range from M1.5 (3640 K) to M2.2 (3530 K).  These results are consistent with expectations from the rotational modulation of the hot spot.  The TiO bands trace the cool component.  When the hotter component has a larger filling fraction, the TiO bands are veiled by the hotter component and are therefore not as deep.
 
 
 \begin{figure*}
@@ -391,24 +387,24 @@ This work & 3525 & \\
     %	\vspace{-30mm}
 	\includegraphics[width=0.95\textwidth]{figures/lkca4_hrdiag_forpaper}
     	\vspace{-80mm}
-	\caption{HR Diagram Figure}
+	\caption{Locations for LkCa 4 on an HR diagram, compared with models of pre-main sequence evolution calculated by \citet{baraffe15} with isochrones (black lines) and evolution models of a single mass (dashed blue lines) as marked.  The measured effective temperature and luminosity from this paper, based on the two-component fit and a median $V$-band magnitude, corresponds to the black asterisk.  The yellow shaded region corresponds to the range of apparent effective temperatures that are would be measured as the hot component rotates into and out of our view.  The blue circle corresponds to the measurement at blue-optical wavelengths by \citet{donati14}, the purple square corresponds to the measurement from low-resolution optical spectra, biased to TiO band strengths, by \citet[][biased to]{herczeg14}, while the red diamong corresponds to what we would measure from the K-band spectrum and 2MASS $J$-band magnitude.}
 	\label{fig:hrdiag}
 \end{figure*}
 
-The spectrum of LkCa 4 is well reproduced by a cool component of $3000$ K covering 75\% of the surface and a $4200$ K component covering 25\% of the surface.  The effective temperature of these two components is 3525 K, based on the average surface flux.  Decreasing the cool spot size to 60\% would increase the effective temperature to 3670 K, while increasing the spot size to 85\% would decrease the effective temperature to 3370 K.  {\bf GJH note:  holy crap!!!}  Scaling our composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.2$ $R_\odot$ and $\log L/L_\odot=0.17$, assuming a distance of 131 pc based the parallax distance of the nearest Taurus member \citep{torres12}.
+Scaling our composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.2$ $R_\odot$ and $\log L/L_\odot=0.17$, assuming a distance of 131 pc based the parallax distance of the nearest Taurus member \citep{torres12}.   The spectrum of LkCa 4 is well reproduced by a cool component of $3000$ K covering 75\% of the surface and a $4200$ K component covering 25\% of the surface.  The effective temperature of these two components is 3611 K, as calculated from the average surface flux at the median $V$ band magnitude.  The apparent effective temperature in any single epoch would depend on the relative fractions of the hot and cool spot.  Decreasing the cool spot size to 60\% would increase the effective temperature to 3670 K, while increasing the spot size to 85\% would decrease the effective temperature to 3370 K.  {\bf GJH note:  holy crap!!!}.  Since the Hayashi tracks are nearly vertical at this temperature and age, the temperature uncertainty leads directly to an uncertainty in inferred mass.  Application of multi-temperature atmosphere is also likely to solve long-standing problems related to colors of young stars \citep[e.g.][]{stauffer03}
 
-This improved characterization of LkCa 4 should lead to more accurate estimates of mass and age from pre-main sequence tracks.  However, our effective temperature and luminosity yield a mass of 0.33 $M_\odot$ and an age of $\sim 0.5$ Myr in the \citet{baraffe15} evolutionary models.  This age is uncomfortably young.  LkCa 4 is not located deeply within a molecular cloud and is not associated with any nearby Class 0/1 stars, which would be expected for a 0.5 Myr star.  The inferred age and low mass may instead be evidence that strong magnetic fields are inhibiting convection and slowing the contraction rate.
-
-
+{\bf GJH paragraph:}  The multi-temperature photosphere may also resolve some of the long-standing problems related to colors of young stars...  \citet{tottle15}.  I want to say something here, but I'm not sure exactly what.
 
 
+{\bf paragraph MG-S:}  Comparisons to other results (both real and simulated) from single-temperature fits to APOGEE, GAIA-ESO wavelengths.  Approximate is ok...
 
-Comparisons to other results (both real and simulated):  APOGEE, GAIA-ESO, 
 
+This improved characterization of LkCa 4 should lead to more accurate estimates of mass and age from pre-main sequence tracks.  However, our effective temperature and luminosity yield a mass of 0.33 $M_\odot$ and an age of $\sim 0.5$ Myr in the \citet{baraffe15} evolutionary models.  This age is uncomfortably young.  LkCa 4 is not located deeply within a molecular cloud and is not associated with any nearby Class 0/1 stars, which would be expected for a 0.5 Myr star.  Even though this is only a single data point, the inferred age and low mass may instead be evidence that strong magnetic fields are inhibiting convection.  As a result, the surface is cooler and releases less radiation.  As a result, the contraction rate may be slower.  The star would then appear more luminous and cooler than expected from tracks that do not consider magnetic fields.
+
+{\bf TBD:}  Discussion of Somers+, Feiden (2016)...
 
 
 \subsection{Longitudinal / latitudinal spot distributions and phase}
-
 
 
 \subsection{Addressing limitations of assumptions in the methodology}
@@ -536,17 +532,13 @@ Table \ref{tbl_history} lists measurements of LkCa4 from previous studies.
 
 
 \acknowledgements
-The authors thank Gregory N. Mace and Kyle Kaplan for carrying out the IGRINS observations. 
+The authors thank Gregory N. Mace for carrying out the IGRINS observations. 
 
-MG-S and GJH are supported by general grant 11473005 awarded by the National
-Science Foundation of China.   The ESPaDOnS observations are supported by the contribution to the MATYSSE Large Project on CFHT obtained  through the Telescope Access Program (TAP), which has been funded by the ``the Strategic Priority Research Program---The Emergence of Cosmological Structures'' of the Chinese Academy of Sciences (Grant No.11 XDB09000000) and the Special Fund for Astronomy from the Ministry of Finance. 
+MG-S and GJH are supported by general grant 11473005 awarded by the National Science Foundation of China.   The ESPaDOnS observations are supported by the contribution to the MATYSSE Large Project on CFHT obtained through the Telescope Access Program (TAP), which has been funded by the ``the Strategic Priority Research Program---The Emergence of Cosmological Structures'' of the Chinese Academy of Sciences (Grant No.11 XDB09000000) and the Special Fund for Astronomy from the Ministry of Finance. 
 
-This research has made use of NASA's Astrophysics Data System.
-
+This research has made use of NASA's Astrophysics Data System.  
 Based on data from the OMC Archive at CAB (INTA-CSIC), pre-processed by ISDC.
-
 We acknowledge with thanks the variable star observations from the AAVSO International Database contributed by observers worldwide and used in this research.
-
 This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
 
 
