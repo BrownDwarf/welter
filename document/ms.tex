@@ -246,7 +246,7 @@ In \S 4.1 we describe how the two components of the photosphere fit low resoluti
 
 \begin{figure*}
 	\centering
-	\fbox{\includegraphics[trim=1.6cm 12.6cm 2.2cm 2.4cm, clip=true, width=0.75\textwidth]{figures/vband_spot} }
+	\includegraphics[trim=1.6cm 12.6cm 2.2cm 2.4cm, clip=true, width=0.60\textwidth]{figures/vband_spot}
 \caption{The $V$-band magnitude in 2014--2015, converted into fill factor for the cool component.  The optical brightness depends mostly on the hot component.  If we fix a 75\% filling factor, as measured in the IGRINS spectrum, to $V=12.83$ at the time of the observation, then the $V$-band amplitude  corresponds to filling factors of 67--83\%.  The factor of $\sim 2$ change in visible surface area of the hot component, from 33\% to 17\%, is required to produce the $\delta V=0.6$. \todo{Update with all available photometry or the derived multi-term fit} }
 \label{fig:vband_spot}
 \end{figure*}
@@ -263,8 +263,6 @@ Extinction paragraph, needs overhaul...  Relative to main sequence colors, the $
 The $J-K=0.93$ color is equal to the expected color to within 0.05 => 0.3 mag (for T=3000, 4200)... The $B-V$ is always dominated by the hot component and therefore does not depend on the filling factor of the hot component.  The $V-R$ varies more with $V$, indicating a larger contribution from the cool component.  The difference between observed and predicted $B-V$ color, $E(B-V)$, may correspond to the extinction.  After accounting for extinction synthetic model underpredicts both the $V-R$...
 
 
-
-
 %Furlan:  K7, V-IC=1.92, E(V-I)=1.6 => 0.85 mag;  close enough to their 1.1 mag
 %V-K = 4.18  ; MS colors:  3.16 (KH95) => Av=1.1 mag
 
@@ -274,13 +272,14 @@ The $J-K=0.93$ color is equal to the expected color to within 0.05 => 0.3 mag (f
 
 
 
-
 \begin{figure*}
 	\centering
-	\includegraphics[width=0.49\textwidth]{figures/bv_kh95} 
-    \includegraphics[width=0.49\textwidth]{figures/vr_kh95} 
+	\begin{tabular}{ll}
+	\includegraphics[trim=2.6cm 13.0cm 2.8cm 3.2cm, clip=true, width=0.45\textwidth]{figures/bv_kh95} 
+    &
+    \includegraphics[trim=2.6cm 13.0cm 2.8cm 2.2cm, clip=true, width=0.45\textwidth]{figures/vr_kh95}
+    \end{tabular}
 \caption{The observed optical colors of LkCa 4 from \citet{grankin08}, compared with predictions from converting $V$-band brightness to a cool spot filling factor and subsequently calculating colors from main sequence colors and bolometric corrections of \citet{kenyon95} (purple lines).}
-\vspace{-50mm}
 \label{fig:colors}
 \end{figure*}
 
@@ -334,9 +333,7 @@ Both the raw TiO 7140 index and this combined TiO index correlate strongly with 
 
 \begin{figure*}
 	\centering
-	\vspace{-60mm}
-	\includegraphics[width=0.95\textwidth]{figures/lkca4_tio_forpaper} 
-    	\vspace{-30mm}
+	\includegraphics[trim=3.2cm 4.0cm 2.6cm 8.3cm, clip=true, width=0.65\textwidth]{figures/lkca4_tio_forpaper}
 	\caption{Variability in TiO bands measured with ESPaDOnS (see also Table X).  The V-band emission is estimated from fits to the ASAS-SN lightcurve obtained during the same period.  The main panel shows a correlation between V-band magnitude and the TiO-7140 index, while the inset shows a similar correlation with the average of the TiO 6200, CaH 6800, and TiO 7600 indices.}
 	\label{fig:tiovar}
 \end{figure*}
@@ -367,9 +364,7 @@ This work & 3525 & \\
 
 \begin{figure*}
 	\centering
-    %	\vspace{-30mm}
-	\includegraphics[width=0.95\textwidth]{figures/lkca4_hrdiag_forpaper}
-    	\vspace{-80mm}
+	\includegraphics[trim=2.6cm 13.0cm 2.8cm 3.5cm, clip=true, width=0.65\textwidth]{figures/lkca4_hrdiag_forpaper}
 	\caption{Locations for LkCa 4 on an HR diagram, compared with models of pre-main sequence evolution calculated by \citet{baraffe15} with isochrones (black lines) and evolution models of a single mass (dashed blue lines) as marked.  The measured effective temperature and luminosity from this paper, based on the two-component fit and a median $V$-band magnitude, corresponds to the black asterisk.  The yellow shaded region corresponds to the range of apparent effective temperatures that are would be measured as the hot component rotates into and out of our view.  The blue circle corresponds to the measurement at blue-optical wavelengths by \citet{donati14}, the purple square corresponds to the measurement from low-resolution optical spectra, biased to TiO band strengths, by \citet[][biased to]{herczeg14}, while the red diamong corresponds to what we would measure from the K-band spectrum and 2MASS $J$-band magnitude.}
 	\label{fig:hrdiag}
 \end{figure*}
