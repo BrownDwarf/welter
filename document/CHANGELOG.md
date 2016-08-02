@@ -9,10 +9,10 @@
 - More entries in historical data table
 
 
-
 ### Changes
 - Include unpublished data from Grankin
 - Overhauled single component fit section with much more text
 - Latex citations are now in nameYY instead of ADS identifiers
 - Two column mode
 - Revised figures
+- Trim and clip PDF figures with large whitespace.
