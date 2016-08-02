@@ -17,6 +17,7 @@
 \providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{#1}}
 \providecommand{\adsurl}[1]{\href{#1}{ADS}}
 \newcommand{\name}{LkCa4 }
+\newcommand{\project}[1]{\textsl{#1}}
 %\def\vsini{$v\sin{i_*}$}
 
 \slugcomment{In preparation}
@@ -62,12 +63,12 @@ Starspots may also be responsible for biases in stellar effective temperatures d
 
 Starspots have recently been observed with exceptional photometric precision from monitoring surveys targeting exoplanet transits \citep{harrison11,davenport15}.  Contemporaneous or near-contemporaneous panchromatic photometric monitoring \citep{bouvier95,grankin07} can break the degeneracy between starspot areal filling factor and starspot temperature. Photometric measurements are limited to detecting large longitudinally asymmetric starspots.  Transiting planets or eclipsing binaries passing in front of starspots \citep{desert11} can break geometric degeneracies, providing estimates for the characteristic sizes and lifetimes of starspots or starspot groups.  Zeeman Doppler Imaging \citep[ZDI]{donati14} suffers from the same longitudinal asymmetry limitation as photometry, but can yield information on the latitudinal distribution of starspots.  All of these techniques would underestimate the starspot areal coverage of pole-on stars, stars with longitudinally symmetric bands of starspots, or stars with an isotropic distribution of small starspots.  
 
-Spectroscopic strategies have the power to measure both the starspot areal coverage and temperature in any geometric configuration.  At low resolution, SED modeling \citep{wolk96} has detected evidence for sunspots in weak-lined T-Tauri stars (WTTS).  At high resolution, line depth ratio analysis has historically been demonstrated on evolved stars in relatively small bandwidths, namely the TiO bands \citep{neff95,oneal96,oneal98,oneal04}, or the OH 1.563 $\mu$m feature \citep{oneal01}. 
+Spectroscopic strategies have the power to measure both the starspot areal coverage and temperature in any geometric configuration.  At low resolution, SED modeling \citep{wolk96} has detected evidence for sunspots in weak-lined T-Tauri stars (WTTS).  At high resolution, line depth ratio analysis has been demonstrated mostly on evolved stars in relatively small bandwidths, namely the TiO bands \citep{neff95,oneal96,oneal98,oneal04}, or the OH 1.563 $\mu$m feature \citep{oneal01}. 
 
 
 Past spectroscopic detections of spots on young stars have focused on TW Hya, an active accretor, and DQ Tau, a close binary in which both components are accreting \citep{debes13,bary14}.  The WTTS \name \citep{herbig86,strom89a,downes88,strom89b} is an ideal exemplar for a spotted pre-MS star because it does not have any veiling \citep{hartigan95} or mid-IR or mm excess \citep{skrutskie90,andrews05,mccabe06,furlan06,luhman10,furlan11,harris12,marichalar12,howard13,buckle15}, is not actively accreting \citep{hartigan95,kenyon98,edwards06,cauley12,yang12,ardila13,castro13,loyd14,martinez15}, has no evidence for a close companion \citep{karr10,kraus11,daemgen15}\footnote{The status for wide companions is less clear; see \citet{stauffer91,itoh08,kraus09,kraus11}}, demonstrates large amplitude sinusoidal photometric variability indicative of large spots \citep{grankin08,xiao12}, has recently been examined with ZDI \citep{donati14}, and has large ($\Delta \teff \sim$500 K) disagreement about its effective temperature \citep{herczeg14}.  The spectrum of \name should be devoid of complicating factors like near-IR excess veiling and accretion excess.
 
-In this work we constrain the starspot properties of \name with 4 complementary techniques.  Section \ref{sec:obs} quantifies the optical variability of \name over the last 31 years based on all available photometric monitoring; a collection of spectral observations at various phases of variability is introduced.  Section \ref{sec:methods} and Appendix \ref{methods-details} describe a spectral inference technique aimed at generalizing line depth ratio analysis, which is applied to a high resolution panchromatic near-IR spectrum of \name in Section \ref{sec:two_tempIGRINS} .  Sections 4.1, 4.2, and 4.3 show results from SED fitting, polychromatic photometric monitoring, and optical TiO line-depth ratio fitting.  All lines of evidence are ultimately combined to build a consistent picture of the spectral and temporal evolution of \name, and what can be understood about pre-MS stellar evolution from this exemplar.
+In this work we constrain the starspot properties of \name with 4 complementary techniques.  Section \ref{sec:obs} quantifies the optical variability of \name over the last 31 years based on all available photometric monitoring; a collection of spectral observations at various phases of variability is introduced.  Section \ref{sec:methods} and Appendix \ref{methods-details} describe a spectral inference technique aimed at generalizing line depth ratio analysis, which is applied to a high resolution panchromatic near-IR spectrum of \name in Section \ref{sec:two_tempIGRINS} .  Sections \ref{sec:SED}, \ref{sec:rotSpot}, and \ref{sec:RotTiO} show results from SED fitting, polychromatic photometric monitoring, and optical TiO line-depth ratio fitting.  All lines of evidence are ultimately combined to build a consistent picture of the spectral and temporal evolution of \name, and what can be understood about pre-MS stellar evolution from this exemplar.
 
 
 \section{Observations}\label{sec:obs} 
@@ -91,7 +92,7 @@ APO/TripleSpec (Covey)
 
 \subsection{Photometric monitoring}
 
-An archive of 1173 $B$, $V$ and/or $R$ photometric monitoring visits was assembled from published and unpublished data sources spanning 31 years in 22 observing seasons.  Published data targeting \name\ is composed of 29 $BVR$ visits from 1985$-$1986 \citep{vrba93}, 26 $BVR$ epochs from 1990$-$1991 \citep{bouvier93}, 284 visits in $V$-band (278 with $B$ and 268 with $R$) from 1992 August - 2004 October \citep{grankin08}, and 10 $BVR$ visits from 2013 \citep{donati14}.  ASAS3 \citep{pojmanski04} acquired 63 $V-$band measurements from 2002$-$2004.  Integral-OMC obtained 138 $V-$band measurements from 2006$-$2008 \citep{garzon12}.  The AAVSO archive \citep{kafka16} includes 385 $V$, 23 $B$ and 10 $R$ measurements from 2013$-$2016.  Finally, unpublished data from the ASAS-SN survey \citep{shappee14}, were obtained from 2012 January -- 2016 March in 186 visits.  Figure \ref{fig:PhotTime} displays all the $V-$band photometry over the interval 1986-2016.
+An archive of 1173 $B$, $V$ and/or $R$ photometric monitoring visits was assembled from published and unpublished data sources spanning 31 years in 22 observing seasons.  Published data targeting \name\ is composed of 29 $BVR$ visits from 1985$-$1986 \citep{vrba93}, 26 $BVR$ epochs from 1990$-$1991 \citep{bouvier93}, 284 visits in $V$-band (278 with $B$ and 268 with $R$) from 1992 August - 2004 October \citep{grankin08}, and 10 $BVR$ visits from 2013 \citep{donati14}.  ASAS3 \citep{pojmanski04} acquired 63 $V-$band measurements from 2002$-$2004.  Integral-OMC obtained 138 $V-$band measurements from 2006$-$2008 \citep{garzon12}.  The AAVSO archive \citep{kafka16} includes 385 $V$, 23 $B$ and 10 $R$ measurements from 2013$-$2016.  Finally, unpublished data from the ASAS-SN survey \citep{shappee14}, were obtained from 2012 January -- 2016 March in 186 visits.  Figure \ref{fig:PhotTime} displays all the $V-$band photometry over the interval 1985-2016.
 
 
 \begin{figure*}
@@ -253,7 +254,7 @@ In \S 4.1 we describe how the two components of the photosphere fit low resoluti
 
 
 
-\subsection{The Spectral Energy Distribution}
+\subsection{The Spectral Energy Distribution}\label{sec:SED}
 
 Figures~\ref{fig:sed}-\ref{fig:lores} shows that the two-component photosphere matches the SED and flux-calibrated spectra well from $\sim 0.6-2.5$ $\mu$m.  The two components have fixed temperatures of 4200 K covering 30\% of the visible surface and 3000 K covering 70\% of the visible surface area.  The only free parameters are the luminosity and extinction, which are both scaled to match the spectrum.
 
@@ -284,7 +285,7 @@ The $J-K=0.93$ color is equal to the expected color to within 0.05 => 0.3 mag (f
 \end{figure*}
 
 
-\subsection{Rotational modulation of the hot spot}
+\subsection{Rotational modulation of the hot spot}\label{sec:rotSpot}
 
 Since 1992 the $V$ band brightness has varied from $12.3$ to $13.2$ mag, with a typical range of $0.5$ mag in any single epoch.  In a two-temperature atmosphere with fixed temperatures, this brightness corresponds directly to a filling factor for both components.  Figure~\ref{vband_spot} shows this conversion for temperatures of 4200 K, 3000 K, and a 75\% filling factor for the 3000 K component at $V_{est}=12.83$, as estimated at the time of the IGRINS spectrum.  
 
@@ -320,7 +321,7 @@ $K$ & 8.89 & 9.04 & 0.15\\
 
 
 
-\subsection{Rotational Modulation of TiO Depth}
+\subsection{Rotational Modulation of TiO Depth}\label{sec:RotTiO}
 
 The depths of TiO and other molecular bands are common diagnostics of spectral type (and therefore temperature) in optical spectra \citep[e.g.][]{kirkpatrick91}.  In a 2-temperature photosphere, the depth of observed TiO bands will depend on the fractional coverage of the components.  In this subsection, we demonstrate that the TiO band depths vary with spot coverage.
 
@@ -521,6 +522,24 @@ This publication makes use of data products from the Two Micron All Sky Survey, 
 
 
 {\it Facilities:} \facility{Smith (IGRINS)}, \facility{AAVSO}, \facility{CFHT (ESPaDOnS)}, \facility{INTEGRAL (OMC)}, \facility{ASAS}, 
+{\it Software: } TBD
+	\project{pandas} \citep{mckinney10}
+    \project{emcee} \citep{foreman13},
+	\project{matplotlib} \citep{hunter07},
+	\project{numpy} \citep{vanderwalt11},
+	\project{scipy} \citep{jones01},
+	\project{ipython} \citep{perez07},
+	\project{gatspy} \citep{JakeVanderplas2015},
+	\project{starfish} \citep{czekala15}
+%\software{%
+%	\project{pandas} \citep{mckinney10}
+%    \project{emcee} \citep{foreman13},
+%	\project{matplotlib} \citep{hunter07},
+%	\project{numpy} \citep{vanderwalt11},
+%	\project{scipy} \citep{jones01},
+%	\project{ipython} \citep{perez07},
+%	\project{gatspy} \citep{JakeVanderplas2015},
+%	\project{starfish} \citep{czekala15}}.
 
 \clearpage
 
