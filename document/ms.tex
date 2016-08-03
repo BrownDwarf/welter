@@ -149,12 +149,12 @@ The Metropolis-Hastings step sizes were tuned with several iterations of burn-in
 
 We computed the median value and 5$^{th}$ and $95^{th}$ percentiles of burned-in subsets of the MCMC samples described above.  Overall the 26 sets of point estimates for stellar parameters show relatively good agreement, with exceptions.  We have little constraint on $\logg$ and $\Z$ since full-spectrum fitting tends to wash out the weak signal contained in line wings for spectra with a finite level of random noise and systematic error.  Meanwhile, strong metal lines can bias estimates of $\Z$ at the expense of estimates for $\teff$.  Estimates for $v_z \sim 15.6 \pm 0.6$ km/s and $\vsini \sim 28.0 \pm 0.9$ km/s are consistent across all orders with the exception of two spectral orders at $6920 <\lambda \;(\mathrm{nm})< 7057$ and $8473 < \lambda \;(\mathrm{nm}) < 8706$ due to numerous large spectral outliers.  The more-well-behaved spectral orders show effective temperature point estimates in the range $\teff=4000\pm130$ K.  Figure \ref{fig:SingleTeffvsOrder} displays the $\teff$ point estimates with 5$^{th}$ and $95^{th}$ percentile error bars placed at the central wavelength of each spectral order.
 
-\begin{figure*}
+\begin{figure}
 	\centering
-	\includegraphics[width=0.65\textwidth]{figures/single_Teff_v_order}
+	\includegraphics[width=0.48\textwidth]{figures/single_Teff_v_order}
 	\caption{Effective temperature as derived from unique full spectrum fitting to each of 58 spectral orders in the optical through infrared portions of the spectrum and assuming a single component photosphere.  The top panel indicates the location and size of spectral chunks used to derive the values in the bottom panel.  The IGRINS orders also show typical atmospheric transmission (red lines) in the infrared.  Unused spectral chunks are lightened.  The effective temperature derived in the $K-$band is about 800 K lower than that derived in optical.}
 	\label{fig:SingleTeffvsOrder}
-\end{figure*}
+\end{figure}
 
 \subsection{Single temperature fitting to the IGRINS spectrum}\label{sec:IGR_starfish}
 
@@ -165,7 +165,7 @@ We find a larger dispersion in the point estimates for the stellar parameters de
 
 \subsection{Heightened sensitivity to starspot spectral lines in the infrared}\label{sec:whyNearIR}
 
-Some care should be taken when directly comparing results between the ESPaDOnS and IGRINS spectra since they were not taken at the same time.  These spectra have comparable albeit different $\hat V$ of 12.90 and 12.83 for the ESPaDOnS and IGRINS spectra respectively.  Assuming the areal coverage fraction of spots was the same or greater during the ESPaDOnS spectrum acquisition, the optical bands and short-wavelength end of $H$-band are relatively insensitive to the spectral signatures of starspots in this system.  The long wavelength portion of $H-$band and all of $K-$band are more sensitive to starspot spectral signatures than the shorter wavelength portions.
+Some care should be taken when directly comparing results between the ESPaDOnS and IGRINS spectra since they were not taken at the same time.  These spectra have comparable albeit different $V_{\rm est}$ of 12.90 and 12.83 for the ESPaDOnS and IGRINS spectra respectively.  Assuming the areal coverage fraction of spots was the same or greater during the ESPaDOnS spectrum acquisition, the optical bands and short-wavelength end of $H$-band are relatively insensitive to the spectral signatures of starspots in this system.  The long wavelength portion of $H-$band and all of $K-$band are more sensitive to starspot spectral signatures than the shorter wavelength portions.
 
 The heightened sensitivity to starspot spectral lines as a function of wavelength can be understood in the following way.  Starspots are cooler than their surrounding photosphere and will therefore have a longer wavelength of peak emission, according to Wein's displacement law.  The average ratio of flux density between starspot and bulk photosphere will increase with wavelength until asymptoting to a fixed value in the Rayleigh-Jeans tail \citep{wolk96}.
 
@@ -174,24 +174,25 @@ In summary, the visible portion of the spectrum will be dominated by the warm pa
 
 \subsection{Two-temperature fitting to IGRINS spectra}\label{sec:two_tempIGRINS}
 
-Full-spectrum fitting was performed for 43 of the 54 available IGRINS spectral orders as described in Section \ref{sec:methods} and Appendix \ref{methods-details}.  The MCMC samples had 5000 steps with 40 walkers.  The stellar parameter ranges were $\logg \in [3.5, 4.0]$ and $\Z \in [-0.5, 0.5]$; the effective temperature range was $\teffa, \teffb \in [2700, 4500]$.  $H-$band fits had normal distribution priors in place: solar metallicity to $\pm0.05$ dex, $logg=3.8\pm0.1$, and $\vsini=29\pm5$.  The MCMC chains all appeared to converge after about 1500 steps.
+Full-spectrum fitting was performed for 48 of the 54 available IGRINS spectral orders as described in Section \ref{sec:methods} and Appendix \ref{methods-details}.  The MCMC samples had 5000 steps with 40 walkers.  The stellar parameter ranges were $\logg \in [3.5, 4.0]$ and $\Z \in [-0.5, 0.5]$; the effective temperature range was $\teffa, \teffb \in [2700, 4500]$.  $H-$band fits had normal distribution priors in place: solar metallicity to $\pm0.05$ dex, $logg=3.8\pm0.1$, and $\vsini=29\pm5$.  The MCMC chains all appeared to converge after about 1500 steps.
 
-Marginalized distributions were computed for all 14 stellar and nuisance parameters by selecting the final 200 $\times$ 40 walkers = 8000 samples, and point estimates were obtained by computing the median, $5^{th}$ and $95^{th}$ percentiles of the marginal distributions.  The fit quality was first assessed by examining the consistency of the point estimates across the spectral orders.  The distribution of $v_z$ and $\vsini$ were informative for finding extremely poor fits.  The range for all 43 orders was $v_z = 12.4 \pm 2.6$ and $\vsini = 28.8 \pm 2.0$.  Two orders with poor telluric correction ($o=91$ and $94$) had exceptionally large uncertainties on their values for $v_z$ and $\vsini$.
+Marginalized distributions were computed for all 14 stellar and nuisance parameters by selecting the final 200 $\times$ 40 walkers = 8000 samples, and point estimates were obtained by computing the median, $5^{th}$ and $95^{th}$ percentiles of the marginal distributions.  The fit quality was first assessed by examining the consistency of the point estimates across the spectral orders.  The distribution of $v_z$ and $\vsini$ were informative for finding extremely poor fits.  The range for all 48 orders was $v_z = 12.4 \pm 2.6$ and $\vsini = 28.8 \pm 2.0$.  Two orders with poor telluric correction ($o=91$ and $94$) had exceptionally large uncertainties on their values for $v_z$ and $\vsini$.
 
-Some orders indicates that their spectrum is dominated by spectral line outliers--deep metal lines that cannot be described by a coarse metallicity estimate alone.  These spectral line outlier orders also tend to bias estimates of effective temperature.  These metal lines can also be biased by Zeeman broadening, which would explain the heightened effect size with wavelength.
+The posteriors on $\teffa$ and $\teffb$ show several trends- see Figure \ref{fig:TwoTempResults} and Appendix Table \ref{tbl_order_results} for the results of effective temperatures for all IGRINS orders.  
 
-Finally, the posteriors on $\teffa$ and $\teffb$ show several trends- see Figure \ref{fig:TwoTempResults} and Table \ref{tbl_order_results} for the results of effective temperatures for all IGRINS orders.  
+Overplotting models with the observed spectra yielded insights on why some orders failed, and which orders can discriminate between starspots and ambient photospheric lines the best.  Some orders indicate that their spectrum is dominated by spectral line outliers--deep metal lines that cannot be described by a coarse metallicity estimate alone.  These spectral line outlier orders also tend to bias estimates of effective temperature.  These metal lines can also be biased by Zeeman broadening, which would explain the heightened effect size with wavelength.
+
+
 \todo{insert results from re-run of H-band spectra here}
 Nearly-equal solutions could be explained by vanishingly weak spectral lines in one or the other of the effective temperature ranges, in which case the method offers little constraint on $\teffb$, but improves the fit around $\teffa$.  
 
 The $K-$band orders demonstrate much more scatter than $H-$band, with no single photospheric temperature sticking out as strongly favored, but with values of $\teffa \sim 3900$ K and $\teffb \sim 2800$ K consistent with many orders.  The $K-$band spectra possess strongly correlated residuals from poor telluric correction, as well as uncorrected hydrogen line features that appear as flux excesses after division by telluric standard spectrum.  These instrumental afflictions degraded fits to several orders.
 
-\input{tables/tbl_order_results.tex}
 
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.95\textwidth]{figures/violin_Teff_fill_order} 
-	\caption{Violin plot of marginalized samples for $\teffa$, $\teffb$, and fill factor $f_{\Omega}$, derived independently from full-spectrum fitting to 41 IGRINS orders.  Spectral orders show differing levels of constraint on the starspot and ambient photosphere properties, with some ($o=111$) consistent with negligible starspot emission, and others ($o=104, 102, 100$) showing tight constraints on the filling factor of starspots.  The starspot temperature is consistent with values even lower than 2700 K, the lower limit of the temperature range used.  $K-$band orders show lower estimates for the ambient photosphere, though some of these estimates are unreliable due to spectral line outliers}
+	\caption{Violin plot of marginalized samples for $\teffa$, $\teffb$, and fill factor $f_{\Omega}$, derived independently from full-spectrum fitting to 48 IGRINS orders.  Spectral orders show differing levels of constraint on the starspot and ambient photosphere properties, with some ($o=111$) consistent with negligible starspot emission, and others ($o=104, 102, 100$) showing tight constraints on the filling factor of starspots.  The starspot temperature is consistent with values even lower than 2700 K, the lower limit of the temperature range used.  $K-$band orders show lower estimates for the ambient photosphere, though some of these estimates are unreliable due to spectral line outliers}
 	\label{fig:TwoTempResults}
 \end{figure*}
 
@@ -498,6 +499,13 @@ The mixture model is a linear operation with all the same stellar extrinsic para
 
 Table \ref{tbl_history} lists measurements of \name from previous studies.
 \input{tables/tbl_history.tex}
+
+
+\section{Full table of IGRINS best fits}
+
+Table \ref{tbl_order_results} lists all the IGRINS spectral order results.
+\comm{It's not clear if we need this table...}
+\input{tables/tbl_order_results.tex}
 
 
 \acknowledgements
