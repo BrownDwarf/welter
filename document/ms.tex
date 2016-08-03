@@ -84,15 +84,12 @@ We used ESPaDOnS on CFHT to obtain twelve high resolution optical spectra of \na
 
 \subsection{Low-resolution optical and near-IR spectra}
 
-The Palomar/DBSP data was previously described in \citet{herczeg14}.  Briefly, these flux-calibrated spectra cover 3000-8700 $\AA$ at a spectral resolution $R\sim500-700$.
-
-APO/TripleSpec (Covey)
-\todo{fill in details about TripleSpec data}
+The Palomar/DBSP \citep{oke82} data was previously described in \citet{herczeg14}.  Briefly, these flux-calibrated spectra cover 3000$-$8700 $\AA$ at a spectral resolution $R\sim500-700$ in two epochs.  The DBSP data were acquired near-contemporaneously with near-IR spectra from APO/TripleSpec \citep{wilson04}. \todo{(Covey) Fill in details about TripleSpec data}
 
 
 \subsection{Photometric monitoring}
 
-An archive of 1173 $B$, $V$ and/or $R$ photometric monitoring visits was assembled from published and unpublished data sources spanning 31 years in 22 observing seasons.  Published data targeting \name is composed of 29 $BVR$ visits from 1985$-$1986 \citep{vrba93}, 26 $BVR$ epochs from 1990$-$1991 \citep{bouvier93}, 284 visits in $V$-band (278 with $B$ and 268 with $R$) from 1992 August - 2004 October \citep{grankin08}, and 10 $BVR$ visits from 2013 \citep{donati14}.  ASAS3 \citep{pojmanski04} acquired 63 $V-$band measurements from 2002$-$2004.  Integral-OMC obtained 138 $V-$band measurements from 2006$-$2008 \citep{garzon12}.  The AAVSO archive \citep{kafka16} includes 385 $V$, 23 $B$ and 10 $R$ measurements from 2013$-$2016.  Finally, unpublished data from the ASAS-SN survey \citep{shappee14}, were obtained from 2012 January -- 2016 March in 186 visits.  Figure \ref{fig:PhotTime} displays all the $V-$band photometry over the interval 1985-2016.
+An archive of 1216 $B$, $V$ and/or $R$ photometric monitoring visits was assembled from published and unpublished data sources spanning 31 years in 22 observing seasons.  Published data targeting \name is composed of 29 $BVR$ visits from 1985$-$1986 \citep{vrba93}, 26 $BVR$ epochs from 1990$-$1991 \citep{bouvier93}, 284 visits in $V$-band (278 with $B$ and 268 with $R$) from 1992 August - 2004 October \citep{grankin08}, and 10 $BVR$ visits from 2013 \citep{donati14}.  ASAS3 \citep{pojmanski04} acquired 63 $V-$band measurements from 2002$-$2004.  Integral-OMC obtained 138 $V-$band measurements from 2006$-$2008 \citep{garzon12}.  The AAVSO archive \citep{kafka16} includes 385 $V$, 23 $B$ and 10 $R$ measurements from 2013$-$2016.  Unpublished data from the ASAS-SN survey \citep{shappee14}, were obtained from 2012 January -- 2016 March in 186 visits.  Finally, recent photometry from the ongoing Crimean Astrophysical Observatory (CrAO) ROTOR project \citep{grankin08} is presented here for the first time.  The CrAO data includes 43 $BVR$ visits from August 2015 - March 2016. Figure \ref{fig:PhotTime} displays all the $V-$band photometry over the interval 1985-2016.
 
 
 \begin{figure*}
@@ -117,7 +114,9 @@ Figure \ref{fig:PhotPhase} shows all available $V-$band data grouped by the 22 o
 
 \section{FITS TO HIGH RESOLUTION SPECTRA}\label{sec:Starfish}
 
-\todo{Provide overview of section...}
+As noted previously, line depth ratio analysis has traditionally been limited to isolated portions of spectrum that possess spectral lines attributable only to starspots and spectral lines attributable only to ambient photosphere \citep[\emph{e.g.}][]{neff95, oneal01}.  The apparent veiling of the lines and their respective temperature dependences can be combined to solve for the starspot and ambient photosphere temperatures and relative areal coverages.  The line depth ratio method suffers from the need to identify portions of the spectrum that possess such strong lines, and also suffers from the need to assemble large atlases of observed spectral templates to which the spotted star spectrum can be compared.  In this section we introduce a generalization of line depth ratio analysis which employs pixel-by-pixel modeling of spectral orders.  By leveraging all the channels present in a spectrum, this strategy has the power to constrain starspot properties at relatively low fill-factors, and identify weak lines that originate from the starspot.
+
+We took two approaches to characterizing the effective temperature response from a spotted-star spectrum.  First we measured a single effective temperature to unique spectral orders in the optical (\S \ref{sec:ESP_starfish}) and near-IR (\S \ref{sec:IGR_starfish}).  Second we fit a two-temperature mixture model (\S \ref{sec:methods}) to the near-IR spectra (\S \ref{sec:two_tempIGRINS}), which should show greater starspot flux density than optical(\S \ref{sec:whyNearIR}).
 
 \subsection{Methodology}\label{sec:methods} 
 
@@ -135,16 +134,16 @@ where $B$ is the spectral radiance from emulated model spectra.  The observed fi
 f_{\Omega} = \frac{\Omega_b}{\Omega_a + \Omega_b}
 \end{eqnarray}
 
-Note that $f_{\Omega}$ represents an instantaneous, observational fill factor seen on one hemisphere, not $f_{\rm spot}$, the ``ratio of the spotted surface to the total surface areas'' \citep{somers15}.  In the limit of homogenously distributed spots, $f_{\Omega}$ tends to $f_{\rm spot}$, but in general $f_{\rm spot}$ is not a direct observable since some circumpolar regions of inclined stars will always face away from Earth; $f_{\Omega}$ can vary cyclicly though rotational modulation, whereas $f_{\rm spot}$ changes secularly through starspot evolution that is not yet understood.
+Note that $f_{\Omega}$ represents an instantaneous, observational fill factor seen on one projected hemisphere, not $f_{\rm spot}$, the ``ratio of the spotted surface to the total surface areas'' \citep{somers15}.  In the limit of homogenously distributed spots, $f_{\Omega}$ tends to $f_{\rm spot}$, but in general $f_{\rm spot}$ is not a direct observable since some circumpolar regions of inclined stars will always face away from Earth; $f_{\Omega}$ can vary cyclicly though rotational modulation, whereas $f_{\rm spot}$ changes secularly through starspot evolution that is not yet understood.
 
 The starspot model includes two more free parameters than the standard \iancze\ model, namely $\teffb$ and $f_{\Omega}$.  The addition of these two parameters makes the MCMC sampling much more correlated than it was before because the relative contribution of the starspot and ambient photosphere are nearly degenerate over small changes in effective temperature.  So the second important change to the spectral inference framework involves technical aspects of switching from sampling the nuisance and stellar parameters separately in a blocked Gibbs framework to ensemble sampling using \texttt{emcee} \citep{foreman13}.  The affine-invariant \texttt{emcee} ensemble sampler is more resilient to correlations among stellar temperatures and fill factor than the Metropolis-Hastings sampler used in Gibbs sampling.  The practical effect of this switch is that all 14 stellar and nuisance parameters are fit simultaneously in a single spectral order.  So stellar parameter estimates $\vt_{o}$ are unique for each spectral order $o$, whereas the \iancze\ strategy had the power to provide a single set of stellar parameters $\vt$ that was based on all $N_{\rm ord}$ spectral orders.  The $N_{\rm ord}$ sets of inferences on $\vt_{o}$ are combined by weighted averaging point estimates of results from reliable orders, which offers resilience to flagrant calibration artifacts or conspicuous model mismatches.  This process can be thought of as a coarse approximation to the much more sophisticated spectral line outlier rejection described in \iancze.
 
 Further details of the spectral inference methodology are described in Appendix \ref{methods-details}.
 
 
-\subsection{Single temperature fitting to the ESPaDoNs spectrum}
+\subsection{Single temperature fitting to the ESPaDOnS spectrum}\label{sec:ESP_starfish}
 
-We performed spectral fitting on the ESPaDoNs spectrum acquired on 2014 January 11, the fourth ESPaDOnS spectrum from Table \ref{tbl_estimated_V}.  The spectrum was apportioned into subsets of $N=35$ chunks, corresponding approximately to spectral order boundaries.  Full-spectrum fitting was performed separately on each of 35 spectral orders following the Metropolis-Hasting MCMC sampling procedure described in \iancze.  The spectral emulator was trained on stellar parameters in the range $\logg \in [3.5, 4.0]$, $\Z \in [-0.5, 0.5]$, and $\teff \in [3500, 4200]$.
+We performed spectral fitting on the ESPaDOnS spectrum acquired on 2014 January 11, the fourth ESPaDOnS spectrum from Table \ref{tbl_estimated_V}.  The spectrum was apportioned into subsets of $N=35$ chunks, corresponding approximately to spectral order boundaries.  Full-spectrum fitting was performed separately on each of 35 spectral orders following the Metropolis-Hasting MCMC sampling procedure described in \iancze.  The spectral emulator was trained on stellar parameters in the range $\logg \in [3.5, 4.0]$, $\Z \in [-0.5, 0.5]$, and $\teff \in [3500, 4200]$.
 
 The Metropolis-Hastings step sizes were tuned with several iterations of burn-in procedure and the final chains were visually checked for convergence.  Nine of the 35 available spectral orders failed to converge, possibly due to numerical artifacts arising from poor model fits.  For the other 26 spectral orders, the number of samples was generally much longer than the estimated integrated autocorrelation length.  Overlays of models with observed spectra show modest agreement, with the exception of conspicuous spectral line outliers.  No attempt was made to downweight spectral-line outliers as described in \iancze.  
 
@@ -157,9 +156,9 @@ We computed the median value and 5$^{th}$ and $95^{th}$ percentiles of burned-in
 	\label{fig:SingleTeffvsOrder}
 \end{figure*}
 
-\subsection{Single temperature fitting to the IGRINS spectrum}
+\subsection{Single temperature fitting to the IGRINS spectrum}\label{sec:IGR_starfish}
 
-We performed full-spectrum fitting on 32 of the 54 available IGRINS spectral orders, again fitting unique stellar parameters $\vt = (\teff, \logg, \Z)$ for each spectral order $o$.  We used the same analysis procedure as described for the ESPaDoNs spectra, with one exception.  For the IGRINS $K-$band, we employed an expanded search range for the effective temperature, $\teff \in [3000, 4200]$ K, since the IGRINS $H-$ band demonstrated some saturation at the $\teff=3500$ K lower bound.  No effort was made to shift the wavelength scales of the IGRINS data and \PHOENIX\ model into the same system, so the absolute values of $v_z$ are arbitrary shifted.
+We performed full-spectrum fitting on 32 of the 54 available IGRINS spectral orders, again fitting unique stellar parameters $\vt = (\teff, \logg, \Z)$ for each spectral order $o$.  We used the same analysis procedure as described for the ESPaDOnS spectra, with one exception.  For the IGRINS $K-$band, we employed an expanded search range for the effective temperature, $\teff \in [3000, 4200]$ K, since the IGRINS $H-$ band demonstrated some saturation at the $\teff=3500$ K lower bound.  No effort was made to shift the wavelength scales of the IGRINS data and \PHOENIX\ model into the same system, so the absolute values of $v_z$ are arbitrary shifted.
 
 We find a larger dispersion in the point estimates for the stellar parameters derived from the IGRINS data with single temperature fits.  The most conspicuous trend is in the derived effective temperature as a function of wavelength shown in Figure \ref{fig:SingleTeffvsOrder}.  Here we see dramatic result that the effective temperature peaks at a values of $\sim4200$K in the short wavelength end of $H-$band and saturates at $<3500$ K at the long wavelength end of $H-$band.  The $K-$band shows even lower derived effective temperatures of $\sim3300$ K.
 
@@ -170,9 +169,9 @@ The effective temperature derived at different wavelength intervals exhibit a $\
 %We performed a further plausibility check to constrain the effect size of starspots.  We generated flux calibrated spectra at two temperatures, and forward-modeled them to resemble the LkCa4 IGRINS and ESPaDOnS spectra in all other ways (\emph{i.e.} $\logg, \Z, \vt_{\rm ext}$), including noise and calibration parameters.  We coadded the spectra in a mixture model:  $ \mathsf{M}_{mix} = c \cdot \mathsf{M}_A(T_\textrm{eff,A}) + (1-c) \cdot \mathsf{M}_B(T_\textrm{eff,B})$.  We chose a fill factor of starspots of 30\%.  We then re-ran our single-temperature fitting procedure on the two-temperature, synthetic, noised-up data to see what stellar parameters our full-spectrum fitting procedure would na\"{\i}vely derive.  
 
 
-\subsection{Heightened sensitivity to starspot spectral lines in the infrared}
+\subsection{Heightened sensitivity to starspot spectral lines in the infrared}\label{sec:whyNearIR}
 
-Some care should be taken when directly comparing results between the ESPaDoNs and IGRINS spectra since they were not taken at the same time.  These spectra have comparable albeit different $\hat V$ of 12.90 and 12.83 for the ESPaDoNs and IGRINS spectra respectively.  Assuming the areal coverage fraction of spots was the same or greater during the ESPaDoNs spectrum acquisition, the optical bands and short-wavelength end of $H$-band are relatively insensitive to the spectral signatures of starspots in this system.  The long wavelength portion of $H-$band and all of $K-$band are more sensitive to starspot spectral signatures than the shorter wavelength portions.
+Some care should be taken when directly comparing results between the ESPaDOnS and IGRINS spectra since they were not taken at the same time.  These spectra have comparable albeit different $\hat V$ of 12.90 and 12.83 for the ESPaDOnS and IGRINS spectra respectively.  Assuming the areal coverage fraction of spots was the same or greater during the ESPaDOnS spectrum acquisition, the optical bands and short-wavelength end of $H$-band are relatively insensitive to the spectral signatures of starspots in this system.  The long wavelength portion of $H-$band and all of $K-$band are more sensitive to starspot spectral signatures than the shorter wavelength portions.
 
 The heightened sensitivity to starspot spectral lines as a function of wavelength can be understood in the following way.  Starspots are cooler than their surrounding photosphere and will therefore have a longer wavelength of peak emission, according to Wein's displacement law.  The average ratio of flux density between starspot and bulk photosphere will increase with wavelength until asymptoting to a fixed value in the Rayleigh-Jeans tail \citep{wolk96}.
 
@@ -523,7 +522,7 @@ We acknowledge with thanks the variable star observations from the AAVSO Interna
 This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
 
 
-{\it Facilities:} \facility{Smith (IGRINS)}, \facility{AAVSO}, \facility{CFHT (ESPaDOnS)}, \facility{INTEGRAL (OMC)}, \facility{ASAS}, 
+{\it Facilities:} \facility{Smith (IGRINS)}, \facility{AAVSO}, \facility{CFHT (ESPaDOnS)}, \facility{INTEGRAL (OMC)}, \facility{ASAS}, \facility{CrAO:1.25m}, \facility{ARC (TripleSpec)}, \facility{Hale (DBSP)}
 {\it Software: } TBD
 	\project{pandas} \citep{mckinney10}
     \project{emcee} \citep{foreman13},
