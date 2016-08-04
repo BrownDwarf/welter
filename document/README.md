@@ -13,18 +13,13 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 	- :white_check_mark: ESPaDOnS archival
 	- :white_check_mark: Photometry
 	- :white_check_mark: Where in the phase of variability were the spectra taken?
-	- :white_check_mark: **Table 1-** Dates and inferred V
-	- :white_check_mark: **Figure 1** Overview of photometry with observing epochs
-	- :white_check_mark: **Figure 2** Phase-folded seasons plus observing epochs
 - **Results from spectral fitting**
 	- :white_check_mark: Preamble
 	- :white_check_mark: Simple description of two major changes to C15
 	- :white_check_mark: Result from single-temperature fitting- Optical
 	- :white_check_mark: Result from single-temperature fitting- Near-IR
-	- :white_check_mark: **Figure 3** Teff vs. Wavelength for single temp
 	- :white_check_mark: Result from two-temperature fitting
-	- :round_pushpin: Postage stamps of starspot spectral structure + prose
-	- :white_check_mark: **Figure 4** Violin plot of Teff1, Teff2, fill factor
+	- :round_pushpin: Prose describing postage stamps of starspot spectral structure
 -  **Confirmation of results from other methods**
 	- :white_check_mark: Reproduce SED	 
 	- :white_check_mark: Reproduce low-res broadband spectra
