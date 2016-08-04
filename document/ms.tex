@@ -284,7 +284,7 @@ The model photometry is obtained from the main sequence colors compiled by \cite
 
 The optical emission is dominated by the hotter component while both components contribute to the red and infrared emission (see Figure \ref{fig:lores}).  The $0.7$ mag range in $V$-band brightness requires a factor of 1.9 change in the visible surface area of the hot component in the limit that the cool component does not contribute any $V$-band emission.  In the 2014-2015 ASAS-SN photometry, the minimum and maximum brightness correspond to cool spot coverage of 83\% and 68\%, respectively.  LkCa 4 was brighter in past epochs, which corresponds to either a larger covering fraction for the hot component (as assumed here) or components with hotter temperatures.
 
-The rotational modulation leads to much smaller brightness changes at near-IR wavelengths than at optical wavelengths (see Table~\ref{tab:photrange}).  The smaller amplitude of near-IR brightness is also seen in a few spotted stars in the optical/IR monitoring of NGC 2264 \citep{cody14}, although those stars have a much smaller amplitude than LkCa 4 in $V$ band.  Figure~\ref{fig:colors} demonstrates that the $B-V$ color from \citet{grankin08} does not depend on $V$, while the $V-R_J$ becomes slightly redder when $V$ is smaller \comm{double check this statement}.  The predicted colors from rotational modulation do not match the observed $V-R_J$ colors or the correlation with $V$, either because of changes in spot properties since the \citet{grankin08} data were obtained or because a two-temperature model for the photosphere is overly simplistic. \comm{We could check for seasonal variations in V-R.}
+The rotational modulation leads to much smaller brightness changes at near-IR wavelengths than at optical wavelengths (see Table~\ref{tab:photrange}).  The smaller amplitude of near-IR brightness is also seen in a few spotted stars in the optical/IR monitoring of NGC 2264 \citep{cody14}, although those stars have a much smaller amplitude than LkCa 4 in $V$ band.  Figure~\ref{fig:colors} demonstrates that the $B-V$ color from \citet{grankin08} does not depend on $V$, while the $V-R_J$ becomes slightly redder when $V$ is smaller.  The predicted colors from rotational modulation do not match the observed $V-R_J$ colors or the correlation with $V$, either because of changes in spot properties since the \citet{grankin08} data were obtained or because a two-temperature model for the photosphere is overly simplistic.
 
 
 
@@ -318,7 +318,7 @@ The depths of TiO and other molecular bands are common diagnostics of spectral t
 
 \citet{donati14} spectroscopically monitored LkCa 4 with 12 spectra obtained over 14 days covering $\sim 4$ rotation periods.  The spectra obtained near the estimated maximum and minimum optical brightness are shown in the top panel of Figure~\ref{fig:tiovar}.  Small but significant changes are seen in the TiO bands.  The blue spectrum does not change.
 
-The TiO band depths in these spectra are measured from spectral indices listed in Table~\ref{tab:tio}.  The TiO indices are also combined into a single index by  calculating how many standard deviations each point is from the median value of the index, and then averaging the standard deviation.  \comm{this is confusing!}
+The TiO band depths in these spectra are measured from spectral indices listed in Table~\ref{tab:tio}.  The TiO indices are also combined into a single index by  calculating how many standard deviations each point is from the median value of the index, and then averaging the standard deviation.  
 
 Both the raw TiO 7140 index and this combined TiO index correlate strongly with the optical brightness.  In the spectral type scheme derived by \citet{herczeg14}, the change in TiO-7140 index corresponds to a range from M1.5 (3640 K) to M2.2 (3530 K).  These results are consistent with expectations from the rotational modulation of the hot spot.  The TiO bands trace the cool component.  When the hotter component has a larger filling fraction, the TiO bands are veiled by the hotter component and are therefore not as deep.
 
@@ -427,42 +427,7 @@ Figures \ref{fig:Hband3x7} and \ref{fig:Kband3x7} show spectra from 42 IGRINS or
 \section{Methodological details}
 \label{methods-details}
 
-\subsection{Full-spectrum fitting framework}
-
-\iancze\ define a pixel-level forward model $\vM$ of the data.  A flexible Gaussian Process noise model handles correlations in the residual spectrum, $\vR= \vD - \vM$.  The model encapsulates the major intrinsic stellar parameters $\vt_{\ast}$ and the extrinsic stellar parameters $\vt_{\rm ext}$:
-
-\begin{eqnarray} \label{eqn:scaling}
-\vM(\vT) &=& \vM(\vt_{\ast}, \vt_{\rm ext}) \\
-         &=& \vM(\vt_{\ast}, \sigma_v, v\sin{i}, v_r) \times \Omega \times 10^{-0.4\,A_{\lambda}}, \nonumber
-\end{eqnarray}
-
-The $\vt_{\ast}$ are comprised of the dimensions of the pre-computed stellar model grid.  We use the \PHOENIX\ model grid \citep{husser13}, with fixed solar alpha abundances: $\A = 0$, so $\vt_{\ast} = \{\teff, \logg, \Z \}$.
-
-\todo{Remove the matrix/approach jargon and simplify}
-
-\subsection{Discussion of deriving unique Teff in each order}
-\label{sec:approach12}
-
-\todo{Move or delete this section}
-
-This change does not represent reality: by definition, the star has a single set of stellar properties, which do not depend on the wavelength range at which they are measured.  The na\"ive single-component fit to different wavelength chunks merely provides a plausibility argument for the presence of a second photospheric component if the derived $\vT_o$ show a spread in $\teff$.  
-
-It is conceivable that other parameters, like $\logg$ could show a dependence on wavelength if non-standard physics---\emph{i.e.}physics not included in the pre-computed model grid---mimics the effect of \emph{e.g.} $\logg$ on the spectrum.  For example, magnetic fields could cause Zeeman broadening, which could alter the derived stellar parameters $\vT_o$.  For these reasons, we intentionally allowed \emph{all} the stellar parameters $\vT_o = \{T_{\mathrm{eff},o}, \log{g_o}, \Z_o, \Omega_{o}, v\sin{i}_o, v_{r,o}\}$ to vary by order.  
-
-
-\subsection{Implementation}
-
-\subsubsection{Mixture model definitions}
-
-We construct a mixture model spectrum of the form:
-
-\begin{eqnarray} \label{eqn:mix_M}
-\vM_{\mathrm{mix}}(\vT) = \vM(\teffa, ...) \times \Omega_a + \vM(\teffb, ...) \times \Omega_b
-\end{eqnarray}
-
-
-Where $\teffa, \teffb, \Omega_a, \Omega_b$ are temperatures and solid angles of two photospheric components respectively.  All other stellar intrinsic and extrinsic parameters, and instrumental nuisance calibration parameters are shared among the two components, as chronicled in Table \ref{table:params}.
-
+\subsection{Addressing absolute flux calibration}
 If the stellar models are in absolute flux units, our mixture model is complete as stated in Equation \ref{eqn:mix_M}.  However \iancze\ employ \emph{standardized} $\flam$ when constructing the forward model $\vM$:
 
 
@@ -480,7 +445,7 @@ f_{\lambda, \mathrm{mix}}^{\prime} &=& \bar f_{\lambda, \mathrm{a}} \times \Omeg
 
 where the prime symbol in the final line indicates a re-standarized mixture model flux, where the relative fluxes of the model components are now correctly scaled.
 
-We are then tasked with computing an estimator, $\hat f(\vt_{\ast})$, for estimating the scale factor $q$ in-between model gridpoints.  The Right Thing to Do would be to follow \iancze by training a Gaussian process on the $f(\{\vt_{\ast}\}^\textrm{grid})$.  What We Actually Did was linearly interpolate between the model grid-points.  Interpolation can cause pile-up near model grid-points, as noted in \citet{cottaar14}, which motivated the spectral emulation procedure in \iancze.  We assume the interpolation of $\hat f$ is smooth enough that we will not see such pileups and if even we did see pileups, they would mostly be discernable in the distribution of samples in the starspot areal coverage fraction $f_{\Omega}$.  One drawback of our estimator method compared to the Gaussian Process regression method is that we do not propagate the uncertainty associated with the absolute flux ratio interpolation into our estimate of $f_{\Omega}$.  We assume this uncertainty is relatively small and can be ignored.
+We are then tasked with computing an estimator, $\hat f(\vt_{\ast})$, for estimating the scale factor $q$ in-between model gridpoints.  The Right Thing to Do would be to follow \iancze\ by training a Gaussian process on the $f(\{\vt_{\ast}\}^\textrm{grid})$.  What We Actually Did was linearly interpolate between the model grid-points.  Interpolation can cause pile-up near model grid-points, as noted in \citet{cottaar14}, which motivated the spectral emulation procedure in \iancze.  We assume the interpolation of $\hat f$ is smooth enough that we will not see such pileups and if even we did see pileups, they would mostly be discernable as kinks in the distribution of samples in the starspot coverage fraction $f_{\Omega}$.  One drawback of our estimator method compared to the Gaussian Process regression method is that we do not propagate the uncertainty associated with the absolute flux ratio interpolation into our estimate of $f_{\Omega}$.  We assume this uncertainty is relatively small and can be ignored.
 
 The mixture model is a linear operation with all the same stellar extrinsic parameters, so we can re-use all the same post-processed eigenspectra $\widetilde{\mathbf{\Xi}}$, mean spectrum $\widetilde{\xi}_\mu$, and variance spectrum $\widetilde{\xi}_\sigma$, with the tildes representing all post processing \emph{except} the $\Omega$ scaling.  We calulate \emph{two} sets of eigenspectra weights $\mathbf{w}_{\in (\mathrm{a}, \mathrm{b})}$, and their associated mean and covariances following the Appendix of \iancze, and yielding:
 
@@ -493,7 +458,7 @@ The mixture model is a linear operation with all the same stellar extrinsic para
   \label{eqn:modC}
 \end{equation}
 
-
+\todo{Verify that the final term possesses a $q$ and not a $q^2$ term.}
 
 \section{Previous work}
 
@@ -504,7 +469,7 @@ Table \ref{tbl_history} lists measurements of \name from previous studies.
 \section{Full table of IGRINS best fits}
 
 Table \ref{tbl_order_results} lists all the IGRINS spectral order results.
-\comm{It's not clear if we need this table...}
+\comm{It's not clear if we need this table.  If we keep it, we should update it with a reliability index or note about which orders were used in deriving the final values.  A better table might be a list of new spectral features attributable to the spot.}
 \input{tables/tbl_order_results.tex}
 
 
