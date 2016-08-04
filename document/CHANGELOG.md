@@ -1,10 +1,12 @@
 # Change Log
 
 
-## [Unreleased]
+## [0.5.0] 2016-08-04
 ### Added
-- Reference for the ASASSN survey
+- Copious prose
+- References for the ASASSN survey
 - References for photometric analysis
+- References for almost everything
 - More intro text
 - More entries in historical data table
 - Text distinguishing between f_omega and f_spot
