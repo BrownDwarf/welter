@@ -1,6 +1,15 @@
 # Change Log
 
 
+## [0.6.0] 2016-08-10
+### Added
+- More text to Abstract, including potentially controverial statement on ages
+
+### Changes
+- Revised Abstract
+- Comments from GJH review of version 0.5 draft
+
+
 ## [0.5.0] 2016-08-04
 ### Added
 - Copious prose
