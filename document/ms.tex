@@ -209,11 +209,38 @@ Best fit values for the stellar parameters summarized are listed in Table \ref{t
 
 \section{Spots at Low Spectral Resolution}
 
-In the previous sections, we established that the high resolution optical and near-IR spectra of LkCa 4 may be explained by a cool photosphere with a hot spot.  These results have testable predictions for the spectral energy distribution (SED) and rotational modulation of features of the SED.
+In the previous section, we established that the high resolution optical and near-IR spectra of LkCa 4 may be explained by a two-temperature photosphere.  The rotation of the hot component around the star has testable predictions for the spectral energy distribution (SED) and its rotational modulation.  In the following subsections, we use these results to reproduce the SED and low-resolution spectra (\S 4.2), rotational modulation of colors \S 4.3, and rotational modulation of spectral indices (\S 4.4).  The tests presented in this section confirms that the two temperature solution is reasonable and explains features that cannot be explained with single temperature photospheres without any adjustment to the best-fit solution found in \S 3.
 
-% quantify the spot fraction versus rotation period, and then
 
-In \S 4.1 we describe how the two components of the photosphere fit low resolution spectra and optical/near-IR photometry.  The brightness, colors, and spectral features should change as the spot rotates around the star.  In \S 4.2, we convert the $V$ brightness to a filling factor of the cool spot, and then in \S 4.2-4.3 we compare how the expected rotational modulation of photometry and spectral indices compare with observed measurements.
+\subsection{Rotational Modulation in the $V$-band lightcurve}\label{sec:rotSpot1}
+
+The  $V$ brightness corresponds to a filling factor of the cool spot based on two temperatures fit from IGRINS spectra.  Although our analysis is consistent with a range of acceptable temperatures and filling factors, we adopt components of 2800 K covering 80\% of the visible stellar surface and 4200 K covering 20\% of the stellar surface at the time of the IGRINS spectrum, with an estimated $V_{rm est}=12.84$.  With these temperatures, the $V$-band emission is dominated by the hotter component.  The $V$-band brightness is therefore a good proxy for the visible surface area of the hot component.
+
+Figure~\ref{fig:vband_spot} shows the recent ASAS-SN lightcurve, converted into a cool spot filling factor.  In these epochs, the brightest and coolest phase corresponds to cool component fill factors of $74\%$ and $86\%$, respectively.  Since 1992 the $V$ band photometry has been as bright as $12.3$ mag, corresponding to a cool component fill factor of $65\%$, and as faint as $13.2$ mag, or a cool component fill factor of $87\%$.  This drastic change in visible area of the hot spot (35\% to 13\%) is needed to explain the full $\sim 1$ mag range in brightness.
+
+
+\subsection{The Spectral Energy Distribution}\label{sec:SED}
+
+Figures~\ref{fig:sed}-\ref{fig:lores} compares synthetic spectra from the two-component photosphere to the SED and flux-calibrated spectra of LkCa 4.
+The only free parameters are the luminosity and extinction, which are both scaled to match the spectrum.
+The optical-IR SED is obtained from estimating photometry from \citet{grankin08} during the 2MASS epoch.  We also included mid-IR photometry from Spitzer/IRAC \citep{hartmann05}, without adjusting for epoch.  In the spectroscopic comparison, some minor discrepancies may be introduced because the spot coverage changed in the $\sim 5$ hrs between the optical and near-IR spectra.  The synthetic spectrum is obtained from the Phoenix models, as in \S 3.
+
+These comparisons require extinction estimates.  The $B-V$ color from \citet{grankin08} has an excess $E(B-V)=0.15$ mag relative to empirical colors of a 4200 K main sequence star and a $0.27$ mag excess for a pre-main sequence star \citep{kenyon95,pecaut13}.  The main sequence colors are probably most appropriate in this analysis because they are more free of spots.  Under this assumption, the $B-V$ color excess leads to an extinction $A_V=0.45\pm0.15$ mag, where the uncertainty range  corresponds to colors of 4100--4300 K temperature photospheres.   This extinction is overestimated if cooler temperatures also contribute to optical emission in a multi-temperature photosphere.  More accurate extinction estimates from the full SED are challenging because they depend on the areal distribution of temperatures in the photosphere, which in this work is simplied to two temperatures.  J--K discussion.  Bizarre V--R color note...
+
+The synthetic models match the full spectrum reasonably well.  When scaled separately to the red-optical and near-IR spectra, the synthetic models match even better (Figure \ref{fig:lores_twopanel}).  However, single temperature photospheres (two shown in Figure \ref{fig:lores_twopanel}) fail to reproduce large spectral features.   The $3900$ K component fits the TiO bands reasonably well at $<7400$ \AA\ but fails to reproduce molecular bands at longer wavelengths.  The $3500$ K component hotter component suffers from the opposite problem, yielding molecular bands at short wavelengths that are too deep.  A two temperature photosphere with the parameters from the best-fit calculated in \S 3 fits both the molecular bands in the optical and near-IR spectra.
+
+
+
+\subsection{Rotational Modulation of Colors}\label{sec:rotSpot}
+
+Photometry is obtained from the main sequence colors compiled by \citet{kenyon95}.  Colors from dwarf stars should have minimal contribution from spots; measurements of pre-main sequence colors will include some unknown contribution of spots and cannot be used for this analysis.  Synthetic spectra of $3000-4000$ K stars predict $B-V$ colors that are much bluer than observed and that become bluer at cooler temperatures, the opposite of what is observed.  As a consequence, synthetic photometry also cannot be used here.  
+
+The optical emission is dominated by the hotter component while both components contribute to the red and infrared emission (see Figure \ref{fig:lores}).  The $0.7$ mag range in $V$-band brightness requires a factor of 1.9 change in the visible surface area of the hot component in the limit that the cool component does not contribute any $V$-band emission.  In the 2014-2015 ASAS-SN photometry, the minimum and maximum brightness correspond to cool spot coverage of 83\% and 68\%, respectively.  LkCa 4 was brighter in past epochs, which corresponds to either a larger covering fraction for the hot component (as assumed here) or components with hotter temperatures.
+
+The rotational modulation leads to much smaller brightness changes at near-IR wavelengths than at optical wavelengths (see Table~\ref{tab:photrange}).  The smaller amplitude of near-IR brightness is also seen in a few spotted stars in the optical/IR monitoring of NGC 2264 \citep{cody14}, although those stars have a much smaller $V$ band amplitude than LkCa 4.  Figure~\ref{fig:colors} demonstrates that the $B-V$ color from \citet{grankin08} does not depend on $V$, while the $V-R_J$ becomes slightly redder when $V$ is smaller.  The predicted colors from rotational modulation do not match the observed $V-R_J$ colors or the correlation with $V$, either because of changes in spot properties since the \citet{grankin08} data were obtained or because a two-temperature model for the photosphere is overly simplistic.
+
+
+
 
 \begin{figure}
  \centering
@@ -248,15 +275,6 @@ In \S 4.1 we describe how the two components of the photosphere fit low resoluti
 
 
 
-\subsection{The Spectral Energy Distribution}\label{sec:SED}
-
-Figures~\ref{fig:sed}-\ref{fig:lores} show that the two-component photosphere matches the SED and flux-calibrated spectra well from $\sim 0.6-2.5$ $\mu$m.  The two components have fixed temperatures of 4200 K covering 30\% of the visible surface and 3000 K covering 70\% of the visible surface area.  The only free parameters are the luminosity and extinction, which are both scaled to match the spectrum.
-
-The two panels in Figure \ref{fig:lores_twopanel} show photospheric spectra scaled separately to the observed red-optical and near-IR spectra.  The single temperature spectra are unable to reproduce the observed emission.  The $3900$ K component fits the TiO bands reasonably well at $<7400$ \AA\ but fails to reproduce molecular bands at longer wavelengths.  The $3500$ K component hotter component suffers from the opposite problem, yielding molecular bands at short wavelengths that are too deep.  Only the best-fit photosphere from \S 3 fits both the optical and the near-IR bands well.
-
-\todo{Extinction paragraph, needs overhaul...}  Relative to main sequence colors, the $E(B-V)=0.24$ would yield $A_V=0.72$ mag....  
-The $J-K=0.93$ color is equal to the expected color to within 0.05 => 0.3 mag (for T=3000, 4200)... The $B-V$ is always dominated by the hot component and therefore does not depend on the filling factor of the hot component.  The $V-R$ varies more with $V$, indicating a larger contribution of the cool component.  The difference between observed and predicted $B-V$ color, $E(B-V)$, may correspond to the extinction.  After accounting for extinction synthetic model underpredicts both the $V-R$...
-
 
 %Furlan:  K7, V-IC=1.92, E(V-I)=1.6 => 0.85 mag;  close enough to their 1.1 mag
 %V-K = 4.18  ; MS colors:  3.16 (KH95) => Av=1.1 mag
@@ -278,21 +296,6 @@ The $J-K=0.93$ color is equal to the expected color to within 0.05 => 0.3 mag (f
 \label{fig:colors}
 \end{figure*}
 
-
-\subsection{Rotational modulation of the hot spot}\label{sec:rotSpot}
-
-Since 1992 the $V$ band brightness has varied from $12.3$ to $13.2$ mag, with a typical range of $0.5$ mag in any single epoch (\emph{c.f} Figure \ref{fig:PhotPhase}).  In a two-temperature atmosphere with fixed temperatures, this brightness corresponds directly to a filling factor for both components.  Figure~\ref{fig:vband_spot} shows this conversion for temperatures of 4200 K, 3000 K, and a 75\% filling factor for the 3000 K component at $V_{\rm est}=12.83$, as estimated at the time of the IGRINS spectrum.  
-
-\comm{GJH: needs revision.}
-Photometry is obtained from the main sequence colors compiled by \citet{kenyon95}.  Colors from dwarf stars should have minimal contribution from spots; measurements of pre-main sequence colors will include some unknown contribution of spots and cannot be used for this analysis.  Synthetic spectra of $3000-4000$ K stars predict $B-V$ colors that are much bluer than observed and that become bluer at cooler temperatures, the opposite of what is observed.  As a consequence, synthetic photometry also cannot be used here.  
-
-The optical emission is dominated by the hotter component while both components contribute to the red and infrared emission (see Figure \ref{fig:lores}).  The $0.7$ mag range in $V$-band brightness requires a factor of 1.9 change in the visible surface area of the hot component in the limit that the cool component does not contribute any $V$-band emission.  In the 2014-2015 ASAS-SN photometry, the minimum and maximum brightness correspond to cool spot coverage of 83\% and 68\%, respectively.  LkCa 4 was brighter in past epochs, which corresponds to either a larger covering fraction for the hot component (as assumed here) or components with hotter temperatures.
-
-The rotational modulation leads to much smaller brightness changes at near-IR wavelengths than at optical wavelengths (see Table~\ref{tab:photrange}).  The smaller amplitude of near-IR brightness is also seen in a few spotted stars in the optical/IR monitoring of NGC 2264 \citep{cody14}, although those stars have a much smaller $V$ band amplitude than LkCa 4.  Figure~\ref{fig:colors} demonstrates that the $B-V$ color from \citet{grankin08} does not depend on $V$, while the $V-R_J$ becomes slightly redder when $V$ is smaller.  The predicted colors from rotational modulation do not match the observed $V-R_J$ colors or the correlation with $V$, either because of changes in spot properties since the \citet{grankin08} data were obtained or because a two-temperature model for the photosphere is overly simplistic.
-
-
-
-
 \begin{table}
 \caption{Predicted Photometric Range}
 \label{tab:photrange}
@@ -311,8 +314,6 @@ $K$ & 8.89 & 9.04 & 0.15\\
 \hline
 \end{tabular}
 \end{table}
-
-
 
 
 
@@ -355,8 +356,9 @@ This work & 3525 & \\
 \end{tabular}
 \end{table}
 
-\subsection{Placing LkCa 4 on an HR Diagram}
 
+
+\subsection{Placing LkCa 4 on an HR Diagram}
 
 \begin{figure*}
  \centering
@@ -365,17 +367,21 @@ This work & 3525 & \\
  \label{fig:hrdiag}
 \end{figure*}
 
-Scaling our composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.2$ $R_\odot$ and $\log L/L_\odot=0.17$, assuming a distance of 131 pc for the parallax distance of the nearest Taurus member \citep{torres12}.   The spectrum of LkCa 4 is well reproduced by a cool component of $3000$ K covering 75\% of the surface and a $4200$ K component covering 25\% of the surface.  The effective temperature of these two components is 3611 K, as calculated from the average surface flux at the median $V$ band magnitude.  The apparent effective temperature in any single epoch would depend on the relative fractions of the hot and cool spot.  Decreasing the cool spot size to 60\% would increase the effective temperature to 3670 K, while increasing the spot size to 85\% would decrease the effective temperature to 3370 K.  {\bf GJH note:  holy crap!!!}.  Since the Hayashi tracks are nearly vertical at this temperature and age, the temperature uncertainty leads directly to an uncertainty in inferred mass.
+The spectrum of LkCa 4 is well reproduced by a cool component of $2800$ K covering 80\% of the surface and a $4200$ K component covering 20\% of the surface.   Scaling this composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.2$ $R_\odot$ and $\log L/L_\odot=0.17$, assuming $A_V=0.5$ mag and a distance of 131 pc for the parallax distance of the nearest Taurus member \citep{torres12}.  Brief discussion of other datapoints, based on Somers comments...
 
-{\bf GJH paragraph:}  The multi-temperature photosphere may also resolve some of the long-standing problems related to colors of young stars...  \citet{tottle15}.  I want to say something here, but I'm not sure exactly what.
+The effective temperature of these two components is 3611 K, as calculated from the average surface flux at the median $V$ band magnitude.  The apparent effective temperature in any single epoch would depend on the relative fractions of the hot and cool spot.  Decreasing the cool spot size to 60\% would increase the effective temperature to 3670 K, while increasing the spot size to 85\% would decrease the effective temperature to 3370 K.
+
+This wide range of possible observed temperatures at any single epoch, when having the most possible information, underscores the difficulty in placing young stars on HR diagrams.  Since the Hayashi tracks are nearly vertical at this temperature and age, the temperature uncertainty leads directly to an uncertainty in inferred mass.  The discrepancies in temperature are even larger when spectral type/temperature estimates focus on features in either blue-optical or $H$ or $K$-band spectra, and may explain the severe differences in effective temperature between APOGEE and other (optical) methods \citep{cottaar14}.  For LkCa 4, the spectral type measured from TiO depths is reasonably close to the median value \citep{herczeg14}, which supports the widespread use of red spectra for effective temperatures \citep[e.g.][]{luhman03}.  The temperature uncertainties for young K and M dwarfs are likely larger than any formal uncertainties in the measurements.
+
+The multi-temperature photosphere may also resolve some of the long-standing problems related to discrepancies between observed and model colors of young stars.  Low mass young stars are redder than expected in the near-IR \citep[e.g.][]{tottle15}.  As a consequence, extinctions are high when measured by comparing near-IR colors to colors expected for optical spectral types.  For LkCa 4, the excess $E(J-K)$ color leads to an extinction of $1.04$ mag for a 4200 K photosphere and \citep{pecaut13} colors.  This extinction is consistent with the color and SED analysis of \citet{furlan06}.  However, this near-IR extinction is overestimated because the emission is generated from a composite spectrum and not only the hot component.  
+ Our analysis in \S 4 suggests that $A_V\approx0.5$ mag, similar to the $A_V=0.69$ mag from \citet{kenyon95}.
+
+These issues likely explain why near-IR extinctions are often higher than optical extinctions for young stars, and our results here generally support the lower extinctions obtained at optical wavelengths \citep[see analysis in][]{herczeg14}.  If the range in spot temperature/coverage in young stars is large, then extinctions measured from empirical pre-main sequence color scales may also be suspect.  The hottest temperature component dominates emission at short wavelengths and may provide the most accurate extinction estimate for non-accretors.  These color discrepancies are not problems with photospheric models or with the spectral type-effective temperature scale, although our results suggest that any single spectral type may be a misleading estimate of effective temperature.  
+
+This improved characterization of LkCa 4 should lead to more accurate estimates of mass and age from pre-main sequence tracks.  However, our effective temperature and luminosity yield a mass of 0.33 $M_\odot$ and an age of $\sim 0.5$ Myr in the \citet{baraffe15} evolutionary models.  This age is uncomfortably young and the mass is uncomfortably low.  LkCa 4 is not located deeply within a molecular cloud and is not associated with any nearby Class 0/1 stars, which would be expected for a 0.5 Myr star.  Dynamical measurements of masses of young stars with similar optical properties suggest that LkCa 4 should have a mass of $\sim 0.6-1.0$ M$_\odot$ \citep[e.g.][]{guilloteau14,czekala16,rizzuto16}.  Even though this is only a single data point, the inferred age and low mass may instead be evidence that strong magnetic fields are inhibiting convection in LkCa 4.  As a result, the surface is cooler and releases less radiation, slowing the contraction rate.  LkCa 4 then appears more luminous and cooler than expected from tracks that do not consider magnetic fields.   Inclusion of magnetic fields may help to resolve some of the age discrepancies between intermediate mass and low mass young stars \citep[e.g.][]{herczeg15}.
 
 
-{\bf paragraph MG-S:}  Comparisons to other results (both real and simulated) from single-temperature fits to APOGEE, GAIA-ESO wavelengths.  Approximate is ok... \todo{MGS provide text here}
 
-
-This improved characterization of LkCa 4 should lead to more accurate estimates of mass and age from pre-main sequence tracks.  However, our effective temperature and luminosity yield a mass of 0.33 $M_\odot$ and an age of $\sim 0.5$ Myr in the \citet{baraffe15} evolutionary models.  This age is uncomfortably young.  LkCa 4 is not located deeply within a molecular cloud and is not associated with any nearby Class 0/1 stars, which would be expected for a 0.5 Myr star.  Even though this is only a single data point, the inferred age and low mass may instead be evidence that strong magnetic fields are inhibiting convection.  As a result, the surface is cooler and releases less radiation.  As a result, the contraction rate may be slower.  The star would then appear more luminous and cooler than expected from tracks that do not consider magnetic fields.
-
-{\bf TBD:}  Discussion of Somers+, Feiden (2016)...
 
 
 \subsection{Longitudinal / latitudinal spot distributions and phase}
