@@ -239,10 +239,10 @@ The spectral features should be rotationally modulated as the filling factors of
 \begin{figure*}
  \centering
  \includegraphics[trim=1.6cm 12.6cm 2.2cm 2.4cm, clip=true, width=0.60\textwidth]{figures/vband_spot_2750k}
-\caption{The $V$-band magnitude in 2014--2015, converted into fill factor for the cool component.  The optical brightness depends mostly on the hot component.  If we fix a 75\% filling factor, as measured in the IGRINS spectrum, to $V=12.83$ at the time of the observation, then the $V$-band amplitude  corresponds to filling factors of 67--83\%.  The factor of $\sim 2$ change in visible surface area of the hot component, from 33\% to 17\%, is required to produce the $\Delta V=0.6$. \todo{Update with all available photometry or the derived multi-term fit} }
+\caption{The $V$-band magnitude in 2014--2015, converted into fill factor for the cool component.  The optical brightness depends mostly on the hot component.  If we fix a 75\% filling factor, as measured in the IGRINS spectrum, to $V=12.83$ at the time of the observation, then the $V$-band amplitude  corresponds to filling factors of 67--83\%.  The factor of $\sim 2$ change in visible surface area of the hot component, from 33\% to 17\%, is required to produce the $\Delta V=0.6$. }
 \label{fig:vband_spot}
 \end{figure*}
-
+%\todo{Update with all available photometry or the derived multi-term fit} 
 
 
 
@@ -325,7 +325,7 @@ Both the raw TiO 7140 index and this combined TiO index correlate strongly with 
 
 \section{DISCUSSION or something}
 
-\todo{Some overview?}
+%\todo{Some overview?}
 
 
 \subsection{Extinction estimates to LkCa 4}
@@ -346,11 +346,11 @@ temperatures and covering fractions. The observed $J-K=0.93$ mag leads to $A_V=0
 with a range of $0.29$ mag to account for the range of other acceptable photospheric solutions.  
 The template near-IR color is more robust than optical colors to differences 
 in the main sequence/pre-main sequence temperature scales because the pre-main 
-sequence $J-K$ color is redder at 4100 K and bluer at 2750 K {\bf GJH: (just redo for Pec13 young colors)}.  Based on this 
+sequence $J-K$ color is redder at 4100 K and bluer at 2750 K.  Based on this 
 analysis, an $A_V=0.3$ mag is adopted throughout this paper. 
 
 The near-IR extinctions of LkCa 4, and perhaps other TTSs, will be overestimated if emission is generated from a multi-temperature spectrum but template colors are based on only the hotter component.  This mismatch likely explains why near-IR extinctions are often higher than optical extinctions for young stars \citep[see analysis in][]{herczeg14}.  Our results tentatively support the lower extinctions obtained at optical wavelengths, although the template colors used to calculate extinction are uncertain and will need revision.  Differences between main sequence and pre-main sequence temperature scales and colors in the \citet{pecaut13} tables are introduced by a combination of spots, in addition to any color differences caused by gravity differences.
-Uncertainty in colors may be solved with self-consistent comparisons to young stars with similar spectral types, if spot coverage is also similar.
+Uncertainty in colors may be solved with self-consistent comparisons to young stars with similar spectral types, if spot coverage is also similar.  Discrepancies in colors, spectral type/effective temperatures, and extinctions for LkCa 4, and perhaps more broadly for TTSs, are dominated by ignoring spots and are not caused by fundamental problems in either photospheric models or in spectral type-effective temperature scales.
 
 
 
@@ -378,20 +378,6 @@ The improved characterization of the photospheric emission and radius of LkCa 4 
 As seen in Figures \ref{fig:PhotTime} and \ref{fig:PhotPhase}, the areal coverage of spots appears to wax and wane secularly through the observing seasons of the last 31 years.  It is conceivable that LkCa 4 happens to be going through a short-lived episode of relatively high coverage of spots analogous to solar maximum.  The intensity and duration of such episodes would further confound the interpretation of its instantaneous position on the HR diagram.
 
 
-{\bf For the conclusions}
-
-Discrepancies in colors, spectral type/effective temperatures, and extinctions for LkCa 4, and perhaps more broadly for TTSs, are dominated by ignoring spots and are not caused by fundamental problems in either photospheric models or in spectral type-effective temperature scales.
-
-
-
-
-{\bf GJH TO DO:  revise plots;  TiO Table; more citations for colors}
-
-0 New
-
-Reply
-
-
 \subsection{Addressing limitations of assumptions in the spectral inference methodology}
 
 The spectral inference method assumed only two temperature components present in the photosphere.  In reality, starspots are probably described by a range of effective temperatures like umbra, penumbra, and plages on the sun's surface.  A model possessing three unique temperatures and two unique fill factors might better approximate the minor constituents of the emergent spectrum than our two temperature model can, but would always fit the data better and could lead to the possibility of overfitting.  The fit-quality of the existing two-temperature fits seems fairly strong through much of $H-$band and many $K-$band orders, so the contribution of minor photospheric constituents must be relatively low.  Interestingly, $K-$band has several spectral orders that converge towards hybrid temperatures in the vicinity of $\sim3500$ K.  Most of these orders were flagged as erroneous due to strong metal line spectral outliers or uncorrected calibration artifacts.  But some orders just showed mediocre fits where no permutation of hot and cool two-temperature models could describe all of the variance in the spectrum.  These $K-$band orders could be examined for a penumbra-like temperature component.  We caution that systematic errors in the models would ultimately limit the interpretability of models with more than two temperature components.  Space-based high-precision planetary transit spectrophotometry could offer an avenue to measure the morphologies and temperature distributions of starspots for the subset of transiting exoplanet host stars or eclipsing binaries.
@@ -408,7 +394,7 @@ The Pleiades serves as a slightly older sample of young stars possessing evidenc
 
 The number of WTTS for which the areal filling factor of spots have been measured is relatively low.  V 410 Tau shows up to 41\% coverage of spots \citep{petrov94}.  Many more measurements exist for evolved giants and subgiants, with typical fill factors in the range 15$-$48\% \citep{berdyugina05}.  The prototypical BY Dra source is consistent with 60\% coverage fraction of moderately cool ($\Delta \teff =400$) penumbra \citep{chugainov76}.  By these comparisons, LkCa 4 seems on the high end of filling factor
 
-One conceivable interpretation of the 67\% to 83\% coverage fraction of cool photosphere is a stellar axis inclined towards our observing direction, with a large circum-polar spot covering much of the observable hemisphere, as described by \citet{donati14}.  The ambient hot photosphere would then be close to the equator, which would be limb-darkened due to projection effects.  Such limb darkening would cause a non-linear transformation between our observed fill factor $f_{\Omega}$, and the surface areal coverage fraction of spots.  So it's conceivable, and probably likely that the reported $f_{\Omega}$ is and overestimate of the surface area actually covered by spots.  In this circum-polar spot scenario, local fingers of cool spots could reach down to near the equator, entering into and out-of the field of view and giving rise to the large amplitude photometric variation seen on LkCa 4.  \todo{Donati-- How does this compare to the reconstructed maps from ZDI in Donati et al. 2014?}.
+One conceivable interpretation of the 67\% to 83\% coverage fraction of cool photosphere is a stellar axis inclined towards our observing direction, with a large circum-polar spot covering much of the observable hemisphere, as described by \citet{donati14}.  The ambient hot photosphere would then be close to the equator, which would be limb-darkened due to projection effects.  Such limb darkening would cause a non-linear transformation between our observed fill factor $f_{\Omega}$, and the surface areal coverage fraction of spots.  So it's conceivable, and probably likely that the reported $f_{\Omega}$ is and overestimate of the surface area actually covered by spots.  In this circum-polar spot scenario, local fingers of cool spots could reach down to near the equator, entering into and out-of the field of view and giving rise to the large amplitude photometric variation seen on LkCa 4.  {\bf Donati-- How does this compare to the reconstructed maps from ZDI in Donati et al. 2014?}.
 
 \subsection{Is \name an extreme source?}
 LkCa 4's large amplitude of cyclical optical variability exceeds all other counterparts from long-term monitoring of WTTSs \citep{grankin08}.  From a statistical perspective, it might not be a surprise that the source with the largest photometric variability also posessess among the largest coverage fraction of cool spots.  The large $\sim$1 kG toroidal component at equatorial latitudes makes LkCa 4 an outlier by this metric, when compared to other TTSs.
@@ -423,6 +409,8 @@ Radial velocity (RV) planet searches in the infrared--where the modulation of RV
 \subsection{Comparison with APOGEE/IN-SYNC}
 The INfrared Spectra of Young Nebulous Clusters (IN-SYNC) project \citep{cottaar14} employs APOGEE, which has a $15100-17000$ \AA\ bandwidth.  The long-wavelength cutoff prevents APOGEE from detecting the most conspicuous cool star emission we detected in IGRINS spectral orders $o = 100, 101, 104$ at $17075-17990 \;\AA$.  These spectral orders can be thought of as a ``sweet spot'' where the cool star spectrum is putting out ample flux, but still far-enough away from the $K-$band where problems like magnetic field-sensitive lines, and enhanced telluric absorption complicate the spectra.  Additionally, veiling from mid-IR excess in classical T-Tauri stars will be lessened in $H-$band.  
 
+\section{Conclusions}
+{\bf TBD}
 
 \clearpage
 \pagebreak
@@ -484,7 +472,7 @@ The mixture model is a linear operation with all the same stellar extrinsic para
   \label{eqn:modC}
 \end{equation}
 
-\todo{Verify that the final term possesses a $q$ and not a $q^2$ term.}
+%\todo{Verify that the final term possesses a $q$ and not a $q^2$ term.}
 
 \section{Full table of IGRINS best fits}
 
