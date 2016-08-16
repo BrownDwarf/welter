@@ -41,7 +41,7 @@
 Magnetic fields temporarily increase the opacity in stellar photospheres, impacting both their instantaneous stellar flux and the duration and efficiency of their convective energy transport during pre-main sequence stellar evolution.  The observational manifestation of local magnetic fields, starspots on young stars can cover a large fraction of the stellar surface, causing the incorrect assessment of both the effective temperature and the luminosity and therefore the placement of sources on HR diagrams.  The singleton weak-lined T-Tauri star LkCa 4 shows exceptionally large photometric modulation attributable to star spots, making it an ideal testbed for measuring starspot properties.  Infrared spectral features in high resolution IGRINS spectra indicate that 80\% of the surface is covered in $\teff \sim 2750$ K patches of cool photosphere at the epoch of the observation.  The rest of the $20\%$ of the stellar surface can be thought of as either ambient photosphere or a hot spot of $\teff\sim4100$ K.  The spectral energy distribution, color variability, rotational modulation, and low-resolution optical/IR spectroscopy-- when registered to the filling factors at the epochs of their observations--strengthen the case for a large starspot filling factor and temperature contrast through time.  The revised effective temperature and luminosity make LkCa 4 appear much lower mass and much younger when placed on a pre-main sequence HR diagram, compared to previous estimates based only on optical spectroscopy and not taking into account the large coverage fraction of cool spots.  The derived starspot properties explain the extreme $V-$band photometric amplitude of 0.5$-$0.8 magnitudes.  Geometric considerations of spot coverage suggest that other heavily spotted young stars have been misplaced on the observational HR diagram, leading to incorrect estimates for ages and masses and contributing, in part, to the apparent age spread observed towards young clusters.
 \end{abstract}
 
-\keywords{stars: fundamental parameters --- stars: individual (\name) ---  stars: low-mass -- stars: statistics}
+\keywords{stars: fundamental parameters --- stars: individual (LkCa 4) ---  stars: low-mass -- stars: statistics}
 
 \maketitle
 
@@ -118,7 +118,7 @@ Starspots possess a spectrum distinct from the ambient photosphere.  Approaches 
 
 Starspot line depth ratio analysis has traditionally been limited to isolated portions of spectrum that possess spectral lines attributable only to starspots and spectral lines attributable only to ambient photosphere \citep[\emph{e.g.}][]{neff95, oneal01}.  The apparent veiling of the lines and their respective temperature dependences can be combined to solve for the starspot and ambient photosphere temperatures and relative areal coverages.  The line depth ratio method suffers from the need to identify portions of the spectrum that possess such strong lines, and also suffers from the need to assemble large atlases of observed spectral templates to which the spotted star spectrum can be compared.  In this section, we introduce a generalization of line depth ratio analysis which employs pixel-by-pixel modeling of spectral orders.  By leveraging all the channels present in a spectrum, this strategy has the power to constrain starspot properties at relatively low fill-factors and identify weak lines that originate from the starspot.
 
-We took two approaches to characterizing the effective temperature response from a spotted-star spectrum.  First we measured a single effective temperature to unique spectral orders in the optical (\S \ref{sec:ESP_starfish}) and near-IR (\S \ref{sec:IGR_starfish}).  Second we fit a two-temperature mixture model (\S \ref{sec:methods}) to the near-IR spectra (\S \ref{sec:two_tempIGRINS}), which should show greater starspot flux density than optical(\S \ref{sec:whyNearIR}).
+We took two approaches to characterizing the effective temperature response from a spotted-star spectrum.  First we measured a single effective temperature to unique spectral orders in the optical (\S \ref{sec:ESP_starfish}) and near-IR (\S \ref{sec:IGR_starfish}).  Second we fit a two-temperature mixture model (\S \ref{sec:methods}) to a high grasp near-IR spectrum (\S \ref{sec:two_tempIGRINS}), which should show greater starspot flux density than optical.
 
 \subsection{Methodology}\label{sec:methods} 
 
@@ -169,7 +169,7 @@ We find a larger dispersion in the point estimates for the stellar parameters de
 
 Some care should be taken when directly comparing results between the ESPaDOnS and IGRINS spectra since they were not taken at the same time.  These spectra have comparable albeit different estimated $V-$band magnitudes of 12.90 and 12.83 for the ESPaDOnS and IGRINS spectra respectively.  Assuming the areal coverage fraction of spots was the same or greater during the ESPaDOnS spectrum acquisition, the optical bands and short-wavelength end of $H$-band are relatively insensitive to the spectral signatures of starspots in this system.  The long wavelength portion of $H-$band and all of $K-$band are more sensitive to starspot spectral signatures than the shorter wavelength portions.
 
-The heightened sensitivity to starspot spectral lines as a function of wavelength can be understood in the following way.  Starspots are cooler than their surrounding photosphere and will, therefore, have a longer wavelength of peak emission, according to Wein's displacement law.  The average ratio of flux density between starspot and bulk photosphere will increase with wavelength until asymptoting to a fixed value in the Rayleigh-Jeans tail \citep{wolk96}.
+The heightened sensitivity to starspot spectral lines as a function of wavelength can be understood in the following way.  Starspots are cooler than their surrounding photosphere and will, therefore, have a longer wavelength of peak emission, according to Wein's displacement law.  The average ratio of flux density between starspot and bulk photosphere will increase with wavelength until asymptoting to a fixed value in the Rayleigh-Jeans tail \citep{wolk96}.  The bottom panel of Figure \ref{fig:SingleTeffvsOrder} shows the flux density ratio for patches of photosphere with equal areas (50\% filling factor) but different temperatures-- 2800 K and 4100 K for the starspot and ambient photosphere respectively.  The black body ratios predict smooth flux ratio increases with wavelength, while the ratio of \PHOENIX\ models shows wavelength regions with heightened sensitivity to starspot fluxes, for example in $J-$band.
 
 In summary, the visible portion of the spectrum will be dominated by the warm patches.  The infrared spectrum will have a lower overall spot contrast, and will have more net starspot flux than optical.
 
@@ -284,9 +284,9 @@ Rotational modulation is expected to lead to much smaller brightness changes at 
 %V-J:  2.8-3.8
 %J-K:  0.9-1.0
 
-
 \begin{table}
 \caption{Predicted Photometric Range}
+\centering
 \label{tab:photrange}
 \begin{tabular}{cccc}
 \hline
@@ -325,7 +325,7 @@ Both the raw TiO 7140 index and this combined TiO index correlate strongly with 
 
 \section{DISCUSSION or something}
 
-Some overview?
+\todo{Some overview?}
 
 
 \subsection{Extinction estimates to LkCa 4}
@@ -375,15 +375,7 @@ The improved characterization of the photospheric emission and radius of LkCa 4 
 
 {\bf For Somers:  do we want a paragraph with a more explicit comparison to Somers \& Pinnsoneault (2015) and Feiden (2016)?}
 
-\comm{From discussion with GJH about lifetime of spots:  Where to put the source on the observational HR diagram depends on what your assumptions for its evolutionary history are.}
-
-
-{\bf goes later?}
-
-Despite some evidence that LkCa 4 is an outlier, spots are likely broadly important in estimating the properties of young low-mass stars. As an example, the well-studied CTTS TW Hya has a $\sim 4000$ K photosphere measured from high resolution optical spectra \citep[e.g.][]{yang05}.  However, the near-IR spectrum is consistent with $\sim M2$, when compared with main sequence dwarf stars \citep{vacca11}.  \citet{debes13} reconciled this discrepancy by invoking spots, although the spectral contribution from continuum emission was uncertain.  \citet{mcclure13} found that the TW Hya spectrum was well reproduced with near-IR spectra of stars with similar ($\sim$K7) optical spectral type, as long as the comparison spectra were young.   \citet{herczeg14} found an intermediate spectral type for TW Hya and other TTSs by focusing on TiO bands at redder wavelengths than previous spectra, and also by using young stars as photospheric templates.  The mismatch between near-IR spectra of dwarf stars and young stars, even with similar optical spectral types, is likely explained by the prevalence and importance of cool spots in low mass stars.
-
-
-
+As seen in Figures \ref{fig:PhotTime} and \ref{fig:PhotPhase}, the areal coverage of spots appears to wax and wane secularly through the observing seasons of the last 31 years.  It is conceivable that LkCa 4 happens to be going through a short-lived episode of relatively high coverage of spots analogous to solar maximum.  The intensity and duration of such episodes would further confound the interpretation of its instantaneous position on the HR diagram.
 
 
 {\bf For the conclusions}
@@ -402,11 +394,11 @@ Reply
 
 \subsection{Addressing limitations of assumptions in the spectral inference methodology}
 
-The spectral inference method assumed only two temperature components present in the photosphere.  In reality, starspots are probably described by a range of effective temperatures like umbra, penumbra, and plages on the sun's surface.  A model possessing three unique temperatures and two unique fill factors might better approximate the minor constituents of the emergent spectrum than our two temperature model can, but would always fit the data better.  The fit-quality of the existing two-temperature fits seems fairly strong through much of $H-$band and many $K-$band orders, so the contribution of minor photospheric constituents must be relatively low.  Interestingly, $K-$band has several spectral orders that converge towards hybrid temperatures in the vicinity of $\sim3500$ K.  Most of these orders were flagged as erroneous due to strong metal line spectral outliers or uncorrected calibration artifacts.  But some orders just showed mediocre fits where no permutation of hot and cool two-temperature models could describe all of the variance in the spectrum.  These $K-$band orders could be examined for a penumbra-like temperature component.  We suspect systematic errors in the models would ultimately limit the interpretability of models with more than two temperature components.  High-precision polychromatic planetary transit photometry could offer an avenue to measure the morphologies and temperatures of starspots for the subset of transiting exoplanet host stars.  
+The spectral inference method assumed only two temperature components present in the photosphere.  In reality, starspots are probably described by a range of effective temperatures like umbra, penumbra, and plages on the sun's surface.  A model possessing three unique temperatures and two unique fill factors might better approximate the minor constituents of the emergent spectrum than our two temperature model can, but would always fit the data better and could lead to the possibility of overfitting.  The fit-quality of the existing two-temperature fits seems fairly strong through much of $H-$band and many $K-$band orders, so the contribution of minor photospheric constituents must be relatively low.  Interestingly, $K-$band has several spectral orders that converge towards hybrid temperatures in the vicinity of $\sim3500$ K.  Most of these orders were flagged as erroneous due to strong metal line spectral outliers or uncorrected calibration artifacts.  But some orders just showed mediocre fits where no permutation of hot and cool two-temperature models could describe all of the variance in the spectrum.  These $K-$band orders could be examined for a penumbra-like temperature component.  We caution that systematic errors in the models would ultimately limit the interpretability of models with more than two temperature components.  Space-based high-precision planetary transit spectrophotometry could offer an avenue to measure the morphologies and temperature distributions of starspots for the subset of transiting exoplanet host stars or eclipsing binaries.
 
-We assumed that the \PHOENIX\ synthetic spectra are a good representation of the observed IGRINS spectrum of LkCa 4, a young star that possesses a strong magnetic field \citep{donati14}.  Cool sunspots are associated with heightened magnetic fields on the sun.  Magnetic fields will have two effects on the emergent spectrum- line broadening attributable to the Zeeman effect, and pressure broadening attributable to seeing deeper into deeper layers in the photosphere compared to the surrounding hotter photosphere.  The former effect will differentially impact lines with high magnetic sensitivity \citep{deen13}.  The latter effect could masquerade as an apparent shift in surface gravity, as seen in mixture models of spotted stars with empirical templates composed of dwarfs and giants \citep{oneal96}.  Our tacit assumptions have been that these effects are 1) relatively small compared to the gross appearance and disappearance of spectral lines at disparate temperatures, 2) there exist many orders and lines that are not affected at all, and 3) the Gaussian process noise model fosters some resilience against unknown residual spectrum correlations.  We see tentative evidence for physics outside of the pre-computed model grids in the poor fits to the observed spectra in $K-$band.  Strong metal lines demonstrate large departures in their best fit $\Z$ due to Zeeman broadening.  No pre-computed model grids including a range of surface magnetic fields are available at the wavelength range and spectral sampling needed to approach these questions within this spectral inference framework.
+We assumed that the \PHOENIX\ synthetic spectra are a good representation of the observed IGRINS spectrum of LkCa 4, a young star that possesses a strong magnetic field \citep{donati14}.  Cool sunspots are associated with locally heightened magnetic fields on the sun, so synthetic spectral models employing negligible magnetic fields will fail to fit magnetic sensitive features.  Magnetic fields will have two effects on the emergent spectrum- line broadening attributable to the Zeeman effect, and pressure broadening attributable to seeing deeper into deeper layers in the photosphere compared to the surrounding hotter photosphere.  The former effect will differentially impact lines with high magnetic sensitivity \citep[\emph{e.g.}][]{johnskrull99,deen13}.  The latter effect could masquerade as an apparent shift in surface gravity, as seen in mixture models of spotted stars with empirical templates composed of dwarfs and giants \citep{oneal96}.  Our tacit assumptions have been that these line-broadening effects are 1) relatively small compared to the gross appearance and disappearance of spectral lines at disparate temperatures, 2) there exist many orders and lines that are not affected at all, and 3) the Gaussian process noise model fosters some resilience against unknown residual spectrum correlations induced by such under-fitting.  We see tentative evidence for physics outside of the pre-computed model grids in the poor fits to the observed spectra in $K-$band.  Strong metal lines demonstrate large departures in their best fit $\Z$, as the na\:ive fitting strategy futilely attempts to minimize the residuals from Zeeman-broadened lines.  No pre-computed model grids including a range of surface magnetic fields are available at the wavelength range and spectral sampling needed to approach these questions within this spectral inference framework.
 
-Uncertainties in the \PHOENIX\ synthetic spectra continuum opacity flow down to uncertainties in the absolute value of the fill factor.  Erroneous bulk opacities could be responsible for some of the scatter of fill factor distributions seen across different spectral orders, as in Figures \ref{fig:TwoTempResults} and \ref{fig:specPostageStamp}.  The large number of spectral orders over which the fill factors are averaged offers some resilience against these anomalies.
+Finally, uncertainties in the \PHOENIX\ synthetic spectra continuum opacity flow down to uncertainties in the absolute value of the fill factor.  Erroneous bulk opacities could be responsible for some of the scatter of fill factor distributions seen across different spectral orders, as in Figures \ref{fig:TwoTempResults} and \ref{fig:specPostageStamp}.  The large number of spectral orders over which the fill factors are averaged offers resilience against these anomalies.
 
 
 \subsection{Interpretation of the large filling factor of cool starspots}
@@ -419,7 +411,9 @@ The number of WTTS for which the areal filling factor of spots have been measure
 One conceivable interpretation of the 67\% to 83\% coverage fraction of cool photosphere is a stellar axis inclined towards our observing direction, with a large circum-polar spot covering much of the observable hemisphere, as described by \citet{donati14}.  The ambient hot photosphere would then be close to the equator, which would be limb-darkened due to projection effects.  Such limb darkening would cause a non-linear transformation between our observed fill factor $f_{\Omega}$, and the surface areal coverage fraction of spots.  So it's conceivable, and probably likely that the reported $f_{\Omega}$ is and overestimate of the surface area actually covered by spots.  In this circum-polar spot scenario, local fingers of cool spots could reach down to near the equator, entering into and out-of the field of view and giving rise to the large amplitude photometric variation seen on LkCa 4.  \todo{Donati-- How does this compare to the reconstructed maps from ZDI in Donati et al. 2014?}.
 
 \subsection{Is \name an extreme source?}
-LkCa 4 is an extreme source by several metrics.  Mainly, its large amplitude of cyclical optical variability exceeds all other counterparts from long-term monitoring of WTTSs \citep{grankin08}.  LkCa 4 has about 40 times the photometric amplitude of the typical young star towards Ophiuchus or Upper Sco (Gully-Santiago et al. in prep.).
+LkCa 4's large amplitude of cyclical optical variability exceeds all other counterparts from long-term monitoring of WTTSs \citep{grankin08}.  From a statistical perspective, it might not be a surprise that the source with the largest photometric variability also posessess among the largest coverage fraction of cool spots.  The large $\sim$1 kG toroidal component at equatorial latitudes makes LkCa 4 an outlier by this metric, when compared to other TTSs.
+
+Despite the evidence that LkCa 4 is an outlier, spots are likely broadly important in estimating the properties of young low-mass stars. As an example, the well-studied CTTS TW Hya has a $\sim 4000$ K photosphere measured from high resolution optical spectra \citep[e.g.][]{yang05}.  However, the near-IR spectrum is consistent with $\sim M2$, when compared with main sequence dwarf stars \citep{vacca11}.  \citet{debes13} reconciled this discrepancy by invoking spots, although the spectral contribution from continuum emission was uncertain.  \citet{mcclure13} found that the TW Hya spectrum was well reproduced with near-IR spectra of stars with similar ($\sim$K7) optical spectral type, as long as the comparison spectra were young.   \citet{herczeg14} found an intermediate spectral type for TW Hya and other TTSs by focusing on TiO bands at redder wavelengths than previous spectra, and also by using young stars as photospheric templates.  The mismatch between near-IR spectra of dwarf stars and young stars, even with similar optical spectral types, is likely explained by the prevalence and importance of cool spots in low mass stars.
 
 \subsection{Evidence for intra-spectrum RV jitter}
 Starspots cause significant jitter in radial velocity surveys for young planets \citep[e.g.][]{donati14, robertson14}.  The two-temperature model assumed that the hot and cool components shared the same $\vsini$ and $v_z$.  This assumption is accurate for either homogeneously distributed spots, azimuthally symmetric bands of spots, or polar spots.  LkCa 4 has clear optical line-profile variations \citep{nguyen12, donati14}.  Accordingly, we should be able to detect anticorrelation between lines attributable to hot photosphere, and lines attributable to cool photosphere, since there is a zero-sum competition for solid-angle on the recessional and advancing stellar limbs.  We found tentative, albeit weak, evidence for such anticorrelation in $v_z$ across spectral orders dominated by cool photosphere and those dominated by hot photosphere.  For example, the cool-photosphere dominated spectral orders $o = 100, 102, 104$ show the largest median $v_z\sim14.5-17.0$ km/s, while the other orders that possess a mix of primarily hot- and some cool- photosphere features demonstrate $v_z\sim9-13$ km/s.
@@ -492,17 +486,17 @@ The mixture model is a linear operation with all the same stellar extrinsic para
 
 \todo{Verify that the final term possesses a $q$ and not a $q^2$ term.}
 
+\section{Full table of IGRINS best fits}
+
+Table \ref{tbl_order_results} lists all the IGRINS spectral order results.
+\LongTables
+\input{tables/tbl_order_results.tex}
+
 \section{Previous work}
 
 Table \ref{tbl_history} lists measurements of \name from previous studies.
 \input{tables/tbl_history.tex}
 
-
-\section{Full table of IGRINS best fits}
-
-Table \ref{tbl_order_results} lists all the IGRINS spectral order results.
-\comm{Update this with ``used/unused'' label and most recent values.}
-\input{tables/tbl_order_results.tex}
 
 
 \acknowledgements
@@ -510,8 +504,9 @@ The authors thank Gregory N. Mace for carrying out the IGRINS observations.
 
 MG-S and GJH are supported by general grant 11473005 awarded by the National Science Foundation of China.   The ESPaDOnS observations are supported by the contribution to the MATYSSE Large Project on CFHT obtained through the Telescope Access Program (TAP), which has been funded by the ``the Strategic Priority Research Program---The Emergence of Cosmological Structures'' of the Chinese Academy of Sciences (Grant No.11 XDB09000000) and the Special Fund for Astronomy from the Ministry of Finance. 
 
-This research has made use of NASA's Astrophysics Data System.  
-Based on data from the OMC Archive at CAB (INTA-CSIC), pre-processed by ISDC.
+This work used the Immersion Grating Infrared Spectrograph (IGRINS) that was developed under a collaboration between the University of Texas at Austin and the Korea Astronomy and Space Science Institute (KASI) with the financial support of the US National Science Foundation under grant ASTR1229522, of the University of Texas at Austin, and of the Korean GMT Project of KASI.
+
+This research has made use of NASA's Astrophysics Data System.  The research is based on data from the OMC Archive at CAB (INTA-CSIC), pre-processed by ISDC.
 We acknowledge with thanks the variable star observations from the AAVSO International Database contributed by observers worldwide and used in this research.
 This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
 
