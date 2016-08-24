@@ -1,13 +1,21 @@
 # Change Log
 
 
-## [0.6.0] 2016-08-10
+## [0.6.0] 2016-08-16
 ### Added
 - More text to Abstract, including potentially controverial statement on ages
+- Discussion prose
+- Many references
+- Postage stamp figures
+
 
 ### Changes
+- Overall cleanup of text
 - Revised Abstract
 - Comments from GJH review of version 0.5 draft
+- Settle on stellar parameters 2750 K, 4100 K, 80%
+- Revise all H-band content with numbers from mixture model Run02
+- Update all figures to most recent content
 
 
 ## [0.5.0] 2016-08-04
