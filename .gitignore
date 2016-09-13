@@ -39,6 +39,9 @@ document/setup.tex
 document/yahapj.bst
 document/figures/
 document/*.out
+document/feedback
+
+talk
 
 *.numbers
 
