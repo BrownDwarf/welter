@@ -194,12 +194,13 @@ The IGRINS spectrum demonstrates some features that are reproduced only in the h
 
 \begin{figure*}
  \centering
- \includegraphics[width=0.80\textwidth]{figures/spectral_postage_stamp_01} 
-
- \includegraphics[width=0.80\textwidth]{figures/spectral_postage_stamp_02} 
-
- \includegraphics[width=0.80\textwidth]{figures/spectral_postage_stamp_03} 
- \caption{Examples of spectral features in the observed IGRINS spectrum (thick gray line) that are present only in the hot (blue line) photosphere model (top panel), only in the cool (red line) photosphere model (middle panel), or in a mixture of hot and cool models (bottom panel).  The composite spectrum model (purple thin line) is consistent with the observed spectrum for a range of fill factors, with examples of the the median fill factor (middle panel spectrum) and $\pm2\sigma$ fill factors demarcated on the spectral postage stamps.  The right-most panels show the temperature-fill factor correlation for these spectral orders, with a straight-line fit (dashed black line) through all the samples.  The location of the samples used to make the synthetic spectra to the left are shown as solid black symbols.}
+ \includegraphics[width=0.45\textwidth]{figures/spectral_postage_stamp_04} 
+ \includegraphics[width=0.45\textwidth]{figures/spectral_postage_stamp_01} 
+ \includegraphics[width=0.45\textwidth]{figures/spectral_postage_stamp_05} 
+ \includegraphics[width=0.45\textwidth]{figures/spectral_postage_stamp_06} 
+ \includegraphics[width=0.45\textwidth]{figures/spectral_postage_stamp_02} 
+ \includegraphics[width=0.45\textwidth]{figures/spectral_postage_stamp_03} 
+ \caption{Examples of spectral features in the observed IGRINS spectrum (thick gray line).  The composite spectrum model (purple thin line) is consistent with the observed spectrum for a range of fill factors, with examples of the the median fill factor (middle panel spectrum) and $\pm2\sigma$ fill factors demarcated on the spectral postage stamps.}
  \label{fig:specPostageStamp}
 \end{figure*}
 
@@ -324,7 +325,7 @@ Both the raw TiO 7140 index and this combined TiO index correlate strongly with 
  \label{fig:tiovar}
 \end{figure*}
 
-\section{DISCUSSION or something}
+\section{Placing LkCa 4 on the HR diagram}
 
 %\todo{Some overview?}
 
@@ -356,7 +357,7 @@ Uncertainty in colors may be solved with self-consistent comparisons to young st
 
 
 
-\subsection{Placing LkCa 4 on an HR Diagram}
+\subsection{Spot-corrected HR diagram placement}
 
 \begin{figure*}
  \centering
@@ -378,12 +379,13 @@ The improved characterization of the photospheric emission and radius of LkCa 4 
 
 As seen in Figures \ref{fig:PhotTime} and \ref{fig:PhotPhase}, the areal coverage of spots appears to wax and wane secularly through the observing seasons of the last 31 years.  It is conceivable that LkCa 4 happens to be going through a short-lived episode of relatively high coverage of spots analogous to solar maximum.  The intensity and duration of such episodes would further confound the interpretation of its instantaneous position on the HR diagram.
 
+\section{Discussion}
 
 \subsection{Addressing limitations of assumptions in the spectral inference methodology}
 
 The spectral inference method assumed only two temperature components present in the photosphere.  In reality, starspots are probably described by a range of effective temperatures like umbra, penumbra, and plages on the sun's surface.  A model possessing three unique temperatures and two unique fill factors might better approximate the minor constituents of the emergent spectrum than our two temperature model can, but would always fit the data better and could lead to the possibility of overfitting.  The fit-quality of the existing two-temperature fits seems fairly strong through much of $H-$band and many $K-$band orders, so the contribution of minor photospheric constituents must be relatively low.  Interestingly, $K-$band has several spectral orders that converge towards hybrid temperatures in the vicinity of $\sim3500$ K.  Most of these orders were flagged as erroneous due to strong metal line spectral outliers or uncorrected calibration artifacts.  But some orders just showed mediocre fits where no permutation of hot and cool two-temperature models could describe all of the variance in the spectrum.  These $K-$band orders could be examined for a penumbra-like temperature component.  We caution that systematic errors in the models would ultimately limit the interpretability of models with more than two temperature components.  Space-based high-precision planetary transit spectrophotometry could offer an avenue to measure the morphologies and temperature distributions of starspots for the subset of transiting exoplanet host stars or eclipsing binaries.
 
-We assumed that the \PHOENIX\ synthetic spectra are a good representation of the observed IGRINS spectrum of LkCa 4, a young star that possesses a strong magnetic field \citep{donati14}.  Cool sunspots are associated with locally heightened magnetic fields on the sun, so synthetic spectral models employing negligible magnetic fields will fail to fit magnetic sensitive features.  Magnetic fields will have two effects on the emergent spectrum- line broadening attributable to the Zeeman effect, and pressure broadening attributable to seeing deeper into deeper layers in the photosphere compared to the surrounding hotter photosphere.  The former effect will differentially impact lines with high magnetic sensitivity \citep[\emph{e.g.}][]{johnskrull99,deen13}.  The latter effect could masquerade as an apparent shift in surface gravity, as seen in mixture models of spotted stars with empirical templates composed of dwarfs and giants \citep{oneal96}.  Our tacit assumptions have been that these line-broadening effects are 1) relatively small compared to the gross appearance and disappearance of spectral lines at disparate temperatures, 2) there exist many orders and lines that are not affected at all, and 3) the Gaussian process noise model fosters some resilience against unknown residual spectrum correlations induced by such under-fitting.  We see tentative evidence for physics outside of the pre-computed model grids in the poor fits to the observed spectra in $K-$band.  Strong metal lines demonstrate large departures in their best fit $\Z$, as the na\:ive fitting strategy futilely attempts to minimize the residuals from Zeeman-broadened lines.  No pre-computed model grids including a range of surface magnetic fields are available at the wavelength range and spectral sampling needed to approach these questions within this spectral inference framework.
+We assumed that the \PHOENIX\ synthetic spectra are a good representation of the observed IGRINS spectrum of LkCa 4, a young star that possesses a strong magnetic field \citep{donati14}.  Cool sunspots are associated with locally heightened magnetic fields on the sun, so synthetic spectral models employing negligible magnetic fields will fail to fit magnetic sensitive features.  Magnetic fields will have two effects on the emergent spectrum- line broadening attributable to the Zeeman effect, and pressure broadening attributable to seeing deeper into deeper layers in the photosphere compared to the surrounding hotter photosphere.  The former effect will differentially impact lines with high magnetic sensitivity \citep[\emph{e.g.}][]{johnskrull99,deen13}.  The latter effect could masquerade as an apparent shift in surface gravity, as seen in mixture models of spotted stars with empirical templates composed of dwarfs and giants \citep{oneal96}.  Our tacit assumptions have been that these line-broadening effects are 1) relatively small compared to the gross appearance and disappearance of spectral lines at disparate temperatures, 2) there exist many orders and lines that are not affected at all, and 3) the Gaussian process noise model fosters some resilience against unknown residual spectrum correlations induced by such under-fitting.  We see tentative evidence for physics outside of the pre-computed model grids in the poor fits to the observed spectra in $K-$band.  Strong metal lines demonstrate large departures in their best fit $\Z$, as the na\"{i}ve fitting strategy futilely attempts to minimize the residuals from Zeeman-broadened lines.  No pre-computed model grids including a range of surface magnetic fields are available at the wavelength range and spectral sampling needed to approach these questions within this spectral inference framework.
 
 Finally, uncertainties in the \PHOENIX\ synthetic spectra continuum opacity flow down to uncertainties in the absolute value of the fill factor.  Erroneous bulk opacities could be responsible for some of the scatter of fill factor distributions seen across different spectral orders, as in Figures \ref{fig:TwoTempResults} and \ref{fig:specPostageStamp}.  The large number of spectral orders over which the fill factors are averaged offers resilience against these anomalies.
 
@@ -393,7 +395,7 @@ We have shown that LkCa 4 exposes between 67\% and 83\% cool photosphere towards
 
 The Pleiades serves as a slightly older sample of young stars possessing evidence for large coverage fraction of starspots.  For example, anomalous colors of K dwarfs in the Pleiades can be explained by $\sim$50\% fill factors of spots \citep{stauffer03}.  Recent photometric monitoring of the Pleiades indicates that the anomalous colors scale with rotation rate, strengthing the case for magnetic-field induced starspots as the cause of the anomaly \citep{covey16}.  However, the \citet{covey16} Pleiades rotation rates do not scale with the $\Delta V$ photometric amplitude, suggesting that while the overall starspot coverage increases with rotation rate, the longitudinally asymmetric component does not.  LkCa 4 represents an example of such an architecture, where more than 50\% of the stellar surface is covered in spots, regardless of the phase of observation, therefore evading photometric modulation detection, but contributing to otherwise anomalous color offsets.
 
-The number of WTTS for which the areal filling factor of spots have been measured is relatively low.  V 410 Tau shows up to 41\% coverage of spots \citep{petrov94}.  Many more measurements exist for evolved giants and subgiants, with typical fill factors in the range 15$-$48\% \citep{berdyugina05}.  The prototypical BY Dra source is consistent with 60\% coverage fraction of moderately cool ($\Delta \teff =400$) penumbra \citep{chugainov76}.  By these comparisons, LkCa 4 seems on the high end of filling factor
+The number of WTTS for which the areal filling factor of spots have been measured is relatively low.  V 410 Tau shows up to 41\% coverage of spots \citep{petrov94}.  Many more measurements exist for evolved giants and subgiants, with typical fill factors in the range 15$-$48\% \citep{berdyugina05}.  The prototypical BY Dra source is consistent with 60\% coverage fraction of moderately cool ($\Delta \teff =400$) penumbra \citep{chugainov76}.  By these comparisons, LkCa 4 seems on the high end of filling factor.
 
 One conceivable interpretation of the 67\% to 83\% coverage fraction of cool photosphere is a stellar axis inclined towards our observing direction, with a large circum-polar spot covering much of the observable hemisphere, as described by \citet{donati14}.  The ambient hot photosphere would then be close to the equator, which would be limb-darkened due to projection effects.  Such limb darkening would cause a non-linear transformation between our observed fill factor $f_{\Omega}$, and the surface areal coverage fraction of spots.  So it's conceivable, and probably likely that the reported $f_{\Omega}$ is and overestimate of the surface area actually covered by spots.  In this circum-polar spot scenario, local fingers of cool spots could reach down to near the equator, entering into and out-of the field of view and giving rise to the large amplitude photometric variation seen on LkCa 4.  {\bf Donati-- How does this compare to the reconstructed maps from ZDI in Donati et al. 2014?}.
 
