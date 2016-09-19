@@ -143,6 +143,27 @@ Figure \ref{fig:PhotPhase} shows all available $V-$band data grouped by the 22 o
 
 \input{tables/tbl_estV_atObsEpoch.tex}
 
+\subsection{Absolute lower limit of starspot filling factor}
+
+A lower limit to the starspot filling factor can be set by the size of a black spot that can induce such large $\Delta V$.
+
+Consider the following extremely conservative assumptions:  \begin{enumerate}
+  \item The starspot emits \emph{zero flux}.  This statement is equivalent to the starspot being at \emph{absolute zero}.
+  \item The stellar disk shows no starspots at maximum brightness.
+  \item The starspot transits the center of the stellar disk.
+\end{enumerate}
+
+If \emph{any} these assumptions is relaxed, the minimum fill factor \emph{increases}.  
+
+For LkCa 4 in 2015 the $\Delta V\sim 0.5$ mag amplitude corresponds to an absolute minimum fill factor $f>0.37$.  At least 37\% of the stellar is covered in starspots at minimum light.  In the 2004 season, LkCa 4 exhibited $\Delta V\sim 0.8$, corresponding to a minimum fill factor of $f=0.52$.
+
+\subsection{Absolute upper limit of starspot temperature}
+
+Consider relaxing assumption 1 from above to better match reality: a starspot is not at absolute zero temperature, it has a finite temperature and therefore emits a finite amount of radiation.  Increasing the temperature a little means that the starspot size has to increase to cause the same flux difference.  The starspot cannot occupy more than 100\% of the projected stellar hemisphere, so there is an upper limit for the temperature of the starspot that yields a given $\Delta V$.  The starspot temperature upper limit for $\Delta V=0.5$ is 3650 K.  In the 2004 season, the starspot temperature upper limit was 3410 K.  
+
+In reality, the star will have some patches of starspots that always face toward the observer, like polar spots, bands of spots, multiple finitie-sized patches of starspots, or homogenuously distributed small spots.  Dark spots on extreme latitudes on inclined stars might only pass over the limb of the stellar disk, reducing the diminution $V-$band flux for a given projected surface area.  All of these effect mean that real starspot filling factors are likely to be larger than the filling factor lower limit, and cooler than the temperature upper limit.
+
+
 
 \section{FITS TO HIGH RESOLUTION SPECTRA}\label{sec:Starfish}
 
@@ -291,7 +312,6 @@ The spectral features should be rotationally modulated as the filling factors of
 \emph{Bottom:}  The model is constructed instead by converting $V$-band brightness to a cool spot filling factor and subsequently calculating colors from main sequence colors and bolometric corrections of \citet{pecaut13} (purple lines).}
 \label{fig:colors}
 \end{figure*}
-
 
 
 \subsection{The $V$-band lightcurve and spot coverage}\label{sec:rotSpot1}
