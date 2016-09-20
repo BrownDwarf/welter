@@ -33,7 +33,7 @@
  
 \title{Placing the spotted T Tauri star LkCa 4 on an HR diagram}
 
-\author{Michael A. Gully-Santiago,\altaffilmark{1} Gregory J. Herczeg,\altaffilmark{1} Ian Czekala,\altaffilmark{2} Garrett Somers,\altaffilmark{3} Konstantin Grankin,\altaffilmark{4} Kevin Covey,\altaffilmark{5} J.F. Donati,\altaffilmark{6} Sylvia Alencar,\altaffilmark{7}, Gaitee Hussein,\altaffilmark{8} Ben Shappee,\altaffilmark{9} Greg Mace,\altaffilmark{10} Jae-Joon Lee\altaffilmark{11} T.~W.-S.~Holoien,\altaffilmark{12,13} Jessy Jose\altaffilmark{1} Jimmy Liu\altaffilmark{15}}
+\author{Michael A. Gully-Santiago,\altaffilmark{1} Gregory J. Herczeg,\altaffilmark{1} Ian Czekala,\altaffilmark{2} Garrett Somers,\altaffilmark{3} Konstantin Grankin,\altaffilmark{4} Kevin Covey,\altaffilmark{5} J.F. Donati,\altaffilmark{6} Sylvia Alencar,\altaffilmark{7} Gaitee Hussein,\altaffilmark{8} Ben Shappee,\altaffilmark{9} Greg Mace,\altaffilmark{10} Jae-Joon Lee\altaffilmark{11} T.~W.-S.~Holoien,\altaffilmark{12,13} Jessy Jose\altaffilmark{1} Jimmy Liu\altaffilmark{15}}
 
 
 \altaffiltext{1}{Kavli Institute for Astronomy and Astrophysics, Beijing, China}
@@ -125,27 +125,6 @@ Figure \ref{fig:PhotPhase} shows all available $V-$band data grouped by the 22 o
 
 
 \input{tables/tbl_estV_atObsEpoch.tex}
-
-\subsection{Absolute lower limit of starspot filling factor}
-
-A lower limit to the starspot filling factor can be set by the size of a black spot that can induce such large $\Delta V$.
-
-Consider the following extremely conservative assumptions:  \begin{enumerate}
-  \item The starspot emits \emph{zero flux}.  This statement is equivalent to the starspot being at \emph{absolute zero}.
-  \item The stellar disk shows no starspots at maximum brightness.
-  \item The starspot transits the center of the stellar disk.
-\end{enumerate}
-
-If \emph{any} these assumptions is relaxed, the minimum fill factor \emph{increases}.  
-
-For LkCa 4 in 2015 the $\Delta V\sim 0.5$ mag amplitude corresponds to an absolute minimum fill factor $f>0.37$.  At least 37\% of the stellar is covered in starspots at minimum light.  In the 2004 season, LkCa 4 exhibited $\Delta V\sim 0.8$, corresponding to a minimum fill factor of $f=0.52$.
-
-\subsection{Absolute upper limit of starspot temperature}
-
-Consider relaxing assumption 1 from above to better match reality: a starspot is not at absolute zero temperature, it has a finite temperature and therefore emits a finite amount of radiation.  Increasing the temperature a little means that the starspot size has to increase to cause the same flux difference.  The starspot cannot occupy more than 100\% of the projected stellar hemisphere, so there is an upper limit for the temperature of the starspot that yields a given $\Delta V$.  The starspot temperature upper limit for $\Delta V=0.5$ is 3650 K.  In the 2004 season, the starspot temperature upper limit was 3410 K.  
-
-In reality, the star will have some patches of starspots that always face toward the observer, like polar spots, bands of spots, multiple finitie-sized patches of starspots, or homogenuously distributed small spots.  Dark spots on extreme latitudes on inclined stars might only pass over the limb of the stellar disk, reducing the diminution $V-$band flux for a given projected surface area.  All of these effect mean that real starspot filling factors are likely to be larger than the filling factor lower limit, and cooler than the temperature upper limit.
-
 
 
 \section{FITS TO HIGH RESOLUTION SPECTRA}\label{sec:Starfish}
@@ -289,15 +268,12 @@ These spectral features should be rotationally modulated as the filling factors 
 
 \begin{figure*}
  \centering
-  \includegraphics[width=0.45\textwidth]{figures/v_v-r_Grankin} 
  \begin{tabular}{ll}
  \includegraphics[trim=2.6cm 13.0cm 2.8cm 3.2cm, clip=true, width=0.45\textwidth]{figures/bv_pec13} 
     &
    \includegraphics[trim=2.6cm 13.0cm 2.8cm 2.2cm, clip=true, width=0.45\textwidth]{figures/vr_pec13}
     \end{tabular}
-\caption{The observed optical colors of LkCa 4 from \citet{grankin08}, compared with predictions.  
-\emph{Top}: Grey points are all \citet{grankin08} photometric data, while black points are the subset of observations from the 1999 season.  The purple line represents a two component photometric model  described by \citet{grankin08}, comprising a photospheric temperature of 4040K (for K7), and a temperature of spotted area of 3030K (for an M5). In this model, the spot coverage of the observed hemisphere varies from $\sim36\%$ at maximum brightness, and $\sim82\%$ at minimum brightness.
-\emph{Bottom:}  The model is constructed instead by converting $V$-band brightness to a cool spot filling factor and subsequently calculating colors from main sequence colors and bolometric corrections of \citet{pecaut13} (purple lines).}
+\caption{The observed optical colors of LkCa 4 from \citet{grankin08}, compared with predictions.  The model is constructed instead by converting $V$-band brightness to a cool spot filling factor and subsequently calculating colors from main sequence colors and bolometric corrections of \citet{pecaut13} (purple lines).}
 \label{fig:colors}
 \end{figure*}
 
@@ -385,7 +361,7 @@ The $B-V$ color
 excess leads to an extinction $A_V=0.28\pm0.15$ mag, or $0.62\pm0.15$ mag relative to 
 pre-main sequence colors.   The listed uncertainties are calculated from extinction estimates relative to colors of 4000 and 4200 K photospheres.
 The $V-R_J$ color excess leads to $A_V=0.48$ mag, which should be less affected by gravity (based on $V-I_C$ colors in Pecaut et al.) but is likely to be overestimated because the cool component contributes to the $R_J$-band emission, as seen in Fig.~\ref{fig:colors}.
-In the near-IR, the estimated $V=12.61$ mag at the time of the 2MASS observations leads to a template (main sequence) color 
+In the near-IR, the estimated $V=12.61$ mag at the time of the 2MASS observations leads to a spot-weighted template (main sequence) color 
 $J-K_s=0.87$ mag, with a range of $\sim 0.05$ mag for acceptable solutions with other 
 temperatures and covering fractions. The observed $J-K=0.93$ mag leads to $A_V=0.35$ mag, 
 with a range of $0.29$ mag to account for the range of other acceptable photospheric solutions.  
@@ -409,7 +385,7 @@ Uncertainty in colors may be solved with self-consistent comparisons to young st
  \label{fig:hrdiag}
 \end{figure*}
 
-The spectrum of LkCa 4 is well reproduced by a cool component of $2750$ K covering 80\% of the surface and a $4100$ K component covering 20\% of the surface.   Scaling this composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.3$ $R_\odot$ and $\log L/L_\odot=0.17$, adopting $A_V=0.3$ mag and a distance of 131 pc for the parallax distance of the nearest Taurus member \citep{torres12}.  The effective temperature of these two components is 3330 K, as calculated from the average surface flux at the median $V$ band magnitude.  Figure~\ref{fig:hrdiag} and Table~4 shows that this effective temperature is much cooler than previous measurements from optical spectra, which are clustered around 4000 K.  The luminosity does not change significantly because the broadband SED yields similar luminosities, independent of temperature.
+The spectrum of LkCa 4 is well reproduced by a cool component of $2750$ K covering 80\% of the surface and a $4100$ K component covering 20\% of the surface.   Scaling this composite spectrum for LkCa 4 to the observed $K$-band photometry yields $R=2.3$ $R_\odot$ and $\log L/L_\odot=0.17$, adopting $A_V=0.3$ mag and a distance of $131 \pm 2$ pc$^x$ based on the range of parallaxes of nearby Taurus members measured by \citet{torres12}\footnote{This distance is consistent with the Gaia distance of $130 \pm4$ pc measured to the nearby Taurus members V410 Tau, V773 Tau, and BP Tau \citep{gaia2016dr}.}.  The effective temperature of these two components is 3330 K, as calculated from the average surface flux at the median $V$ band magnitude.  Figure~\ref{fig:hrdiag} and Table~4 shows that this effective temperature is much cooler than previous measurements from optical spectra, which are clustered around 4000 K.  The luminosity does not change significantly because the broadband SED yields similar luminosities, independent of temperature.
 
 The apparent effective temperature in any single epoch depends on the relative fractions of the hot and cool spot.  Decreasing the cool spot size to 74\% increases the effective temperature to 3440 K, while increasing the spot size to 86\% decreases to the effective temperature to 3200 K.  When accounting for the visible contributions of both hot and cool components, this wide range of possible observed effective temperatures at any single epoch underscores the difficulty in placing young stars on HR diagrams.  
 Since the Hayashi tracks are nearly vertical at this temperature and age, the range in effective temperatures corresponds to a mass range from $\sim 0.2-0.3$ $M_\odot$.  Our IGRINS analysis is also consistent with a cool component of 3000 K instead of 2750 K, which would increase the effective temperature by $\sim 200$ K, and mass by 0.1 $M_\odot$.
@@ -428,13 +404,52 @@ As seen in Figures \ref{fig:PhotTime} and \ref{fig:PhotPhase}, the areal coverag
 
 \section{Discussion}
 
-\subsection{Addressing limitations of assumptions in the spectral inference methodology}
+\subsection{Limitations of assumptions in the spectral inference methodology}
 
 The spectral inference method assumed only two temperature components present in the photosphere.  In reality, starspots are probably described by a range of spot temperatures analogous to umbra, penumbra, and plages on the solar surface.  A model possessing three unique temperatures and two unique fill factors might better approximate the minor constituents of the emergent spectrum than our two temperature model can, but would always fit the data better and could lead to the possibility of overfitting.  The fit-quality of the existing two-temperature fits seems fairly strong through much of $H-$band and many $K-$band orders, so the contribution of minor photospheric constituents must be relatively low.  Interestingly, $K-$band has several spectral orders that converge towards hybrid temperatures in the vicinity of $\sim3500$ K.  Most of these orders are flagged as erroneous due to strong metal line spectral outliers or uncorrected calibration artifacts.  A few orders just show mediocre fits where no permutation of hot and cool two-temperature models could describe all of the variance in the spectrum.  These $K-$band orders could be examined for a penumbra-like temperature component.  We caution that systematic errors in the models would ultimately limit the interpretability of models with more than two temperature components.  Space-based high-precision planetary transit spectrophotometry could offer an avenue to measure the morphologies and temperature distributions of starspots for the subset of transiting exoplanet host stars or eclipsing binaries.
 
 We assumed that the \PHOENIX\ synthetic spectra are a good representation of the observed IGRINS spectrum of LkCa 4, a young star that possesses a strong magnetic field \citep{donati14}.  Cool sunspots are associated with locally heightened magnetic fields on the sun, so synthetic spectral models employing negligible magnetic fields will fail to fit magnetic sensitive features.  Magnetic fields will have two effects on the emergent spectrum- line broadening attributable to the Zeeman effect, and pressure broadening attributable to seeing deeper into the photosphere in the line wings than in the line center.  The former effect will preferentially impact lines with high magnetic sensitivity \citep[\emph{e.g.}][]{johnskrull99,deen13}.  The latter effect could masquerade as an apparent shift in surface gravity, as seen in mixture models of spotted stars with empirical templates composed of dwarfs and giants \citep{oneal96}.  Our tacit assumptions have been that these line-broadening effects are 1) relatively small compared to the gross appearance and disappearance of spectral lines at disparate temperatures, 2) there exist many orders and lines that are not affected at all, and 3) the Gaussian process noise model fosters some resilience against unknown residual spectrum correlations induced by such under-fitting.  We see tentative evidence for physics outside of the pre-computed model grids in the poor fits to the observed spectra in $K-$band.  Strong metal lines demonstrate large departures in their best fit $\Z$, as the na\"{i}ve fitting strategy futilely attempts to minimize the residuals from Zeeman-broadened lines.  No pre-computed model grids including a range of surface magnetic fields are available at the wavelength range and spectral sampling needed to approach these questions within this spectral inference framework.
 
-Finally, uncertainties in the \PHOENIX\ synthetic spectra continuum opacity flow down to uncertainties in the absolute value of the fill factor.  Erroneous bulk opacities could be responsible for some of the scatter of fill factor distributions seen across different spectral orders, as in Figures \ref{fig:TwoTempResults} and \ref{fig:specPostageStamp}.  The large number of spectral orders over which the fill factors are averaged offers resilience against these anomalies.
+Uncertainties in the \PHOENIX\ synthetic spectra continuum opacity flow down to uncertainties in the absolute value of the fill factor.  Erroneous bulk opacities could be responsible for some of the scatter of fill factor distributions seen across different spectral orders, as in Figures \ref{fig:TwoTempResults} and \ref{fig:specPostageStamp}.  The large number of spectral orders over which the fill factors are averaged offers resilience against these anomalies.
+
+\begin{figure*}
+ \centering
+\includegraphics[width=0.45\textwidth]{figures/v_v-r_Grankin} 
+\caption{Grey points are all \citet{grankin08} photometric data, while black points are the subset of observations from the 1999 season.  The purple line represents a two component photometric model  described by \citet{grankin08}, comprising a photospheric temperature of 4040K (for K7), and a temperature of spotted area of 3030K (for an M5). In this model, the spot coverage of the observed hemisphere varies from $\sim36\%$ at maximum brightness, and $\sim82\%$ at minimum brightness.}
+ \label{fig:grankin_vr}
+\end{figure*}
+
+Analyses of optical emission also suggest that a two-temperature model may be an oversimplification.  Figure \ref{fig:grankin_vr} shows that the $V-R$ colors from \citet{grankin} are better reproduced if the cooler component is $\sim 3050$ K, thereby contributing more flux at optical wavelengths.  The ZDI imaging of \citet{donati14} also indicate a complex structure of spots that are hotter than what is interpreted here as the ambient photosphere, while also reproducing the optical photometry.  Despite the need for more complicated emission structures to simultaneously reproduce all observations, the broadband SED, spectral shape, and rotational modulation of spectral indices are reasonably well fit with the two components presented here.  Moreover, the high and low-resolution near-IR spectra require a cool (2700--3000 K) component while the global photometry requires a large covering fraction for this cool component.  
+
+The need for the cool component to have a large covering fraction and $<3000$ K is also demonstrated by the size of the H$_2$O band absorption between the $J$ and $H$ bands (see Figure~\ref{fig:h2ojump}).  Assuming that the hotter component is 4100 K, the H$_2$O opacity is only sufficient if $T_{spot}<3000$ K, with a high spot coverage.
+
+\begin{figure*}
+ \centering
+ %\includegraphics[width=0.65\textwidth]{}
+ \includegraphics[trim=2.6cm 13.0cm 2.3cm 2.5cm, clip=true, width=0.65\textwidth]{figures/jbandjump}
+ \caption{The constraint on the size and temperature of the cool spot from the H$_2$O absorption band depth between $J$ and $H$-bands.  The contours show the flux ratio between 1.30 and 1.34 $\mu$m (shaded yellow region in inset plot), as produced by the Phoenix models.  The solid and hatched purple lines show the best fit and range of acceptable contours from the APO/TripleSpec spectrum, which was obtained when the cool spot fraction was $\sim 84$\%.  The range of acceptable contour is based on an estimate uncertainty of $\sim 2$\% in observed flux ratio, which is dominated by uncertainty in telluric correction of strong H$_2$O absorption. }
+ \label{fig:h2ojump}
+\end{figure*}
+
+\subsection{Absolute lower limit of starspot filling factor}
+
+A lower limit to the starspot filling factor can be set by the size of a black spot that can induce such large $\Delta V$.
+
+Consider the following extremely conservative assumptions:  \begin{enumerate}
+  \item The starspot emits \emph{zero flux}.  This statement is equivalent to the starspot being at \emph{absolute zero}.
+  \item The stellar disk shows no starspots at maximum brightness.
+  \item The starspot transits the center of the stellar disk.
+\end{enumerate}
+
+If \emph{any} these assumptions is relaxed, the minimum fill factor \emph{increases}.  
+
+For LkCa 4 in 2015 the $\Delta V\sim 0.5$ mag amplitude corresponds to an absolute minimum fill factor $f>0.37$.  At least 37\% of the stellar is covered in starspots at minimum light.  In the 2004 season, LkCa 4 exhibited $\Delta V\sim 0.8$, corresponding to a minimum fill factor of $f=0.52$.
+
+%\subsection{Absolute upper limit of starspot temperature}
+
+%Consider relaxing assumption 1 from above to better match reality: a starspot is not at absolute zero temperature, it has a finite temperature and therefore emits a finite amount of radiation.  Increasing the temperature a little means that the starspot size has to increase to cause the same flux difference.  The starspot cannot occupy more than 100\% of the projected stellar hemisphere, so there is an upper limit for the temperature of the starspot that yields a given $\Delta V$.  The starspot temperature upper limit for $\Delta V=0.5$ is 3650 K.  In the 2004 season, the starspot temperature upper limit was 3410 K.  
+
+%In reality, the star will have some patches of starspots that always face toward the observer, like polar spots, bands of spots, multiple finitie-sized patches of starspots, or homogenuously distributed small spots.  Dark spots on extreme latitudes on inclined stars might only pass over the limb of the stellar disk, reducing the diminution $V-$band flux for a given projected surface area.  All of these effect mean that real starspot filling factors are likely to be larger than the filling factor lower limit, and cooler than the temperature upper limit.
 
 
 \subsection{Comparison to studies of ensembles}
@@ -456,7 +471,7 @@ The Pleiades serves as an older age sample of young stars possessing evidence fo
 WTTSs observed towards NGC2264 show photometric variations similar to--but of lower average amplitude than-- LkCa 4 \citep{venuti15}.  Modeling of polychromatic photometric monitoring of the locus of WTTSs indicates a lower limit to the true coverage fraction $f_{\mathrm{eq}}\sim10-30\%$ and a difference $\teffa-\teffb\sim500$ K.
 
 % Fang
-\textbf{Insert Fang info here.}
+%\textbf{Insert Fang info here.}
 
 
 
@@ -580,7 +595,7 @@ We acknowledge with thanks the variable star observations from the AAVSO Interna
 This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
 
 
-{\it Facilities:} \facility{Smith (IGRINS)}, \facility{AAVSO}, \facility{CFHT (ESPaDOnS)}, \facility{INTEGRAL (OMC)}, \facility{ASAS}, \facility{CrAO:1.25m}, \facility{ARC (TripleSpec)}, \facility{Hale (DBSP)}
+{\it Facilities:} \facility{Smith (IGRINS)}, \facility{AAVSO}, \facility{CFHT (ESPaDOnS)}, \facility{INTEGRAL (OMC)}, \facility{ASAS}, \facility{CrAO:1.25m}, \facility{ARC (TripleSpec)}, \facility{Hale (DBSP)}, \facility{Gaia}
 
 {\it Software: } 
  \project{pandas} \citep{mckinney10},
