@@ -40,6 +40,7 @@ document/yahapj.bst
 document/figures/
 document/*.out
 document/feedback
+document/deprecated
 
 talk
 
