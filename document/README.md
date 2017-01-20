@@ -19,23 +19,26 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 	- :white_check_mark: Result from single-temperature fitting- Optical
 	- :white_check_mark: Result from single-temperature fitting- Near-IR
 	- :white_check_mark: Result from two-temperature fitting
-	- :round_pushpin: Prose describing postage stamps of starspot spectral structure
+	- :white_check_mark: Prose describing postage stamps of starspot spectral structure
 -  **Confirmation of results from other methods**
 	- :white_check_mark: Reproduce SED	 
 	- :white_check_mark: Reproduce low-res broadband spectra
 	- :white_check_mark: Reproduce rotational modulation
 	- :white_check_mark: Reproduce TiO variability
-	- :round_pushpin: Extinction
+	- :white_check_mark:  Extinction
 - **Discussion/Implications**
-	- Placing LkCa 4 on the HR diagram
-	- Longitudinal/latitudinal spot distributions and phase
-	- Address limitations of assumptions made in Methodology section
-	- Common sense of large covering fraction
-	- etc...
+	- :white_check_mark: Placing LkCa 4 on the HR diagram
+	- :white_check_mark: Longitudinal/latitudinal spot distributions and phase
+	- :white_check_mark: Address limitations of assumptions made in Methodology section
+	- :white_check_mark: Common sense of large covering fraction
 - **Conclusions**
+	- :white_check_mark: 
 - **Appendix: Plots of all IGRINS spectra**
+	- :white_check_mark: 
 - **Appendix: Methodological Details**
+	- :white_check_mark: 
 - **Acknowledgements**
+	- :white_check_mark: 
 
 
 # Plot Summary
@@ -44,7 +47,7 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 2. :white_check_mark: Phase folded light curves
 3. :white_check_mark: Single Temperature Fit Results: Teff vs. Wavelength
 4. :white_check_mark: Two Temperature Fit Results: Violin plots
-5. :round_pushpin: postage stamps of zoom on Starspot spectral features
+5. :white_check_mark:  postage stamps of zoom on Starspot spectral features
 6. :white_check_mark: Synthetic SED with photometric data
 7. :white_check_mark: Synthetic SED versus flux-calibrated spectra
 8. :white_check_mark: Lo-res spectra versus template star spectra
@@ -59,6 +62,5 @@ Below is the outline for the paper.  This is a fusion between Greg's outline and
 
 1. :white_check_mark: Estimated V photometry from phased light-curve analysis
 2. :white_check_mark: Best fit parameters as derived from IGRINS spectra
-3. :round_pushpin: Predicted photometric range *and* Methods comparison? **Maybe join methods comparison with Table 4**
-4. :white_check_mark: Previous studies of LkCa 4
-5. :white_check_mark: Teff vs. spectral order for all orders
+3. :white_check_mark: Previous studies of LkCa 4
+4. :white_check_mark: Teff vs. spectral order for all orders
