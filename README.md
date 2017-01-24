@@ -1,7 +1,7 @@
 # welter
 #### Inferring starspot properties in the IGRINS spectrum of LkCa 4
 
-[![arXiv status](https://img.shields.io/badge/arXiv-to%20appear%20Jan%2023rd-orange.svg)](https://arxiv.org/archive/astro-ph/Astrophysics)
+[![arXiv status](https://img.shields.io/badge/arXiv-to%20appear%20Jan%2025th-orange.svg)](https://arxiv.org/archive/astro-ph/Astrophysics)
 [![Talk Slides](https://img.shields.io/badge/talk%20slides-Speakerdeck-brightgreen.svg)](https://speakerdeck.com/gully/measuring-fundamental-properties-of-young-stars)
 
 In this project we extended the **[Starfish spectral inference framework](http://iancze.github.io/Starfish/)** to include an emission spectrum arising from **starspots** or starspot groups.  We successfully detected spectral features attributable to both hot and cool portions of the stellar photosphere.
